@@ -2,5 +2,47 @@ extends ../layouts/default
 
 block content
 	.container
-		h1 Welcome to Keystone.
-		p This example site demonstrates how to set up common patterns in Keystone.
+		
+		h1 Welcome to Keystone
+		p.lead
+			| This example site demonstrates how to set up common patterns in Keystone.
+		p.lead
+			| It includes the latest versions of 
+			| <a href='http://http://getbootstrap.com/' target='_blank'>Bootstrap</a> (currently 3.0.0 wip) 
+			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a> (currently 1.10.3)
+			| so you can use it as a base to quickly start a new project.
+		
+		h2 Examples
+		
+		h3 Blog
+		p Coming soon.
+		
+		h3 Gallery
+		p Coming soon.
+		
+		h3 Contact form
+		p Coming soon.
+		
+		h3 Download CSV
+		p For an example of how to download a list in .csv format, see <code>/routes/download/users.js</code>.
+			| It uses the excellent <a href='http://www.adaltas.com/projects/node-csv/'>node-csv</a> library.
+		p: a(href='/download/users').btn.btn-default Download users
+		
+		h3 Session Management
+		p Keystone includes session management and default sign-in and sign-out views.
+		p They are turned on for this demo:
+			ul
+				li: a(href='/keystone/signin') /keystone/signin
+				li: a(href='/keystone/signout') /keystone/signout
+		//- p You can also replace them with custom views to brand them or add functionality like signup or forgotten password retrieval, like these ones:
+		//- 	ul
+		//- 		li: a(href='/signin') /signin
+		//- 		li: a(href='/signout') /signout
+		//- p If you implement custom session management views, you usually want to turn off the built-in views setting 
+		//- 	| <code>auth</code> to <code>keystone.session.keystoneAuth</code>.
+		//- 	| You can also set <code>auth</code> to your own function if you want to customise the authorisation logic.
+		
+		h3 Errors
+		p The <code>404</code> and <code>500</code> views demonstrate how to set up error handlers for your application.
+		p To see the <code>404</code> page in action, simply go to <a href='/404'>any url</a> that doesn't exist.
+		

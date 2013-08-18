@@ -23,8 +23,13 @@ html
 					a.navbar-brand(href='/') Keystone Demo
 				.collapse.navbar-collapse.navbar-ex1-collapse
 					ul.nav.navbar-nav
-						li(class=(section == 'home' ? 'active' : false)): a(href='/') Home
-						li(class=(section == 'blog' ? 'active' : false)): a(href='/') Blog
+						each link in navLinks
+							li(class=(section == link.key ? 'active' : false)): a(href=link.href)= link.label
+					ul.nav.navbar-nav.pull-right
+						if user
+							li: a(href='/keystone') Open Keystone
+						else
+							li: a(href='/keystone/signin') Sign In
 		
 		//- body
 		#app-body

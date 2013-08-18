@@ -9,11 +9,11 @@ exports = module.exports = function(req, res) {
 			return {
 				first_name: i.name.first,
 				last_name: i.name.last,
-				email: i.name.email
+				email: i.email
 			}
 		});
 		
-		csv().from(results).to(res.attachment('users.csv'), {
+		csv().from(users).to(res.attachment('users.csv'), {
 			header: true,
 			columns: ['first_name', 'last_name', 'email']
 		});
