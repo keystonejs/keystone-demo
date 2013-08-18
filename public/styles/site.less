@@ -1,18 +1,34 @@
-// Site styles
-
 // bootstrap
 @import "bootstrap/bootstrap.less";
 @import "bootstrap-glyphicons/bootstrap-glyphicons.less";
 
-
-.table a {
-	display: block;
-	float: left;
-	margin-right: 10px;
+#app-header {
 	
-	&:hover {
-		text-decoration: none;
-	};
+	.navbar {
+		background: #365386;
+		border-color: #365386;
+		border-bottom-color: black;
+		border-radius: 0px;
+	}
+	
+	.navbar-brand {
+		color: white;
+	}
+	
+	a {
+		color: #b7d0e8;
+		
+		&:hover,
+		&:focus {
+			color: white;
+		}
+	}
+	
+	.active a {
+		color: white;
+		background: #2d446d;
+	}
+	
 }
 
 #app-footer {

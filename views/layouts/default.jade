@@ -15,8 +15,8 @@ html
 	body: #app-wrapper
 		
 		//- header
-		#app-header
-			nav.navbar(role='navigation'): .container
+		header(role='banner')#app-header
+			nav.navbar.navbar-inverse: .container
 				.navbar-header
 					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
 						span.sr-only Toggle navigation
@@ -24,10 +24,10 @@ html
 				.collapse.navbar-collapse.navbar-ex1-collapse
 					ul.nav.navbar-nav
 						li(class=(section == 'home' ? 'active' : false)): a(href='/') Home
-							
-							
+						li(class=(section == 'blog' ? 'active' : false)): a(href='/') Blog
+		
 		//- body
-		#app-body: .container
+		#app-body
 			//- intro
 			block intro
 			//- messages
@@ -39,7 +39,7 @@ html
 			p Copyright &copy; #{moment().format('YYYY')} Jed Watson. All rights reserved.
 
 		//- scripts
-		script(src='/js/lib/jquery/jquery-2.0.3.min.js')
+		script(src='/js/lib/jquery/jquery-1.10.2.min.js')
 		script(src='/js/lib/bootstrap/collapse.js')
 		script(src='/js/lib/bootstrap/dropdown.js')
 			
