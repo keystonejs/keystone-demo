@@ -1,0 +1,46 @@
+include ../mixins/flash-messages
+
+doctype 5
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+		
+		title= title || 'Keystone Demo'
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(href="/styles/site.min.css", rel="stylesheet")
+			
+		block css
+		block head
+	body: #app-wrapper
+		
+		//- header
+		#app-header
+			nav.navbar(role='navigation'): .container
+				.navbar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+						span.sr-only Toggle navigation
+					a.navbar-brand(href='/') Keystone Demo
+				.collapse.navbar-collapse.navbar-ex1-collapse
+					ul.nav.navbar-nav
+						li(class=(section == 'home' ? 'active' : false)): a(href='/') Home
+							
+							
+		//- body
+		#app-body: .container
+			//- intro
+			block intro
+			//- messages
+			+flash-messages(messages)
+			//- content
+			block content
+		//- footer
+		#app-footer: .container
+			p Copyright &copy; #{moment().format('YYYY')} Jed Watson. All rights reserved.
+
+		//- scripts
+		script(src='/js/lib/jquery/jquery-2.0.3.min.js')
+		script(src='/js/lib/bootstrap/collapse.js')
+		script(src='/js/lib/bootstrap/dropdown.js')
+			
+		block page-js
