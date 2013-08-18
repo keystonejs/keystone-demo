@@ -2,7 +2,9 @@ var keystone = require('keystone');
 
 exports = module.exports = function(req, res) {
 	
-	res.render('site/index', {
+	var view = new keystone.View(req, res);
+	
+	view.render('site/index', {
 		section: 'home'
 	});
 	

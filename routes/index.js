@@ -17,7 +17,7 @@ keystone.set('404', function(req, res, next) {
 
 // Load Routes
 var routes = {
-	api: importRoutes('./api'),
+	//api: importRoutes('./api'),
 	download: importRoutes('./download'),
 	views: importRoutes('./views')
 };
