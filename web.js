@@ -13,7 +13,7 @@ keystone.init({
 	'less': 'public',
 	'static': 'public',
 	
-	'views': 'views',
+	'views': 'templates/views',
 	'view engine': 'jade',
 	
 	'auto update': true,
