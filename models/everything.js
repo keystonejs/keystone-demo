@@ -4,6 +4,7 @@ var keystone = require('keystone'),
 var Everything = new keystone.List('Everything', {
 	label: 'Everything',
 	singular: 'Thing',
+	plural: 'Things',
 	autokey: { from: 'name', path: 'autokey' }
 });
 
