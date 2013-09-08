@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "express": "~3.3.4",
-    "keystone": "~0.1.3",
+    "keystone": "~0.1.5",
     "underscore": "~1.5.1",
     "async": "~0.2.9",
     "mongoose": "~3.6.18",
