@@ -18,6 +18,8 @@ User.schema.virtual('canAccessKeystone').get(function() {
 	return this.isAdmin;
 });
 
+User.relationship({ ref: 'Post', path: 'author' });
+
 User.addPattern('standard meta');
 User.defaultColumns = 'name, email, isAdmin';
 User.register();

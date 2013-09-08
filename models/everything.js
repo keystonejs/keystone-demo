@@ -5,6 +5,7 @@ var Everything = new keystone.List('Everything', {
 	label: 'Everything',
 	singular: 'Thing',
 	plural: 'Things',
+	path: 'things',
 	autokey: { from: 'name', path: 'autokey' }
 });
 
