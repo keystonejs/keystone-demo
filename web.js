@@ -40,8 +40,8 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
-	'things': 'things',
-	'users': 'users'
+	'users': 'users',
+	'field-tests': 'things'
 });
 	
 keystone.start();
