@@ -1,7 +1,7 @@
 Keystone Demo
 =============
 
-This site is an example of a default Keystone application.
+This site is an example of a default [Keystone](http://keystonejs.com) application.
 
 Try it out at http://demo.keystonejs.com
 
