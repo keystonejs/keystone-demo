@@ -7,14 +7,8 @@
     "url": "https://github.com/JedWatson/keystone-demo.git"
   },
   "dependencies": {
-    "express": "~3.3.4",
     "keystone": "~0.1.5",
     "underscore": "~1.5.1",
-    "async": "~0.2.9",
-    "mongoose": "~3.6.18",
-    "jade": "~0.34.1",
-    "moment": "~2.1.0",
-    "numeral": "~1.4.8",
     "csv": "0.3.5"
   },
   "engines": {

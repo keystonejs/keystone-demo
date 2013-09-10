@@ -30,8 +30,6 @@ require('./models');
 
 keystone.set('locals', {
 	_: require('underscore'),
-	moment: require('moment'),
-	js: 'javascript:;',
 	env: keystone.get('env'),
 	utils: keystone.utils
 });

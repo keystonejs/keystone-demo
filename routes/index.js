@@ -1,5 +1,4 @@
-var async = require('async'),
-	_ = require('underscore'),
+var _ = require('underscore'),
 	keystone = require('keystone'),
 	importRoutes = keystone.importer(__dirname);
 
@@ -41,7 +40,7 @@ exports = module.exports = function(app) {
 	
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog', routes.views.blog);
+	app.get('/blog/:category?', routes.views.blog);
 	app.get('/gallery', routes.views.gallery);
 	app.get('/contact', routes.views.contact);
 	
