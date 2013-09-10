@@ -2,5 +2,50 @@ extends ../layouts/default
 
 block content
 	.container
-		h1 Blog
-		p.lead This <strike>is</strike> will be an example blog.
+		
+		.row
+			.col-sm-8
+				
+				h1 Blog
+				p.lead This is an example blog.
+				p.lead
+					| You can contribute to it by <a href='/keystone/signin'>signing in</a> 
+					| as the demo user <code>demo@keystonejs.com / demo</code>
+				hr
+					
+				if filters.category && !data.category
+					h2 Invalid Category.
+				else
+					if data.posts.length
+						if data.category
+							h2= data.category.name
+						each post, post_i in data.posts
+							h3= post.title
+							h5 Posted 
+								if post.publishDate
+									| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
+								if post.categories && post.categories.length
+									| in 
+									each cat, cat_i in post.categories
+										a(href='/blog/' + cat.key)= cat.name
+										if cat_i < post.categories.length - 1
+											| , 
+										else
+											|  
+								if post.author
+									| by #{post.author.name.first}
+							div!= post.content.brief
+							if post.content.extended
+								div.read-more: a(href='/blog/post/' + post.slug) Read more...
+					else
+						if data.category
+							h2 No posts in the category #{data.category.name}.
+						else
+							h2 There are no posts yet.
+			.col-sm-4
+				if data.categories.length
+					h2 Category:
+					.list-group
+						a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
+						each cat in data.categories
+							a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name

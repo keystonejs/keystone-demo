@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "keystone": "~0.1.5",
+    "async": "~0.2.9",
     "underscore": "~1.5.1",
     "csv": "0.3.5"
   },

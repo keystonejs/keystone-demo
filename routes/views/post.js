@@ -9,10 +9,9 @@ exports = module.exports = function(req, res) {
 	// Init locals
 	locals.section = 'blog';
 	locals.filters = {
-		category: req.params.category
+		post: req.params.post
 	};
 	locals.data = {
-		posts: [],
 		categories: []
 	};
 	
@@ -43,37 +42,22 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	// Load the current category filter
+	// Load the current post
 	view.on('init', function(next) {
 		
-		if (req.params.category) {
-			keystone.list('PostCategory').model.findOne({ key: locals.filters.category }).exec(function(err, result) {
-				locals.data.category = result;
-				next(err);
-			});
-		} else {
-			next();
-		}
+		var q = keystone.list('Post').model.findOne({
+			state: 'published',
+			slug: locals.filters.post
+		}).populate('author categories');
 		
-	});
-	
-	// Load the posts
-	view.on('init', function(next) {
-		
-		var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('author categories');
-		
-		if (locals.data.category) {
-			q.where('categories').in([locals.data.category]);
-		}
-		
-		q.exec(function(err, results) {
-			locals.data.posts = results;
+		q.exec(function(err, result) {
+			locals.data.post = result;
 			next(err);
 		});
 		
 	});
 	
 	// Render the view
-	view.render('blog');
+	view.render('post');
 	
 }
