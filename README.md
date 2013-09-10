@@ -3,7 +3,7 @@ Keystone Demo
 
 This site is an example of a default Keystone application.
 
-Try it out at http://keystone-demo.herokuapp.com
+Try it out at http://demo.keystonejs.com
 
 It's a great basis to use when starting a Keystone project; just `git clone`
 this repository and start making changes.
@@ -17,6 +17,9 @@ new issue.
 If you're interested in using Keystone for a project and would like to work with
 the developers who built it please visit [Team 9](http://www.team9.com.au) and
 get in touch.
+
+Much of Keystone was based on the best patterns we found ourselves repeating,
+and is now used for most of our projects.
 
 We can also provide commercial support for Keystone and do custom solution
 development and implementation.
