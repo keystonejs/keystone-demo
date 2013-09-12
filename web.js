@@ -22,7 +22,10 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'cookie secret': process.env.COOKIE_SECRET || 'demo'
+	'cookie secret': process.env.COOKIE_SECRET || 'demo',
+	
+	'ga property': process.env.GA_PROPERTY,
+	'ga domain': process.env.GA_DOMAIN
 	
 });
 
@@ -31,8 +34,9 @@ require('./models');
 keystone.set('locals', {
 	_: require('underscore'),
 	env: keystone.get('env'),
-	ga: process.env.GA_PROPERTY,
-	utils: keystone.utils
+	utils: keystone.utils,
+	ga_property: keystone.get('ga property'),
+	ga_domain: keystone.get('ga domain')
 });
 
 keystone.set('routes', require('./routes'));
