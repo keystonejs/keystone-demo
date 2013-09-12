@@ -31,6 +31,7 @@ require('./models');
 keystone.set('locals', {
 	_: require('underscore'),
 	env: keystone.get('env'),
+	ga: process.env.GA_PROPERTY,
 	utils: keystone.utils
 });
 
