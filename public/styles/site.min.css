@@ -837,8 +837,9 @@ th.visible-print,td.visible-print{display:none !important}
 #app-header .navbar-brand{color:white}
 #app-header a{color:#b7d0e8}#app-header a:hover,#app-header a:focus{color:white}
 #app-header .active a{color:white;background:#2d446d}
-h1{font-weight:normal}
-h2{color:#365386;font-weight:normal}
+h1{font-weight:normal;margin:30px 0 20px 0}
+h2{color:#365386;font-weight:normal;margin:40px 0 20px 0}
+h3{margin-top:40px}
 strike{color:#999}
 .blog{overflow:hidden}
 .post{clear:both}.post .img{margin-left:15px;margin-bottom:15px}
