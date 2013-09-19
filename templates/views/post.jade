@@ -1,20 +1,15 @@
 extends ../layouts/default
 
 block content
-	.container
-		
-		.row
-			.col-sm-8.col-md-9
-				
-				h1 Blog
-				p.lead: a(href='/blog') ... back to the blog
+	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+			article
+				p: a(href='/blog') &larr; back to the blog
 				hr
-					
 				if !data.post
 					h2 Invalid Post.
 				else
-					.post
-						h3= data.post.title
+					header
+						h1= data.post.title
 						h5 Posted 
 							if data.post.publishDate
 								| on #{data.post._.publishedDate.format('MMMM Do, YYYY')} 
@@ -28,17 +23,12 @@ block content
 										|  
 							if data.post.author
 								| by #{data.post.author.name.first}
+					//- hr
+					.post
 						if data.post.image.exists
-							img(src=data.post._.image.fit(300,300)).img.pull-right
-						div!= data.post.content.full
-				
-					hr
-					p.lead: a(href='/blog') ... back to the blog
-					
-			.col-sm-4.col-md-3
-				if data.categories.length
-					h2 Category:
-					.list-group
-						a(href='/blog').list-group-item All Categories
-						each cat in data.categories
-							a(href='/blog/' + cat.key).list-group-item= cat.name
+							.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
+						!= data.post.content.full
+			
+			
+			//- h2.text-muted.text-center(style='border: 0 none;') &bullet;&nbsp;&bullet;&nbsp;&bullet;
+			//- h2.text-muted More posts

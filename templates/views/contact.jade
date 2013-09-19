@@ -1,6 +1,24 @@
 extends ../layouts/default
 
 block content
-	.container
+	.container: .row: .col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
 		h1 Contact Form
-		p.lead This <strike>is</strike> will be an example contact form.
+		p.lead This is an example contact form.
+		form(method='post')
+			.form-group
+				label Name
+				input(type='text', name='name').form-control
+			.form-group
+				label Email
+				input(type='email', name='email').form-control
+			.form-group
+				label Phone
+				input(type='email', name='email', placeholder='(optional)').form-control
+			.form-group
+				label Postcode
+				input(type='text', name='postcode', placeholder='(optional)').form-control
+			.form-group
+				label Message
+				textarea(name='message', placeholder='Leave us a message...').form-control
+			.form-actions
+				button(type='submit').btn.btn-primary Send

@@ -48,6 +48,10 @@ exports = module.exports = function(app) {
 	// Downloads
 	app.get('/download/users', routes.download.users);
 	
+	// Docs (temp)
+	// app.get('/', routes.views.intro);
+	// app.get('/getting-started', routes.views['getting-started']);
+	
 	// API
 	//app.all('/api*', keystone.initAPI);
 

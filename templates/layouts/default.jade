@@ -12,19 +12,22 @@ html
 		
 		block css
 		block head
-	body: #app-wrapper
+	body: #demo-wrapper
 		
 		//- header
-		header(role='banner')#app-header
-			nav.navbar.navbar-inverse: .container
+		header(role='banner')#demo-nav
+			nav.navbar.navbar-default.navbar-static-top: .container
 				.navbar-header
 					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
 						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
 					a.navbar-brand(href='/') Keystone Demo
 				.collapse.navbar-collapse.navbar-ex1-collapse
 					ul.nav.navbar-nav
 						each link in navLinks
-							li(class=(section == link.key ? 'active' : false)): a(href=link.href)= link.label
+							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 					ul.nav.navbar-nav.pull-right
 						if user
 							li: a(href='/keystone') Open Keystone
@@ -32,7 +35,7 @@ html
 							li: a(href='/keystone/signin') Sign In
 		
 		//- body
-		#app-body
+		#demo-body
 			//- intro
 			block intro
 			//- messages
@@ -40,7 +43,7 @@ html
 			//- content
 			block content
 		//- footer
-		#app-footer: .container
+		#demo-footer: .container
 			p Copyright &copy; 2013 Jed Watson. All rights reserved.
 
 		//- scripts

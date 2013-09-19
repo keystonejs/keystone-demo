@@ -1,67 +1,76 @@
 extends ../layouts/default
 
 block content
-	.container
-		
-		h1 Welcome to Keystone
-		p.lead
-			| This example site demonstrates how to set up common patterns in <a href='http://keystonejs.com'>Keystone</a>.
-		p.lead
-			| It includes the latest versions of 
+	#hero: .container
+		h1 This site demonstrates how to set up common patterns in <a href='http://keystonejs.com', target='_blank'>Keystone</a>
+		p.buttons.hidden-xs
+			a(href='http://github.com/JedWatson/keystone-demo', target='_blank', title='View on GitHub').btn.btn-lg.btn-primary Clone the GitHub repo
+			a(href='https://github.com/JedWatson/keystone-demo/archive/master.zip', target='_blank', title='Demo website').btn.btn-lg.btn-link Download the .zip
+		p.notes
+			| Keystone includes the latest versions of 
 			| <a href='http://http://getbootstrap.com/' target='_blank'>Bootstrap</a> (currently 3.0.0) 
 			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a> (currently 1.10.3)
 			| so you can use it as a base to quickly start a new project. 
-		p.lead
-			| Simply <a href='https://github.com/JedWatson/keystone-demo'>clone the GitHub repo</a> or 
-			| <a href='https://github.com/JedWatson/keystone-demo/archive/master.zip'>download the .zip file</a> 
-			| and start customising.
-		
-		h2: span Admin UI Demo
-		p
-			a(href='/keystone/signin') Sign in
-			|  to try out the Keystone Admin UI using the demo account:
-		dl.dl-horizontal
-			dt Username
-			dd demo@keystonejs.com
-			dt Password
-			dd demo
-		p You can use the Admin UI to create your own user, and write a blog post - try it out!
-		p Be warned though, the database will be reset from time to time.
-		
-		h2: span Examples
-		
-		h3 Blog
-		p Simple example blog with posts and categories.
-		p Posts have a slug automatically generated from their title, and support short and extended versions of the content.
-		p You can sign in using the demo account above to contribute to the blog.
-		p: a(href='/blog') View the Blog
-		
-		h3 Gallery
-		p Coming soon.
-		
-		h3 Contact form
-		p Coming soon.
-		
-		h3 Download CSV
-		p For an example of how to download a list in .csv format, see <code>/routes/download/users.js</code>.
-			| It uses the excellent <a href='http://www.adaltas.com/projects/node-csv/'>node-csv</a> library.
-		p: a(href='/download/users').btn.btn-default Download users
-		
-		h3 Session Management
-		p Keystone includes session management and default sign-in and sign-out views.
-		p They are turned on for this demo:
-			ul
-				li: a(href='/keystone/signin') /keystone/signin
-				li: a(href='/keystone/signout') /keystone/signout
-		//- p You can also replace them with custom views to brand them or add functionality like signup or forgotten password retrieval, like these ones:
-		//- 	ul
-		//- 		li: a(href='/signin') /signin
-		//- 		li: a(href='/signout') /signout
-		//- p If you implement custom session management views, you usually want to turn off the built-in views setting 
-		//- 	| <code>auth</code> to <code>keystone.session.keystoneAuth</code>.
-		//- 	| You can also set <code>auth</code> to your own function if you want to customise the authorisation logic.
-		
-		h3 Errors
-		p The <code>404</code> and <code>500</code> views demonstrate how to set up error handlers for your application.
-		p To see the <code>404</code> page in action, simply go to <a href='/404'>any url</a> that doesn't exist.
-		
+			
+	
+	.container: .row
+		.col-sm-8
+			h2: span Examples
+			
+			.panel.panel-default
+				.panel-heading: h3.panel-title Blog
+				.panel-body
+					p Simple example blog with posts and categories.
+					p Posts have a slug automatically generated from their title, and support short and extended versions of the content.
+					p You can sign in using the demo account above to contribute to the blog.
+					p: a(href='/blog') View the Blog
+			
+			.panel.panel-default
+				.panel-heading: h3.panel-title Gallery
+				.panel-body
+					p Coming soon.
+			
+			.panel.panel-default
+				.panel-heading: h3.panel-title Contact form
+				.panel-body
+					p Coming soon.
+			
+			.panel.panel-default
+				.panel-heading: h3.panel-title Download CSV
+				.panel-body
+					p For an example of how to download a list in .csv format, see <code>/routes/download/users.js</code>.
+						| It uses the excellent <a href='http://www.adaltas.com/projects/node-csv/'>node-csv</a> library.
+					a(href='/download/users').btn.btn-default Download users
+			.panel.panel-default
+				.panel-heading: h3.panel-title Session Management
+				.panel-body
+					p Keystone includes session management and default sign-in and sign-out views.
+					p They are turned on for this demo:
+						ul
+							li: a(href='/keystone/signin') /keystone/signin
+							li: a(href='/keystone/signout') /keystone/signout
+					//- p You can also replace them with custom views to brand them or add functionality like signup or forgotten password retrieval, like these ones:
+					//- 	ul
+					//- 		li: a(href='/signin') /signin
+					//- 		li: a(href='/signout') /signout
+					//- p If you implement custom session management views, you usually want to turn off the built-in views setting 
+					//- 	| <code>auth</code> to <code>keystone.session.keystoneAuth</code>.
+					//- 	| You can also set <code>auth</code> to your own function if you want to customise the authorisation logic.
+			
+			.panel.panel-default
+				.panel-heading: h3.panel-title Errors
+				.panel-body
+					p The <code>404</code> and <code>500</code> views demonstrate how to set up error handlers for your application.
+					p To see the <code>404</code> page in action, simply go to <a href='/404'>any url</a> that doesn't exist.
+			
+		.col-sm-4
+			h2: span Admin UI
+			dl.dl-horizontal
+				dt Username
+				dd demo@keystonejs.com
+				dt Password
+				dd demo
+			p You can use the Admin UI to create your own user, and write a blog post - try it out!
+			p: a(href='/keystone/signin').btn.btn-default Sign in to get started
+			p.text-muted Be warned though, the database will be reset from time to time.
+			

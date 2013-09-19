@@ -1,0 +1,73 @@
+doctype 5
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
+		
+		title= title || 'Keystone Docs'
+		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		link(href="/styles/docs.min.css", rel="stylesheet")
+		
+		block css
+		block head
+	body: #docs-wrapper
+		
+		//- header
+		header(role='banner')#docs-header: .container
+			a(href='/', title='KeystoneJS').keystone-logo: img(src='/images/logo.svg', alt='KeystoneJS', width=207, height=70)
+			.social-buttons.hidden-xs
+				iframe(src="http://ghbtns.com/github-btn.html?user=JedWatson&repo=keystone&type=watch&count=true", allowtransparency="true", frameborder=0, scrolling=0, width=85, height=20)
+		
+		block home_intro
+		
+		//- nav
+		#docs-nav: nav.navbar.navbar-default.navbar-static-top
+			.navbar-header
+				button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				a.visible-xs.navbar-brand(href='/') KeystoneJS
+			.collapse.navbar-collapse.navbar-ex1-collapse.container
+				ul.nav.navbar-nav
+					each link in navLinks
+						li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+				//- ul.nav.navbar-nav.pull-right
+					li.blog-link: a(href='http://blog.keystonejs.com') Blog &rarr;
+		
+		//- body
+		#docs-body
+			block intro
+			block content
+		
+		//- footer
+		#docs-footer: .container
+			.social-buttons
+				iframe(src="http://ghbtns.com/github-btn.html?user=JedWatson&repo=keystone&type=watch&count=true", allowtransparency="true", frameborder=0, scrolling=0, width=85, height=20)
+			.footer-wrap	
+				ul.list-links
+					li: a(href='https://github.com/JedWatson/keystone', target='_blank', title='Github Project') Github Project
+					li: a(href='http://demo.keystonejs.com', target='_blank', title='Demo Website') Demo Website
+					li: a(href='/', target='_blank', title='Docs') Docs
+					li: a(href='http://blog.keystonejs.com', target='_blank', title='Blog') Blog
+				p.copyright &copy; 2013 Jed Watson
+
+		//- scripts
+		script(src='/js/lib/jquery/jquery-1.10.2.min.js')
+		script(src='/js/lib/bootstrap/collapse.js')
+		script(src='/js/lib/bootstrap/dropdown.js')
+			
+		block page-js
+		
+		
+		//- TODO @jed : Replace with new Google Analytics (these are from the demo site)
+			if env == 'production'
+				script.
+					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+					ga('create', '#{ga_property}', '#{ga_domain}');
+					ga('send', 'pageview');

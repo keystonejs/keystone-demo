@@ -1,6 +1,35 @@
 extends ../layouts/default
-
+				
 block content
 	.container
 		h1 Gallery
-		p.lead This <strike>is</strike> will be an example gallery.
+		p.lead This is an example gallery.
+		.row.thumbnail-stack: for image in images.slice(0,3)
+			.col-xs-12.col-sm-6.col-md-4
+				a(href='#gallery-modal', data-toggle='modal')
+					img(src=image.src).img-responsive
+		.row.thumbnail-stack: for image in images.slice(3)
+			.col-xs-6.col-sm-4.col-md-2
+				a(href='#gallery-modal', data-toggle='modal')
+					img(src=image.src).img-responsive
+			
+		//- modal
+		#gallery-modal(tabindex="-1", role="dialog", aria-labelledby="modalGallery", aria-hidden="true").modal.fade
+			.modal-dialog
+				.modal-content
+					#gallery-carousel.carousel.slide
+						ol.carousel-indicators: each indicator, i in images
+							li(data-target='#gallery-carousel', data-slide-to=i, class=i == 0 ? 'active' : '')
+						.carousel-inner: each image, i in images
+							div(class=i == 0 ? 'item active' : 'item')
+								img(src='/images/scaffolding/900x600.png')
+								.carousel-caption
+									h3=image.name
+									p=image.caption
+						a(href='#gallery-carousel', data-slide='prev').carousel-control.left: span.icon-prev
+						a(href='#gallery-carousel', data-slide='next').carousel-control.right: span.icon-next
+
+
+block js
+	script(src='/js/lib/bootstrap/modal.js')
+	script(src='/js/lib/bootstrap/carousel.js')

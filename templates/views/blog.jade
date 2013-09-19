@@ -2,46 +2,42 @@ extends ../layouts/default
 
 mixin post(post)
 	.post
-		h3= post.title
-			h5 Posted 
-				if post.publishDate
-					| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
-				if post.categories && post.categories.length
-					| in 
-					each cat, i in post.categories
-						a(href='/blog/' + cat.key)= cat.name
-						if i < post.categories.length - 1
-							| , 
-						else
-							|  
-				if post.author
-					| by #{post.author.name.first}
-			if post.image.exists
-				img(src=post._.image.fit(160,160)).img.pull-right
-			div!= post.content.brief
-			if post.content.extended
-				div.read-more: a(href='/blog/post/' + post.slug) Read more...
+		h2: a(href='/blog/post/' + post.slug)= post.title
+		p.lead.text-muted Posted 
+			if post.publishDate
+				| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
+			if post.categories && post.categories.length
+				| in 
+				each cat, i in post.categories
+					a(href='/blog/' + cat.key)= cat.name
+					if i < post.categories.length - 1
+						| , 
+					else
+						|  
+			if post.author
+				| by #{post.author.name.first}
+		if post.image.exists
+			img(src=post._.image.fit(160,160)).img.pull-right
+		p!= post.content.brief
+		if post.content.extended
+			p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
 block content
 	.container
-		
+		h1 Blog
+		p.lead
+			| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> 
+			| as the demo user <code>demo@keystonejs.com / demo</code>
 		.row
 			.col-sm-8.col-md-9
-				
-				h1 Blog
-				p.lead This is an example blog.
-				p.lead
-					| You can contribute to it by <a href='/keystone/signin'>signing in</a> 
-					| as the demo user <code>demo@keystonejs.com / demo</code>
-				hr
 					
 				if filters.category && !data.category
-					h2 Invalid Category.
+					h3 Invalid Category.
 				else
 					if data.posts.length
 						.blog
 							if data.category
-								h2= data.category.name
+								h3= data.category.name
 							each post in data.posts
 								+post(post)
 					else
@@ -52,8 +48,8 @@ block content
 			
 			.col-sm-4.col-md-3
 				if data.categories.length
-					h2 Category:
-					.list-group
+					//- h2 Categories
+					.list-group(style='margin-top: 70px;')
 						a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
 						each cat in data.categories
 							a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
