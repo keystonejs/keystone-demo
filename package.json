@@ -7,7 +7,7 @@
     "url": "https://github.com/JedWatson/keystone-demo.git"
   },
   "dependencies": {
-    "keystone": "~0.1.11",
+    "keystone": "~0.1.19",
     "async": "~0.2.9",
     "underscore": "~1.5.1",
     "csv": "0.3.5",
