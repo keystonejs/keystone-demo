@@ -3,8 +3,15 @@ extends ../layouts/default
 block content
 	.container
 		
-		h1 Gallery
-		p.lead This is an example gallery.
+		h1 Gallery 
+			small(style="margin-left: 30px;") (under development)
+		
+		p.lead This will be an example gallery, demonstrating how you can use images with Keystone and Cloudinary.
+		
+		p.lead Please follow us for updates to the demo site.
+		p: a(href="https://twitter.com/keystonejs", class="twitter-follow-button", data-show-count="false", data-size="large") Follow @keystonejs
+		script.
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 		
 		.row.thumbnail-stack: for image in images.slice(0,3)
 			.col-xs-12.col-sm-6.col-md-4

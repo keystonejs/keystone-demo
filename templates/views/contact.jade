@@ -1,10 +1,19 @@
 extends ../layouts/default
 
 block content
-	.container: .row: .col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
-		h1 Contact Form
-		p.lead This is an example contact form.
-		form(method='post')
+	.container
+		
+		h1 Contact Form 
+			small(style="margin-left: 30px;") (under development)
+		
+		p.lead This will be an example contact form, demonstrating how to process forms and save data with Keystone, and send
+			| emails with Mandrill.
+		p.lead Please follow us for updates to the demo site.
+		p: a(href="https://twitter.com/keystonejs", class="twitter-follow-button", data-show-count="false", data-size="large") Follow @keystonejs
+		script.
+			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		
+		.row: .col-sm-8.col-md-6: form(method='post')
 			.form-group
 				label Name
 				input(type='text', name='name').form-control
