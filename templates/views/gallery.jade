@@ -2,8 +2,10 @@ extends ../layouts/default
 				
 block content
 	.container
+		
 		h1 Gallery
 		p.lead This is an example gallery.
+		
 		.row.thumbnail-stack: for image in images.slice(0,3)
 			.col-xs-12.col-sm-6.col-md-4
 				a(href='#gallery-modal', data-toggle='modal')
