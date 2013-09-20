@@ -1,4 +1,8 @@
 extends ../layouts/default
+
+block css
+	style.
+		#gallery-modal .modal-dialog { width: 920px; }
 				
 block content
 	.container
@@ -16,7 +20,7 @@ block content
 		.row.thumbnail-stack: for image in images.slice(0,3)
 			.col-xs-12.col-sm-6.col-md-4
 				a(href='#gallery-modal', data-toggle='modal')
-					img(src=image.src).img-responsive
+					img(src=image.src, width='100%').img-responsive
 		.row.thumbnail-stack: for image in images.slice(3)
 			.col-xs-6.col-sm-4.col-md-2
 				a(href='#gallery-modal', data-toggle='modal')
@@ -39,6 +43,6 @@ block content
 						a(href='#gallery-carousel', data-slide='next').carousel-control.right: span.icon-next
 
 
-block js
+block page-js
 	script(src='/js/lib/bootstrap/modal.js')
 	script(src='/js/lib/bootstrap/carousel.js')

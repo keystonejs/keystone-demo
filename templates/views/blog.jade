@@ -24,27 +24,24 @@ mixin post(post)
 
 block content
 	.container
-		h1 Blog
+		h1=data.category ? data.category.name : 'Blog'
 		p.lead
 			| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> 
 			| as the demo user <code>demo@keystonejs.com / demo</code>
 		.row
 			.col-sm-8.col-md-9
-					
 				if filters.category && !data.category
 					h3 Invalid Category.
 				else
 					if data.posts.length
 						.blog
-							if data.category
-								h3= data.category.name
 							each post in data.posts
 								+post(post)
 					else
 						if data.category
-							h2 No posts in the category #{data.category.name}.
+							h3 No posts in the category #{data.category.name}.
 						else
-							h2 There are no posts yet.
+							h3 There are no posts yet.
 			
 			.col-sm-4.col-md-3
 				if data.categories.length

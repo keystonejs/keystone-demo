@@ -1,13 +1,26 @@
 // bootstrap
 @import "bootstrap/bootstrap.less";
+@import "site/entypo.less";
 
-// temp variables
-@font-size-base: 16px;
-@brand-primary: #348dd9;
-@link-color: @brand-primary;
-@link-color-hover: lighten(@link-color, 10%);
-@text-color: #1a1a1a;
-@navbar-bg: #fafafa;
+// entypo in headings
+h1 > .entypo,
+h2 > .entypo,
+h3 > .entypo,
+h4 > .entypo {
+	display: inline-block;
+	vertical-align: middle;
+	& + span {
+		display: inline-block;
+		margin-left: .5em;
+		vertical-align: middle;
+	}
+}
+
+@media (min-width: @screen-sm) {
+	body {
+		font-size: 16px;
+	}
+}
 
 .dl-horizontal {
 	dt {
@@ -108,6 +121,16 @@
 	
 }
 
+// home page
+#accordion {
+	@media (min-width: @screen-sm) {
+		.panel-collapse {
+			// display: block;
+			height: auto;
+		}
+	}
+}
+
 // blog
 article .post {
 	p:first-child {
@@ -161,7 +184,7 @@ h3 {
 // code header
 .code-header {
 	.border-top-radius( 4px );
-	border: 1px solid darken(@navbar-bg, 10%);
+	border: 1px solid darken(@navbar-default-bg, 10%);
 	border-bottom: 0 none;
 	color: @gray;
 	margin: 20px 0 0;
@@ -186,8 +209,8 @@ h3 {
 }
 // less dramatic colors
 pre {
-	background-color: @navbar-bg;
-	border-color: darken(@navbar-bg, 10%);
+	background-color: @navbar-default-bg;
+	border-color: darken(@navbar-default-bg, 10%);
 }
 
 
@@ -195,8 +218,8 @@ pre {
 // HERO
 // ==============================
 #hero {
-	// background: url( "/images/intro-bg.png" ) no-repeat center bottom @navbar-bg;
-	background-color: @navbar-bg;
+	// background: url( "/images/intro-bg.png" ) no-repeat center bottom @navbar-default-bg;
+	background-color: @navbar-default-bg;
 	border-bottom: 1px solid #ededed;
 	margin-top: -40px; // offset nav margin
 	padding: 20px 0;
