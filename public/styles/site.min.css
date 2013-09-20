@@ -1120,9 +1120,7 @@ th.visible-print,td.visible-print{display:none !important}
 .entypo-social.entypo-vk:before{content:"\F354"}
 .entypo-social.entypo-smashing:before{content:"\F357"}
 h1>.entypo,h2>.entypo,h3>.entypo,h4>.entypo{display:inline-block;vertical-align:middle}h1>.entypo+span,h2>.entypo+span,h3>.entypo+span,h4>.entypo+span{display:inline-block;margin-left:.5em;vertical-align:middle}
-@media (min-width:768px){body{font-size:16px}}.dl-horizontal dt{text-align:left;width:100px}
-.dl-horizontal dd{margin-left:100px}
-.thumbnail-stack [class^='col-']{margin-bottom:30px}
+@media (min-width:768px){body{font-size:16px} .dl-horizontal dt{text-align:left;width:100px} .dl-horizontal dd{margin-left:100px}}.thumbnail-stack [class^='col-']{margin-bottom:30px}
 .thumbnail-stack a.thumbnail:hover,.thumbnail-stack a.thumbnail:focus{text-decoration:none}
 #demo-nav .navbar{margin:0 0 40px}
 #demo-footer{border-top:1px solid #eee;margin-top:100px;padding:50px 0;position:relative;text-align:center}#demo-footer p{color:#999;margin-bottom:0;text-align:left}
