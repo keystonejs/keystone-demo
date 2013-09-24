@@ -3,6 +3,10 @@ include ../mixins/flash-messages
 doctype 5
 html
 	head
+		if env == 'production'
+			script.
+				var _sf_startpt=(new Date()).getTime()
+		
 		meta(charset="utf-8")
 		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
 		
@@ -62,3 +66,20 @@ html
 
 				ga('create', '#{ga_property}', '#{ga_domain}');
 				ga('send', 'pageview');
+		
+		if env == 'production'
+			script.
+				var _sf_async_config = { uid: 46610, domain: '#{chartbeat_domain}', useCanonical: true };
+				(function() {
+					function loadChartbeat() {
+						window._sf_endpt = (new Date()).getTime();
+						var e = document.createElement('script');
+						e.setAttribute('language', 'javascript');
+						e.setAttribute('type', 'text/javascript');
+						e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+						document.body.appendChild(e);
+					};
+					var oldonload = window.onload;
+					window.onload = (typeof window.onload != 'function') ?
+					loadChartbeat : function() { oldonload(); loadChartbeat(); };
+				})();

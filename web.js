@@ -28,7 +28,9 @@ keystone.init({
 	'cookie secret': process.env.COOKIE_SECRET || 'demo',
 	
 	'ga property': process.env.GA_PROPERTY,
-	'ga domain': process.env.GA_DOMAIN
+	'ga domain': process.env.GA_DOMAIN,
+	
+	'chartbeat domain': process.env.CHARTBEAT_DOMAIN
 	
 });
 
@@ -39,7 +41,8 @@ keystone.set('locals', {
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	ga_property: keystone.get('ga property'),
-	ga_domain: keystone.get('ga domain')
+	ga_domain: keystone.get('ga domain'),
+	chartbeat_domain: keystone.get('chartbeat domain')
 });
 
 keystone.set('routes', require('./routes'));
