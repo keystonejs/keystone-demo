@@ -79,7 +79,7 @@ html
 		//- TODO @jed : Uncomment when ready
 			if env == 'production'
 				script.
-					var _sf_async_config = { uid: 46610, domain: '#{chartbeat_domain}', useCanonical: true };
+					var _sf_async_config = { uid: #{chartbeat_property}, domain: '#{chartbeat_domain}', useCanonical: true };
 					(function() {
 						function loadChartbeat() {
 							window._sf_endpt = (new Date()).getTime();
