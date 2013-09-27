@@ -30,6 +30,7 @@ keystone.init({
 	'ga property': process.env.GA_PROPERTY,
 	'ga domain': process.env.GA_DOMAIN,
 	
+	'chartbeat property': process.env.CHARTBEAT_PROPERTY,
 	'chartbeat domain': process.env.CHARTBEAT_DOMAIN
 	
 });
@@ -42,6 +43,7 @@ keystone.set('locals', {
 	utils: keystone.utils,
 	ga_property: keystone.get('ga property'),
 	ga_domain: keystone.get('ga domain'),
+	chartbeat_property: keystone.get('chartbeat property')
 	chartbeat_domain: keystone.get('chartbeat domain')
 });
 
