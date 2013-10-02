@@ -25,6 +25,21 @@ keystone.pre('routes', function(req, res, next) {
 	
 });
 
+keystone.pre('render', function(req, res, next) {
+	
+	var flashMessages = {
+		info: req.flash('info'),
+		success: req.flash('success'),
+		warning: req.flash('warning'),
+		error: req.flash('error')
+	};
+	
+	res.locals.messages = _.any(flashMessages, function(msgs) { return msgs.length }) ? flashMessages : false;
+	
+	next();
+	
+});
+
 keystone.set('404', function(req, res, next) {
 	res.status(404).render('errors/404');
 });
@@ -43,17 +58,12 @@ exports = module.exports = function(app) {
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
-	app.get('/contact', routes.views.contact);
+	app.all('/contact', routes.views.contact);
 	
 	// Downloads
 	app.get('/download/users', routes.download.users);
-	
-	// Docs (temp)
-	// app.get('/', routes.views.intro);
-	// app.get('/getting-started', routes.views['getting-started']);
 	
 	// API
 	//app.all('/api*', keystone.initAPI);
 
 }
-
