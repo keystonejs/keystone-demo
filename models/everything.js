@@ -43,6 +43,7 @@ Everything.add(
 	splitName: { type: Types.Name, initial: true },
 	password: { type: Types.Password, initial: true },
 	cloudinaryImage: { type: Types.CloudinaryImage },
+	cloudinaryImages: { type: Types.CloudinaryImages },
 	location: { type: Types.Location },
 	wysiwygHtml: { type: Types.Html, wysiwyg: true },
 	shortWysiwygField: { type: Types.Html, wysiwyg: true, height: 100 }
