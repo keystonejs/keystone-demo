@@ -7,40 +7,49 @@ block css
 block content
 	.container
 		
-		h1 Gallery 
-			small(style="margin-left: 30px;") (under development)
+		h1 Gallery
 		
-		p.lead This will be an example gallery, demonstrating how you can use images with Keystone and Cloudinary.
+		p.lead This is an example image gallery, demonstrating how you can use images with Keystone and Cloudinary.
 		
 		p.lead Please follow us for updates to the demo site.
 		p: a(href="https://twitter.com/keystonejs", class="twitter-follow-button", data-show-count="false", data-size="large") Follow @keystonejs
 		script.
 			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 		
-		.row.thumbnail-stack: for image in images.slice(0,3)
-			.col-xs-12.col-sm-6.col-md-4
-				a(href='#gallery-modal', data-toggle='modal')
-					img(src=image.src, width='100%').img-responsive
-		.row.thumbnail-stack: for image in images.slice(3)
-			.col-xs-6.col-sm-4.col-md-2
-				a(href='#gallery-modal', data-toggle='modal')
-					img(src=image.src).img-responsive
+		if galleries
 			
-		//- modal
-		#gallery-modal(tabindex="-1", role="dialog", aria-labelledby="modalGallery", aria-hidden="true").modal.fade
-			.modal-dialog
-				.modal-content
-					#gallery-carousel.carousel.slide
-						ol.carousel-indicators: each indicator, i in images
-							li(data-target='#gallery-carousel', data-slide-to=i, class=i == 0 ? 'active' : '')
-						.carousel-inner: each image, i in images
-							div(class=i == 0 ? 'item active' : 'item')
-								img(src='/images/scaffolding/900x600.png')
-								.carousel-caption
-									h3=image.name
-									p=image.caption
-						a(href='#gallery-carousel', data-slide='prev').carousel-control.left: span.icon-prev
-						a(href='#gallery-carousel', data-slide='next').carousel-control.right: span.icon-next
+			each gallery in galleries
+				h2= gallery.name
+					.pull-right.text-muted= gallery._.publishedDate.format('Do MM YYYY')
+				
+					
+			
+		else
+			.jumbotron: .container: h2 No image galleries have been set up.
+		
+		//- .row.thumbnail-stack: for image in images.slice(0,3)
+		//- 	.col-xs-12.col-sm-6.col-md-4
+		//- 		a(href='#gallery-modal', data-toggle='modal')
+		//- 			img(src=image.src, width='100%').img-responsive
+		//- .row.thumbnail-stack: for image in images.slice(3)
+		//- 	.col-xs-6.col-sm-4.col-md-2
+		//- 		a(href='#gallery-modal', data-toggle='modal')
+		//- 			img(src=image.src).img-responsive
+		
+		//- #gallery-modal(tabindex="-1", role="dialog", aria-labelledby="modalGallery", aria-hidden="true").modal.fade
+		//- 	.modal-dialog
+		//- 		.modal-content
+		//- 			#gallery-carousel.carousel.slide
+		//- 				ol.carousel-indicators: each indicator, i in images
+		//- 					li(data-target='#gallery-carousel', data-slide-to=i, class=i == 0 ? 'active' : '')
+		//- 				.carousel-inner: each image, i in images
+		//- 					div(class=i == 0 ? 'item active' : 'item')
+		//- 						img(src='/images/scaffolding/900x600.png')
+		//- 						.carousel-caption
+		//- 							h3=image.name
+		//- 							p=image.caption
+		//- 				a(href='#gallery-carousel', data-slide='prev').carousel-control.left: span.icon-prev
+		//- 				a(href='#gallery-carousel', data-slide='next').carousel-control.right: span.icon-next
 
 
 block page-js
