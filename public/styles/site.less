@@ -33,12 +33,16 @@ h4 > .entypo {
 
 // thumbnails
 .thumbnail-stack {
-	[class^='col-'] {
+	.thumbnail {
 		margin-bottom: @grid-gutter-width;
+		cursor: pointer;
 	}
-	a.thumbnail:hover,
-	a.thumbnail:focus {
-		text-decoration: none;
+}
+.gallery-image {
+	margin-bottom: @grid-gutter-width;
+	
+	img {
+		.img-responsive;
 	}
 }
 
