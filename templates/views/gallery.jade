@@ -20,7 +20,7 @@ block content
 			
 			each gallery in galleries
 				h2= gallery.name
-					.pull-right.text-muted= gallery._.publishedDate.format('Do MM YYYY')
+					.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
 				
 				.row.gallery-images
 					if gallery.heroImage.exists
@@ -31,7 +31,6 @@ block content
 					else
 						each image in gallery.images
 							.col-xs-6.col-sm-4.col-md-3.gallery-image: img(src=image.limit(300,300)).img-rounded
-						
 			
 		else
 			.jumbotron: .container: h2.text-muted There are no image galleries in the database.
