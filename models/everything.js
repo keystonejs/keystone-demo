@@ -46,7 +46,9 @@ Everything.add(
 	cloudinaryImages: { type: Types.CloudinaryImages },
 	location: { type: Types.Location },
 	wysiwygHtml: { type: Types.Html, wysiwyg: true },
-	shortWysiwygField: { type: Types.Html, wysiwyg: true, height: 100 }
+	shortWysiwygField: { type: Types.Html, wysiwyg: true, height: 100 },
+	embedSrc: { type: String },
+	embedData: { type: Types.Embedly, from: 'embedSrc' }
 }, 'Relationships', {
 	user: { type: Types.Relationship, ref: 'User', initial: true },
 	users: { type: Types.Relationship, ref: 'User', many: true }
