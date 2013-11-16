@@ -2,7 +2,8 @@ var keystone = require('keystone'),
 	Types = keystone.Field.Types;
 
 var Post = new keystone.List('Post', {
-	map: { name: 'title' }
+	map: { name: 'title' },
+	autokey: { path: 'slug', from: 'title', unique: true }
 });
 
 Post.add({
@@ -21,55 +22,6 @@ Post.add({
 
 Post.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
-});
-
-Post.schema.methods.getUniqueSlug = function(src, excludeId, callback) {
-	
-	var q = Post.model.find({ slug: src }),
-		post = this;
-	
-	if (excludeId) {
-		q.where('_id').ne(excludeId);
-	}
-	
-	q.exec(function(err, results) {
-		if (err) {
-			callback(err);
-		} else if (results.length) {
-			var inc = src.match(/^(.+)\-(\d+)$/);
-			if (inc.length == 3) {
-				src = inc[1];
-				inc = '-' + (parseInt(inc[2]) + 1);
-			} else {
-				inc = '-1';
-			}
-			post.getUniqueSlug(src + inc, excludeId, callback);
-		} else {
-			callback(null, src);
-		}
-	});
-	
-}
-
-Post.schema.pre('save', function(next) {
-	
-	if (!this.slug) {
-		this.slug = keystone.utils.slug(this.title);
-	}
-	
-	if (this.isModified('slug')) {
-		this.getUniqueSlug(this.slug, this.id, function(err, slug) {
-			if (err) {
-				next(err);
-			} else {
-				this.slug = slug;
-				next();
-			}
-		});
-	} else {
-		next();
-	}
-	
 });
 
 Post.addPattern('standard meta');
