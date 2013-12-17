@@ -49,6 +49,12 @@ Everything.add(
 	shortWysiwygField: { type: Types.Html, wysiwyg: true, height: 100 },
 	embedSrc: { type: String },
 	embedData: { type: Types.Embedly, from: 'embedSrc' }
+}, 'Dependent Fields', {
+	otherSelect: { type: Types.Select, options: [
+		{ label: 'Pre-defined Value', value: 'predefined' },
+		{ label: 'Other Value', value: 'other' }
+	]},
+	otherValue: { type: String, dependsOn: { otherSelect: 'other' } }
 }, 'Relationships', {
 	user: { type: Types.Relationship, ref: 'User', initial: true },
 	users: { type: Types.Relationship, ref: 'User', many: true }
@@ -59,6 +65,10 @@ Everything.add(
 	uneditableSelect: { type: Types.Select, noedit: true, options: 'Sydney, New York, London, Paris, Hong Kong', default: 'Sydney' },
 	uneditableLocation: { type: Types.Location, noedit: true, defaults: { street1: '283-285 Kent St', suburb: 'Sydney', state: 'NSW', postcode: '2000', country: 'Australia' } },
 	uneditableImage: { type: Types.CloudinaryImage, noedit: true }
+});
+
+Everything.schema.virtual('otherSelectValue').get(function() {
+	return (this.otherSelect == 'other') ? this.otherValue : this.otherSelect;
 });
 
 Everything.addPattern('standard meta');
