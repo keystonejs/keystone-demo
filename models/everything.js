@@ -57,7 +57,10 @@ Everything.add(
 	otherValue: { type: String, dependsOn: { otherSelect: 'other' } }
 }, 'Relationships', {
 	user: { type: Types.Relationship, ref: 'User', initial: true },
-	users: { type: Types.Relationship, ref: 'User', many: true }
+	users: { type: Types.Relationship, ref: 'User', many: true },
+	nested: {
+		posts: { type: Types.Relationship, ref: 'Post' }
+	}
 }, 'Uneditable Fields', {
 	uneditableString: { type: String, noedit: true, default: "Not editable" },
 	uneditableCheckbox: { type: Boolean, noedit: true, default: true, note: 'Uneditable boolean notes are displayed next to the checkbox' },
