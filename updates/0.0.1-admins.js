@@ -8,8 +8,10 @@ var admins = [
 
 function createAdmin(admin, done) {
 	User.model.findOne({ email: admin.email }).exec(function(err, user) {
-		admin.isAdmin = admin.isProtected = true;
-		new User.model(admin).save(function(err) {
+		var newAdmin = new User.model(admin);
+		newAdmin.isAdmin = true;
+		newAdmin.isProtected = true;
+		newAdmin.save(function(err) {
 			if (err) {
 				console.error("Error adding admin " + admin.email + " to the database:");
 				console.error(err);

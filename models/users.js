@@ -1,7 +1,16 @@
-var keystone = require('keystone'),
+var _ = require('underscore'),
+	keystone = require('keystone'),
 	Types = keystone.Field.Types;
 
-var User = new keystone.List('User');
+/**
+ * Users
+ * =====
+ */
+
+var User = new keystone.List('User', {
+	// use nodelete to prevent people from deleting the demo admin user
+	nodelete: true
+});
 
 User.add({
 	name: { type: Types.Name, required: true, index: true },
@@ -18,7 +27,36 @@ User.schema.virtual('canAccessKeystone').get(function() {
 	return this.isAdmin;
 });
 
+
+/**
+ * Relationships
+ */
+
 User.relationship({ ref: 'Post', path: 'author' });
+
+
+/**
+ * PROTECTING THE DEMO USER
+ * The following hooks prevent anyone from editing the main demo user itself,
+ * and breaking access to the website cms.
+ */
+
+var protect = function(path) {
+	User.schema.path(path).set(function(value) {
+		return (this.isProtected) ? this.get(path) : value;
+	});
+}
+
+_.each(['name.first', 'name.last', 'email', 'isAdmin'], protect);
+
+User.schema.path('password').set(function(value) {
+	return (this.isProtected) ? '$2a$10$b4vkksMQaQwKKlSQSfxRwO/9JI7Fclw6SKMv92qfaNJB9PlclaONK' : value;
+});
+
+
+/**
+ * Registration
+ */
 
 User.addPattern('standard meta');
 User.defaultColumns = 'name, email, isAdmin';
