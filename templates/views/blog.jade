@@ -33,10 +33,33 @@ block content
 				if filters.category && !data.category
 					h3 Invalid Category.
 				else
-					if data.posts.length
+					if data.posts.results.length
+						if data.posts.totalPages > 1
+							h4.text-weight-normal Showing 
+								strong #{data.posts.first}
+								|  to 
+								strong #{data.posts.last}
+								|  of 
+								strong #{data.posts.total}
+								|  posts.
+						else
+							h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
 						.blog
-							each post in data.posts
+							each post in data.posts.results
 								+post(post)
+						if data.posts.totalPages > 1
+							ul.pagination
+								if data.posts.previous
+									li: a(href='?page=' + data.posts.previous): span.entypo.entypo-chevron-thin-left
+								else
+									li.disabled: a(href='?page=' + 1): span.entypo.entypo-chevron-thin-left
+								each p, i in data.posts.pages
+									li(class=data.posts.currentPage == p ? 'active' : null)
+										a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
+								if data.posts.next
+									li: a(href='?page=' + data.posts.next): span.entypo.entypo-chevron-thin-right
+								else
+									li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.entypo-chevron-thin-right
 					else
 						if data.category
 							h3 No posts in the category #{data.category.name}.
