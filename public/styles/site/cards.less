@@ -1,0 +1,95 @@
+// Cards
+// ------------------------------
+
+@card-gutter: 15px;
+.card {
+	display: block;
+	color: white;
+	margin-bottom: @grid-gutter-width;
+	position: relative;
+	overflow: hidden;
+	
+	&:hover {
+		color: white;
+		text-decoration: none;
+		
+		.card__button {
+			background-color: white;
+		}
+	}
+}
+.card__title {
+	border: 0 none;
+	color: inherit;
+	font-weight: 200;
+	margin: 0 0 @card-gutter;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	padding-bottom: @card-gutter;
+}
+.card__icon {
+	bottom: 0;
+	color: rgba(255, 255, 255, 0.1);
+	right: 0;
+	font-size: 36em;
+	position: absolute;
+	z-index: 1;
+}
+.card__button {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: inherit;
+	display: block;
+	font-weight: 500;
+	padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+.card__body {
+	padding: @card-gutter;
+	position: relative;
+	z-index: 2;
+}
+
+@media (min-width: @screen-sm-min) {
+	.card__body {
+		padding: @card-gutter * 2;
+	}
+	.card__title {
+		padding-bottom: @card-gutter * 2;
+		margin-bottom: @card-gutter * 2;
+	}
+}
+
+
+
+
+// colours
+.card--default {
+	background-color: @navbar-inverse-bg;
+	&:hover .card__button {
+		color: @navbar-inverse-bg;
+	}
+}
+.card--primary {
+	background-color: @brand-primary;
+	&:hover .card__button {
+		color: @brand-primary;
+	}
+}
+.card--secondary {
+	background-color: @brand-secondary;
+	&:hover .card__button {
+		color: @brand-secondary;
+	}
+}
+.card--important {
+	background-color: @brand-important;
+	&:hover .card__button {
+		color: @brand-important;
+	}
+}
+.card--tertiary {
+	background-color: @brand-tertiary;
+	&:hover .card__button {
+		color: @brand-tertiary;
+	}
+}

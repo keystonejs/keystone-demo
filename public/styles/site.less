@@ -1,6 +1,10 @@
 // bootstrap
 @import "bootstrap/bootstrap.less";
+
 @import "site/entypo.less";
+@import "site/variables.less";
+@import "site/cards.less";
+@import "site/theme.less";
 
 // entypo in headings
 h1 > .entypo,
@@ -214,74 +218,4 @@ h3 {
 pre {
 	background-color: @navbar-default-bg;
 	border-color: darken(@navbar-default-bg, 10%);
-}
-
-
-// ==============================
-// HERO
-// ==============================
-#hero {
-	// background: url( "/images/intro-bg.png" ) no-repeat center bottom @navbar-default-bg;
-	background-color: @navbar-default-bg;
-	border-bottom: 1px solid #ededed;
-	margin-top: -40px; // offset nav margin
-	padding: 20px 0;
-	
-	h1 {
-		font-size: 24px;
-		line-height: 24px;
-		margin: 0;
-	}
-	p {
-		margin: 30px 0 0;
-	}
-	
-	.buttons {
-		.btn {
-			border-radius: @border-radius-base;
-		}
-		.btn + .btn {
-			margin-left: 10px;
-		}
-		.btn-link {
-			border-color: @link-color;
-			
-			&:hover {
-				background-color: white;
-				text-decoration: none;
-			}
-		}
-	}
-	
-	.notes {
-		color: @gray-light;
-		
-		a {
-			color: @gray-light;
-			text-decoration: underline;
-			
-			&:hover {
-				color: @gray;
-			}
-		}
-	}
-	.btn-lg {
-		font-size: 16px;
-	}
-	@media (min-width: @screen-sm) {
-		padding: 50px 0;
-	
-		h1 {
-			font-size: 40px;
-			line-height: 40px;
-		}
-		.btn-lg {
-			font-size: 20px;
-		}
-	}
-	@media (min-width: @screen-md) {
-		h1 {
-			margin-right: 200px;
-		}
-	}
 }

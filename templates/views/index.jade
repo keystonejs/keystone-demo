@@ -2,84 +2,106 @@ extends ../layouts/default
 
 block content
 	#hero: .container
+		.buttons.hidden-xs
+			a(href='http://github.com/JedWatson/keystone-demo', target='_blank', title='View on GitHub').btn.btn-primary Clone the GitHub repo
+			a(href='https://github.com/JedWatson/keystone-demo/archive/master.zip', target='_blank', title='Demo website').btn.btn-link Download the .zip
 		h1 This site demonstrates how to set up common patterns in <a href='http://keystonejs.com', target='_blank'>Keystone</a>
-		p.buttons.hidden-xs
-			a(href='http://github.com/JedWatson/keystone-demo', target='_blank', title='View on GitHub').btn.btn-lg.btn-primary Clone the GitHub repo
-			a(href='https://github.com/JedWatson/keystone-demo/archive/master.zip', target='_blank', title='Demo website').btn.btn-lg.btn-link Download the .zip
-		p.notes
+		//- p.notes
 			| Keystone includes the latest versions of 
 			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a> (currently 3.0.2) 
 			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a> (currently 1.10.2)
 			| so you can use it as a base to quickly start a new project. 
 			
-	.container: .row
-		.col-sm-8
-			h2
-				span.entypo.entypo-tools
-				span  Examples
-			
-			#accordion.panel-group
-				.panel.panel-default
-					.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseBlog") Blog
-					#collapseBlog.panel-collapse.collapse.in: .panel-body
+	.container
+		.row.cards
+			.col-sm-4
+				a(href='/blog').card.card--primary
+					span.entypo.entypo-docs.card__icon
+					.card__body
+						h2.card__title Blog
 						p Simple example blog with posts and categories.
 						p Posts have a slug automatically generated from their title, and support short and extended versions of the content.
 						p You can sign in using the demo account to contribute to the blog.
-						a(href='/blog').btn.btn-default View the Blog
-				
-				.panel.panel-default
-					.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseGallery") Gallery
-					#collapseGallery.panel-collapse.collapse.in: .panel-body
+						.card__button Check it out
+			.col-sm-4
+				a(href='/keystone/signin').card.card--tertiary
+					span.entypo.entypo-lock.card__icon
+					.card__body
+						h2.card__title Session Management
+						p Keystone includes session management and default sign-in and sign-out views.
+						.card__button Check it out
+				a(href='/404').card.card--default
+					span.entypo.entypo-lock.card__icon
+					.card__body
+						h2.card__title Error Handling
+						p The 404 and 500 views demonstrate how to set up error handlers for your application.
+						.card__button Check it out
+			.col-sm-4
+				a(href='/gallery').card.card--secondary
+					span.entypo.entypo-picture.card__icon
+					.card__body
+						h2.card__title Gallery
 						p Example of how to set up a page that displays multiple image galleries.
 						p Demonstrates usage of single and multi image fields and their resizing methods.
 						p You can sign in using the demo account to create and manage image galleries, and upload additional images (nothing offensive, please!)
-						a(href='/gallery').btn.btn-default View the Gallery
-				
-				.panel.panel-default
-					.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseContact") Contact form
-					#collapseContact.panel-collapse.collapse.in: .panel-body
+						.card__button Check it out
+				a(href='/contact').card.card--important
+					span.entypo.entypo-mail.card__icon
+					.card__body
+						h2.card__title Enquiries
 						p Simple contact form that validates input and logs enquiries to the database.
 						p You can sign in using the demo account to view the submitted enquiries.
-						a(href='/contact').btn.btn-default View the Contact Form
-				
-				.panel.panel-default
-					.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseCSV") Download CSV
-					#collapseCSV.panel-collapse.collapse.in: .panel-body
-						p For an example of how to download a list in .csv format, see <code>/routes/download/users.js</code>.
-							| It uses the excellent <a href='http://www.adaltas.com/projects/node-csv/'>node-csv</a> library.
-						a(href='/download/users').btn.btn-default Download users
-				.panel.panel-default
-					.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseSessionManagement") Session Management
-					#collapseSessionManagement.panel-collapse.collapse.in: .panel-body
-						p Keystone includes session management and default sign-in and sign-out views.
-						p They are turned on for this demo:
-							ul
-								li: a(href='/keystone/signin') /keystone/signin
-								li: a(href='/keystone/signout') /keystone/signout
-						//- p You can also replace them with custom views to brand them or add functionality like signup or forgotten password retrieval, like these ones:
-						//- 	ul
-						//- 		li: a(href='/signin') /signin
-						//- 		li: a(href='/signout') /signout
-						//- p If you implement custom session management views, you usually want to turn off the built-in views setting 
-						//- 	| <code>auth</code> to <code>keystone.session.keystoneAuth</code>.
-						//- 	| You can also set <code>auth</code> to your own function if you want to customise the authorisation logic.
-				
-				.panel.panel-default
-					.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseErrors") Errors
-					#collapseErrors.panel-collapse.collapse.in: .panel-body
-						p The <code>404</code> and <code>500</code> views demonstrate how to set up error handlers for your application.
-						p To see the <code>404</code> page in action, simply go to <a href='/404'>any url</a> that doesn't exist.
+						.card__button Check it out
+		
+		//- #accordion.panel-group
+			.panel.panel-default
+				.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseGallery") Gallery
+				#collapseGallery.panel-collapse.collapse.in: .panel-body
+					a(href='/gallery').btn.btn-default View the Gallery
 			
-		.col-sm-4
-			h2
-				span.entypo.entypo-key
-				span  Admin UI
-			dl.dl-horizontal
-				dt Username
-				dd demo@keystonejs.com
-				dt Password
-				dd demo
-			p You can use the Admin UI to create your own user, and write a blog post - try it out!
-			p: a(href='/keystone/signin').btn.btn-default Sign in to get started
-			p.text-muted Be warned though, the database will be reset from time to time.
+			.panel.panel-default
+				.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseContact") Contact form
+				#collapseContact.panel-collapse.collapse.in: .panel-body
+					a(href='/contact').btn.btn-default View the Contact Form
+			
+			.panel.panel-default
+				.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseCSV") Download CSV
+				#collapseCSV.panel-collapse.collapse.in: .panel-body
+					p For an example of how to download a list in .csv format, see <code>/routes/download/users.js</code>.
+						| It uses the excellent <a href='http://www.adaltas.com/projects/node-csv/'>node-csv</a> library.
+					a(href='/download/users').btn.btn-default Download users
+			.panel.panel-default
+				.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseSessionManagement") Session Management
+				#collapseSessionManagement.panel-collapse.collapse.in: .panel-body
+					p Keystone includes session management and default sign-in and sign-out views.
+					p They are turned on for this demo:
+						ul
+							li: a(href='/keystone/signin') /keystone/signin
+							li: a(href='/keystone/signout') /keystone/signout
+					//- p You can also replace them with custom views to brand them or add functionality like signup or forgotten password retrieval, like these ones:
+					//- 	ul
+					//- 		li: a(href='/signin') /signin
+					//- 		li: a(href='/signout') /signout
+					//- p If you implement custom session management views, you usually want to turn off the built-in views setting 
+					//- 	| <code>auth</code> to <code>keystone.session.keystoneAuth</code>.
+					//- 	| You can also set <code>auth</code> to your own function if you want to customise the authorisation logic.
+			
+			.panel.panel-default
+				.panel-heading: h3.panel-title: a(class="accordion-toggle", data-toggle="collapse", data-parent="#accordion", href="#collapseErrors") Errors
+				#collapseErrors.panel-collapse.collapse.in: .panel-body
+					p The <code>404</code> and <code>500</code> views demonstrate how to set up error handlers for your application.
+					p To see the <code>404</code> page in action, simply go to <a href='/404'>any url</a> that doesn't exist.
+				
+			.col-sm-4
+				h2
+					span.entypo.entypo-key
+					span  Admin UI
+				dl.dl-horizontal
+					dt Username
+					dd demo@keystonejs.com
+					dt Password
+					dd demo
+				p You can use the Admin UI to create your own user, and write a blog post - try it out!
+				p: a(href='/keystone/signin').btn.btn-default Sign in to get started
+				p.text-muted Be warned though, the database will be reset from time to time.
 
