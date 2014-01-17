@@ -1,7 +1,7 @@
 extends ../layouts/default
 
 mixin post(post)
-	.post
+	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		h2: a(href='/blog/post/' + post.slug)= post.title
 		p.lead.text-muted Posted 
 			if post.publishDate
@@ -26,8 +26,10 @@ block content
 	.container
 		h1=data.category ? data.category.name : 'Blog'
 		p.lead
-			| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> 
-			| as the demo user <code>demo@keystonejs.com / demo</code>
+			if user && user.canAccessKeystone
+				| Edit the blog with the <a href='/keystone/posts'>Keystone Admin UI</a>, or click the 'edit post' link that will appear for each post on hover.
+			else
+				| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> as the demo user <code>demo@keystonejs.com / demo</code>
 		.row
 			.col-sm-8.col-md-9
 				if filters.category && !data.category
