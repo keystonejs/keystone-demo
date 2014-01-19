@@ -1,0 +1,81 @@
+/*
+	Typography
+	==============================
+*/
+
+
+
+
+// Bigger screen bigger type
+@media (min-width: @screen-sm) {
+	body {
+		font-size: 16px;
+	}
+}
+
+
+
+
+// Headings
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6, {
+	// font-weight: 300;
+	line-height: 1.15;
+	margin-bottom: 1em;
+	margin-top: 0;
+}
+h4, .h4, 
+h5, .h5, 
+h6, .h6, {
+	margin-top: 1em;
+}
+
+h1, .h1 {
+	color: @gray-darker;
+	font-size: 2.4em;
+	font-family: @font-family-sans-serif;
+	font-weight: bold;
+	// text-align: center;
+	// text-transform: uppercase;
+}
+h2, .h2 {
+	font-size: 2.4em;
+}
+@media (min-width: @screen-sm-min) {
+	h1, .h1 {
+		font-size: 3.6em;
+	}
+}
+
+
+
+
+// Horizontal description list
+dt { font-weight: normal; }
+dd { font-weight: bold; }
+@media (min-width: @screen-sm-min) {
+	.dl-horizontal {
+		dt {
+			text-align: left;
+		}
+		dd {
+			text-align: right;
+		}
+	}
+}
+
+
+
+
+// Generic highlighting
+.highlight {
+	padding: 9px 14px;
+	margin-bottom: 14px;
+	background-color: @body-bg;
+	border: 1px solid darken(@body-bg, 5%);
+	border-radius: 4px;
+}

@@ -5,7 +5,14 @@
 
 
 
+
+@breakpoint-sm:            640px;
+@breakpoint-lg:            1340px;
+
+
 // colours
+@body-bg:                  #f3f3f3;
+
 @brand-secondary:          #4db9bf;
 @brand-important:          #e94238;
 @brand-tertiary:           #f69c00;
@@ -14,22 +21,42 @@
 
 
 
+// Typography
+// -------------------------
+@font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       "Cardo", "Baskerville", "Palatino", "Times New Roman", Georgia, Times, serif;
+
+// @headings-font-family:    @font-family-serif;
+@headings-font-weight:    300;
+
+
+
 // Navbar
 // -------------------------
 
 @navbar-height: 46px;
 
-// Reset inverted navbar basics
-@navbar-inverse-color:                      @gray-light;
-@navbar-inverse-bg:                         #212223;
-@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
-// Inverted navbar links
-@navbar-inverse-link-color:                 @gray-light;
-@navbar-inverse-link-hover-color:           #fff;
-@navbar-inverse-link-hover-bg:              transparent;
 
-// Inverted navbar toggle
-@navbar-inverse-toggle-hover-bg:            lighten(@navbar-inverse-bg, 10%);
-@navbar-inverse-toggle-icon-bar-bg:         #fff;
-@navbar-inverse-toggle-border-color:        lighten(@navbar-inverse-bg, 10%);
+@navbar-default-color:             #777;
+@navbar-default-bg:                #fff;
+@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+
+// Navbar links
+// @navbar-default-link-color:                #777;
+// @navbar-default-link-hover-color:          #333;
+// @navbar-default-link-hover-bg:             transparent;
+// @navbar-default-link-active-color:         #555;
+@navbar-default-link-active-bg:            transparent;
+// @navbar-default-link-disabled-color:       #ccc;
+// @navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+// @navbar-default-brand-color:               @navbar-default-link-color;
+// @navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
+// @navbar-default-brand-hover-bg:            transparent;
+
+// Navbar toggle
+// @navbar-default-toggle-hover-bg:           #ddd;
+// @navbar-default-toggle-icon-bar-bg:        #ccc;
+// @navbar-default-toggle-border-color:       #ddd;

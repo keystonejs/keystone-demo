@@ -4,21 +4,39 @@
 
 
 
+// utils
+.fancy-border-bottom {
+	border-bottom: 4px double @hr-border;
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+}
+.fancy-border-top {
+	border-top: 4px double @hr-border;
+	margin-top: 40px;
+	padding-top: 40px;
+}
+.text-fancy {
+	font-family: @font-family-serif;
+	// font-style: italic;
+	font-weight: 300;
+}
+
+
+
+
 // ==============================
 // HERO
 // ==============================
-#hero {
-	background-color: @brand-secondary;
-	color: white;
+.home-hero {
+	background-color: @gray-lighter;
+	color: @gray;
 	margin-top: -40px; // offset nav margin
 	margin-bottom: 40px; // offset nav margin
 	padding: 20px 0;
-	
-	a {
-		color: white;
-	}
+
 	h1 {
 		font-size: @font-size-large;
+		font-weight: 200;
 		line-height: 1.4;
 		margin: 0;
 	}
@@ -32,17 +50,17 @@
 		.btn + .btn {
 			margin-left: 10px;
 		}
-		.btn-primary {
+		/*.btn-primary {
 			background-color: white;
 			border-color: white;
 			color: @brand-secondary;
-		}
+		}*/
 		.btn-link {
 			border-radius: @border-radius-base;
-			border-color: white;
+			border-color: @link-color;
 			
 			&:hover {
-				background-color: @brand-secondary;
+				background-color: white;
 				text-decoration: none;
 			}
 		}
@@ -67,4 +85,52 @@
 			font-size: @font-size-large + 4;
 		}
 	}
+}
+@media (min-width: @screen-sm-min) {
+	.home-about {
+		padding-left: 20%;
+		padding-right: 20%;
+	}
+}
+
+
+
+
+// Page Filters
+@nav-arrow-width: 10px;
+.page-filters {
+	border-bottom: 1px solid @gray-lighter;
+	border-top: 1px solid @gray-lighter;
+	display: table;
+	font-weight: 200;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+
+	li {
+		display: table-cell;
+	}
+	a {
+		color: @gray-light;
+		display: block;
+		padding: 15px 0;
+		text-align: center;
+	}
+	.active > a {
+		// bottom: -1px;
+		// border-bottom: 1px solid @gray;
+		color: @gray;
+		font-weight: normal;
+		position: relative;
+	}
+}
+
+
+
+
+// Gallery
+.gallery-image {
+	display: block;
+	margin-bottom: @grid-gutter-width;
 }

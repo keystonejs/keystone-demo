@@ -24,6 +24,13 @@ Post.schema.virtual('content.full').get(function() {
 	return this.content.extended || this.content.brief;
 });
 
+/** 
+	Relationships
+	=============
+*/
+
+Post.relationship({ path: 'comments', ref: 'PostComment', refPath: 'comment' });
+
 Post.addPattern('standard meta');
 Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
 Post.register();

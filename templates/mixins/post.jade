@@ -1,0 +1,11 @@
+mixin post(post)
+	article.card.card--default(class=post.image.exists ? 'has-img' : null, itemscope, itemtype="http://schema.org/BlogPosting")
+		a(href='/blog/post/' + post.slug, itemprop='url')
+			if post.image.exists
+				.card__image
+					img(src=post._.image.fit(600,400), itemprop='image').img-responsive
+			.card__body
+				h1(itemprop='name').card__title= post.title
+				if post.publishedDate
+					time(datetime=post.publishedDate).text-muted.text-small #{post._.publishedDate.format('MMMM Do, YYYY')} 
+				p(itemprop='description')!= post.content.brief

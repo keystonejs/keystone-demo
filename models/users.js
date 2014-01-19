@@ -16,6 +16,7 @@ User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	phone: { type: String, width: 'short' },
+	photo: { type: Types.CloudinaryImage, collapse: true },
 	password: { type: Types.Password, initial: true, required: false }
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone' },
@@ -33,6 +34,17 @@ User.schema.virtual('canAccessKeystone').get(function() {
  */
 
 User.relationship({ ref: 'Post', path: 'author' });
+
+
+/** 
+	Methods
+	=======
+*/
+
+User.schema.methods.wasActive = function() {
+	this.lastActiveOn = new Date();
+	return this;
+}
 
 
 /**

@@ -1,52 +1,44 @@
 extends ../layouts/default
 
 block intro
-	.container
+	h1 Contact
+	//- p.lead This is an example contact form, demonstrating how to process forms and save data with Keystone.
+	//- p.lead Please follow us for updates to the demo site.
 		
-		h1 Contact Form
-		
-		p.lead This is an example contact form, demonstrating how to process forms and save data with Keystone.
-		p.lead Please follow us for updates to the demo site.
-		p: a(href="https://twitter.com/keystonejs", class="twitter-follow-button", data-show-count="false", data-size="large") Follow @keystonejs
-		script.
-			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 		
 block content
-	.container
-		
-		if enquirySubmitted
-			h3 Thanks for getting in touch.
-			if user
-				p Head over to the <a href='/keystone/enquiries'>admin ui</a> to see your enquiry.
-			else
-				p If you'd like to see your enquiry in the admin ui, <a href='/keystone/signin'>sign in</a> with the username 
-					code demo@keystonejs.com
-					|  and the password 
-					code demo
-					|  and go to the enquiries list.
-		
+	if enquirySubmitted
+		h3 Thanks for getting in touch.
+		if user
+			p Head over to the <a href='/keystone/enquiries'>admin ui</a> to see your enquiry.
 		else
-			.row: .col-sm-8.col-md-6
-				form(method='post')
-					input(type='hidden', name='action', value='contact')
-					.form-group(class=validationErrors.name ? 'has-error' : null)
-						label Name
-						input(type='text', name='name.full', value=formData['name.full'], required).form-control
-					.form-group(class=validationErrors.email ? 'has-error' : null)
-						label Email
-						input(type='email', name='email', value=formData.email, required).form-control
-					.form-group
-						label Phone
-						input(type='text', name='phone', value=formData.phone, required, placeholder='(optional)').form-control
-					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
-						label What are you contacting us about?
-						select(name='enquiryType').form-control
-							option(value='') (select one)
-							each type in enquiryTypes
-								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
-					.form-group(class=validationErrors.message ? 'has-error' : null)
-						label Message
-						textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
-					.form-actions
-						p.help-block (note that others can see your enquiry in the <a href='/keystone/enquiries'>admin ui</a>)
-						button(type='submit').btn.btn-primary Send
+			p If you'd like to see your enquiry in the admin ui, <a href='/keystone/signin'>sign in</a> with the username 
+				code demo@keystonejs.com
+				|  and the password 
+				code demo
+				|  and go to the enquiries list.
+	
+	else
+		form(method='post')
+			input(type='hidden', name='action', value='contact')
+			.form-group(class=validationErrors.name ? 'has-error' : null)
+				label Name
+				input(type='text', name='name.full', value=formData['name.full'], required).form-control
+			.form-group(class=validationErrors.email ? 'has-error' : null)
+				label Email
+				input(type='email', name='email', value=formData.email, required).form-control
+			.form-group
+				label Phone
+				input(type='text', name='phone', value=formData.phone, required, placeholder='(optional)').form-control
+			.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
+				label What are you contacting us about?
+				select(name='enquiryType').form-control
+					option(value='') (select one)
+					each type in enquiryTypes
+						option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+			.form-group(class=validationErrors.message ? 'has-error' : null)
+				label Message
+				textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
+			.form-actions
+				p.help-block (note that others can see your enquiry in the <a href='/keystone/enquiries'>admin ui</a>)
+				button(type='submit').btn.btn-primary Send

@@ -1,0 +1,160 @@
+
+// Wrapper
+.wrapper {
+	background-color: white;
+
+	@media (min-width: @breakpoint-lg) {
+		border-left: 1px solid darken(@body-bg, 6%);
+		border-right: 1px solid darken(@body-bg, 6%);
+		margin: 0 auto;
+		width: @breakpoint-lg - 2; // less the borders
+	}
+}
+.wrapper-inner {
+	padding-left: 15px;
+	padding-right: 15px;
+
+	@media (min-width: @breakpoint-sm) {
+		margin: 0 auto;
+		padding-left: 0;
+		padding-right: 0;
+		width: 640px;
+	}
+
+}
+
+
+
+
+// header
+.site-header {
+	background: url('/images/keystone-arch.jpg') center center no-repeat;
+	background-size: cover;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+
+	.logo {
+		display: inline-block;
+	}
+
+	@media (min-width: @breakpoint-sm) {
+		height: 200px;
+		line-height: 200px;
+	}
+	@media (max-width: @breakpoint-sm) {
+		.logo {
+			height: 50%;
+		}
+	}
+}
+
+
+
+
+// navbar
+.navbar {
+	margin: 0 0 40px;
+}
+.navbar {
+	position: relative;
+	// min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+	margin-bottom: 40px;
+	border-bottom: 1px solid @hr-border;
+}
+.navbar-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+
+	li {
+		display: inline-block;
+	}
+	a {
+		color: @gray-light;
+		display: block;
+		padding: 10px 5px;
+
+		&:hover,
+		&:focus {
+			color: @gray;
+			text-decoration: none;
+		}
+	}
+	.active > a {
+		color: @gray;
+		font-weight: normal;
+	}
+
+	@media (min-width: @breakpoint-sm) {
+		font-size: @font-size-large;
+		font-weight: 200;
+
+		a {
+			padding: 30px;
+		}
+	}
+}
+
+
+
+// footer
+.site-footer {
+	border-top: 1px solid @gray-lighter;
+	color: @gray-light;
+	margin-top: 100px;
+	padding: 50px 0;
+	position: relative;
+	text-align: center;
+	a {
+		color: @gray-light;
+	}
+	
+	@media (min-width: @screen-sm) {
+		padding: 100px 0;
+	}
+	
+}
+
+
+
+// gallery
+.gallery-image {
+	margin-bottom: @grid-gutter-width;
+	
+	img {
+		.img-responsive;
+	}
+}
+
+
+
+// Comments
+#comments {
+	border-top: 1px solid @hr-border;
+	margin-top: 40px;
+	padding-top: 40px;
+}
+.comment-form {
+	margin-bottom: 40px;
+}
+.comment-field {
+	margin-bottom: 10px;
+}
+.comment-field-input {
+	min-height: 60px;
+}
+.comment-thread {
+	font-size: @font-size-base;
+}
+.comment-post {
+	margin: 20px 0;
+}
+
+
+
+// Form stuff
+textarea {
+	.resizable(vertical);
+}

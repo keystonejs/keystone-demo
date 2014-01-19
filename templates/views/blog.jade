@@ -1,77 +1,56 @@
 extends ../layouts/default
 
-mixin post(post)
-	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		h2: a(href='/blog/post/' + post.slug)= post.title
-		p.lead.text-muted Posted 
-			if post.publishDate
-				| on #{post._.publishedDate.format('MMMM Do, YYYY')} 
-			if post.categories && post.categories.length
-				| in 
-				each cat, i in post.categories
-					a(href='/blog/' + cat.key)= cat.name
-					if i < post.categories.length - 1
-						| , 
-					else
-						|  
-			if post.author
-				| by #{post.author.name.first}
-		if post.image.exists
-			img(src=post._.image.fit(160,160)).img.pull-right
-		p!= post.content.brief
-		if post.content.extended
-			p.read-more: a(href='/blog/post/' + post.slug) Read more...
+include ../mixins/post
 
 block content
-	.container
-		h1=data.category ? data.category.name : 'Blog'
-		p.lead
-			if user && user.canAccessKeystone
-				| Edit the blog with the <a href='/keystone/posts'>Keystone Admin UI</a>, or click the 'edit post' link that will appear for each post on hover.
+	h1=data.category ? data.category.name : 'Blog'
+	//- p.lead
+		if user && user.canAccessKeystone
+			| Edit the blog with the <a href='/keystone/posts'>Keystone Admin UI</a>, or click the 'edit post' link that will appear for each post on hover.
+		else
+			| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> as the demo user <code>demo@keystonejs.com / demo</code>
+
+	if filters.category && !data.category
+		h3 Invalid Category.
+	else
+		if data.categories.length
+			//- h2 Categories
+			ul.page-filters
+				li(class=!data.category ? 'active' : null): a(href='/blog') All
+				each cat in data.categories
+					li(class=data.category && data.category.id == cat.id ? 'active' : null): a(href='/blog/' + cat.key)= cat.name
+		if data.posts.results.length
+			if data.posts.totalPages > 1
+				h4.lead.text-muted Showing 
+					strong #{data.posts.first}
+					|  to 
+					strong #{data.posts.last}
+					|  of 
+					strong #{data.posts.total}
+					|  posts
 			else
-				| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> as the demo user <code>demo@keystonejs.com / demo</code>
-		.row
-			.col-sm-8.col-md-9
-				if filters.category && !data.category
-					h3 Invalid Category.
-				else
-					if data.posts.results.length
-						if data.posts.totalPages > 1
-							h4.text-weight-normal Showing 
-								strong #{data.posts.first}
-								|  to 
-								strong #{data.posts.last}
-								|  of 
-								strong #{data.posts.total}
-								|  posts.
-						else
-							h4.text-weight-normal Showing #{utils.plural(data.posts.results.length, '* post')}.
-						.blog
-							each post in data.posts.results
-								+post(post)
-						if data.posts.totalPages > 1
-							ul.pagination
-								if data.posts.previous
-									li: a(href='?page=' + data.posts.previous): span.entypo.entypo-chevron-thin-left
-								else
-									li.disabled: a(href='?page=' + 1): span.entypo.entypo-chevron-thin-left
-								each p, i in data.posts.pages
-									li(class=data.posts.currentPage == p ? 'active' : null)
-										a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
-								if data.posts.next
-									li: a(href='?page=' + data.posts.next): span.entypo.entypo-chevron-thin-right
-								else
-									li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.entypo-chevron-thin-right
+				h4.lead.text-muted Showing #{utils.plural(data.posts.results.length, '* post')}
+			.blog.row
+				each post in data.posts.results
+					.col-sm-6
+						+post(post)
+			if data.posts.totalPages > 1
+				ul.pagination
+					if data.posts.previous
+						li: a(href='?page=' + data.posts.previous): span.entypo.entypo-chevron-thin-left
 					else
-						if data.category
-							h3 No posts in the category #{data.category.name}.
-						else
-							h3 There are no posts yet.
-			
-			.col-sm-4.col-md-3
-				if data.categories.length
-					//- h2 Categories
-					.list-group(style='margin-top: 70px;')
-						a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
-						each cat in data.categories
-							a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+						li.disabled: a(href='?page=' + 1): span.entypo.entypo-chevron-thin-left
+					each p, i in data.posts.pages
+						li(class=data.posts.currentPage == p ? 'active' : null)
+							a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
+					if data.posts.next
+						li: a(href='?page=' + data.posts.next): span.entypo.entypo-chevron-thin-right
+					else
+						li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.entypo-chevron-thin-right
+		else
+			if data.category
+				.jumbotron.text-center
+					h3 No posts in the category #{data.category.name}.
+			else
+				.jumbotron.text-center
+					h3 There are no posts yet.
