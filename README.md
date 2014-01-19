@@ -81,7 +81,7 @@ Check out the [Keystone Guide](http://keystonejs.com/guide) for documentation.
 
 ### Ask us questions or tell us what you built
 
-We love to hear what people are doing with KeystoneJS, and are always happy to help when people get stuck.
+We love to hear what people are doing with KeystoneJS, and are always happy to help if you get stuck.
 
 Please reach out to us via the [KeystoneJS Google Group](https://groups.google.com/d/forum/keystonejs) or **@keystonejs** on twitter.
 
