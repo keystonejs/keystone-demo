@@ -14,6 +14,8 @@ new issue.
 
 ## Using this as a basis for your own project
 
+*Note: We're implementing a new theme for the demo site; to use the (old) basic bootstrap theme, check out the `bootstrap-simple` branch*
+
     git clone https://github.com/JedWatson/keystone-demo.git
     cd keystone-demo
     npm install
