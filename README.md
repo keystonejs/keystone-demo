@@ -28,7 +28,7 @@ First, sign up for free accounts for:
 
 ... as these services are used by features in the demo site.
 
-Then, reate a `.env` file in the project folder (the one with this readme) and fill in the following values:
+Then, create a `.env` file in the project folder (the one with this readme) and fill in the following values:
 
     CLOUDINARY_URL={your cloudinary url}
     MANDRILL_APIKEY={your mandrill api key}
