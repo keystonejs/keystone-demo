@@ -18,11 +18,17 @@ block content
 				|  
 				small.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
 			
-			.row.gallery-images
-				each image, i in gallery.images
-					.col-xs-6.col-sm-4.col-md-3
-						a(href=image.limit(900,600), title=gallery.name + ' image ' + (i+1), rel='gallery').gallery-image
-							img(src=image.fill(300,300), alt=gallery.name + ' image ' + (i+1))
+			.gallery-images
+				if gallery.heroImage.exists
+					.row
+						.col-xs-12
+							a(href=gallery._.heroImage.limit(900,600), title=gallery.name + ' hero image', rel='gallery').gallery-image
+								img(src=gallery._.heroImage.limit(640,640), alt=gallery.name + ' hero image')
+				.row
+					each image, i in gallery.images
+						.col-xs-6.col-sm-4.col-md-3
+							a(href=image.limit(900,600), title=gallery.name + ' image ' + (i+1), rel='gallery').gallery-image
+								img(src=image.fill(300,300), alt=gallery.name + ' image ' + (i+1))
 		
 	else
 		.jumbotron.text-center
