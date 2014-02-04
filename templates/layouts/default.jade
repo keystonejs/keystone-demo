@@ -38,7 +38,7 @@ html
 					each link in navLinks
 						li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 					if user
-						//- li: a(href='/keystone') Open Keystone
+						li: a(href='/keystone') Open Keystone
 						li: a(href='/keystone/signout') Sign Out
 					else
 						li: a(href='/keystone/signin') Sign In
