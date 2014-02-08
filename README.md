@@ -5,14 +5,14 @@ This site is an example of a default [Keystone](http://keystonejs.com) applicati
 
 Try it out at http://demo.keystonejs.com
 
-It's a great basis to use when starting a Keystone project; just `git clone`
-this repository and start making changes.
-
-Pull requests are welcome, or if you'd like to see additional demos just open a
-new issue.
+Pull requests are welcome, and if you'd like to see additional demos just open a new issue to let us know.
 
 
 ## Using this as a basis for your own project
+
+We reccommend you use our new [Yeoman Generator](https://github.com/JedWatson/generator-keystone) as the basis for new projects, as this demo site contains code specific to runing a public demo (like user account protection, etc).
+
+If you do want to use this as a starting point however, you are welcome, follow the instructions below to begin.
 
 *Note: We're implementing a new theme for the demo site; to use the (old) basic bootstrap theme, check out the `bootstrap-simple` branch*
 
@@ -46,11 +46,13 @@ Then, create a `.env` file in the project folder (the one with this readme) and 
     GA_PROPERTY={your google analytics property} // optional
     PORT={the port to listen on} // defaults to 3000, automatically set by paas (e.g. heroku)
 
+
 ### Configuring the project defaults
 
 Open **web.js** and update the name and brand to your own project.
 
 You can also change the other settings in this file (locals, nav, etc.) as you develop your project.
+
 
 ### Replacing the demo account
 
@@ -62,7 +64,7 @@ When you run your app in production, it is strongly recommended you change your 
 
 ### Run it!
 
-`node web`
+`node keystone`
 
 You should see in your console:
 
