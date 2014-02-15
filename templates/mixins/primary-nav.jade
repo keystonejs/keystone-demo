@@ -1,0 +1,19 @@
+mixin primary-nav(section)
+	header.ks-header
+		.container
+			button.navbar-toggle.navbar-toggle-menu(type='button', data-toggle='collapse', data-target='.ks-nav__collapse')
+				span.sr-only Toggle navigation
+				!='<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>'
+			a(href='/', title='KeystoneJS').ks-logo
+				img(src='/images/logo.svg', alt='KeystoneJS', width=207, height=70)
+			
+			nav.ks-nav
+				.ks-nav__collapse.collapse
+					ul.ks-nav__list
+						each link in navLinks
+							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+						if user
+							li: a(href='/keystone') Open Keystone
+							li: a(href='/keystone/signout') Sign Out
+						else
+							li: a(href='/keystone/signin') Sign In

@@ -2,16 +2,31 @@ extends ../layouts/default
 
 include ../mixins/post
 
-block content
-	h1=data.category ? data.category.name : 'Blog'
-	//- p.lead
-		if user && user.canAccessKeystone
-			| Edit the blog with the <a href='/keystone/posts'>Keystone Admin UI</a>, or click the 'edit post' link that will appear for each post on hover.
-		else
-			| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> as the demo user <code>demo@keystonejs.com / demo</code>
+block header
+	//- header
+	header.page-header
+		.container
+			h1 Blog
+			p.lead
+				if user && user.canAccessKeystone
+					| Edit the blog with the <a href='/keystone/posts'>Keystone Admin UI</a>, or click the 'edit post' link that will appear for each post on hover.
+				else
+					| You can contribute to this example blog by <a href='/keystone/signin', title='Signin details', data-toggle='popover', data-trigger='hover' data-placement='top', data-html='true', data-content='<p class="text-center">U: demo@keystonejs.com</p><p>P: demo</p>'>signing in</a> as the Demo User
+
+block primary-content
+	if data.posts.totalPages > 1
+		h3 Showing 
+			strong #{data.posts.first}
+			|  to 
+			strong #{data.posts.last}
+			|  of 
+			strong #{data.posts.total}
+			|  posts
+	else
+		h3 Showing #{utils.plural(data.posts.results.length, '* post')}
 
 	if filters.category && !data.category
-		h3 Invalid Category.
+		.jumbotron.text-center Invalid Category
 	else
 		if data.categories.length
 			//- h2 Categories
@@ -20,20 +35,9 @@ block content
 				each cat in data.categories
 					li(class=data.category && data.category.id == cat.id ? 'active' : null): a(href='/blog/' + cat.key)= cat.name
 		if data.posts.results.length
-			if data.posts.totalPages > 1
-				h4.lead.text-muted Showing 
-					strong #{data.posts.first}
-					|  to 
-					strong #{data.posts.last}
-					|  of 
-					strong #{data.posts.total}
-					|  posts
-			else
-				h4.lead.text-muted Showing #{utils.plural(data.posts.results.length, '* post')}
-			.blog.row
+			.blog
 				each post in data.posts.results
-					.col-sm-6
-						+post(post)
+					+post(post)
 			if data.posts.totalPages > 1
 				ul.pagination
 					if data.posts.previous
@@ -54,3 +58,29 @@ block content
 			else
 				.jumbotron.text-center
 					h3 There are no posts yet.
+
+block secondary-content
+	h2 How it works
+	h3 Blog Implementation
+	p The options for KeystoneJS cover a range of behaviours, from how the express app is configured, to enabling features and authentication options for integrated services.
+	p Passing a <code>{ key: 'value' }</code> configuration <code class="data-type">Object</code> to the <code>keystone.init(options)</code> method
+	a(href=js).btn.btn-lg.btn-block.btn-default Read the Docs
+
+block page-js
+	script(src='/js/lib/bootstrap/tooltip.js')
+	script(src='/js/lib/bootstrap/popover.js')
+	script.
+		$(function() {
+
+
+			// Init Bootstrap tools
+			// ------------------------------
+			
+			$("[rel='tooltip']").tooltip();
+			$("[data-toggle='popover']").popover();
+
+		});
+
+
+
+

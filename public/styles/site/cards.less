@@ -2,10 +2,15 @@
 // ------------------------------
 
 @card-gutter: 15px;
+
 .card {
+	background-color: white;
+	// border-radius: 3px;
+	// border: 1px solid @gray-lighter;
+	// border-bottom: 1px solid darken(@gray-lighter, 10%);
 	margin-bottom: @grid-gutter-width;
 	position: relative;
-	overflow: hidden;
+	// overflow: hidden;
 	
 	> a {
 		display: block;
@@ -34,9 +39,18 @@
 	color: inherit;
 	font-size: 24px;
 	font-weight: 200;
-	margin: 0 0 @card-gutter;
-	border-bottom: 1px solid @hr-border;
-	padding-bottom: @card-gutter;
+	margin: 0 0 (@card-gutter / 2);
+	// padding: @card-gutter 0;
+}
+.card__image {
+	max-height: 300px;
+	overflow: hidden;
+}
+.card__body {
+	// font-family: @font-family-serif;
+	// padding: @card-gutter;
+	position: relative;
+	z-index: 2;
 }
 .card__icon {
 	bottom: 0;
@@ -50,23 +64,17 @@
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 2px;
 	color: inherit;
-	display: block;
+	display: inline-block;
 	font-weight: 500;
 	padding: 10px;
 	text-align: center;
 	text-transform: uppercase;
 }
-.card__body {
-	// font-family: @font-family-serif;
-	padding: @card-gutter;
-	position: relative;
-	z-index: 2;
-}
 
 @media (min-width: @screen-sm-min) {
-	.card__body {
+	/*.card__body {
 		padding: @card-gutter * 2;
-	}
+	}*/
 	/*.card__title {
 		padding-bottom: @card-gutter * 2;
 		margin-bottom: @card-gutter * 2;

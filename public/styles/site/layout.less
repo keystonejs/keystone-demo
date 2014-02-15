@@ -1,7 +1,18 @@
-body,
-html {
-	height: 100%;
+//
+// LAYOUT
+// ==============================
+
+
+
+body {
+	font-weight: 300;
 }
+
+strong,
+label {
+	font-weight: 400;
+}
+
 // Wrapper
 .wrapper {
 	background-color: white;
@@ -31,96 +42,188 @@ html {
 
 
 // header
-.site-header {
-	background: url('/images/keystone-arch.jpg') center center no-repeat;
-	background-size: cover;
-	height: 100px;
-	line-height: 100px;
-	text-align: center;
+.page-header {
+	background: url('/images/intro-bg.png') no-repeat center center #fafafa;
+	// background-size: cover;
+	background-color: #fff;
+	border-bottom: 1px solid darken(@body-bg, 5%);
+	margin-bottom: 40px;
+	margin-top: 0;
+	padding-bottom: 30px;
+	padding-top: 30px;
 
-	.logo {
+	p {
+		font-weight: 300;
+		margin-bottom: 0;
+	}
+	code {
 		display: inline-block;
 	}
-
-	@media (min-width: @breakpoint-sm) {
-		height: 200px;
-		line-height: 200px;
+	.popover {
+		font-size: @font-size-base;
 	}
-	@media (max-width: @breakpoint-sm) {
-		.logo {
-			height: 50%;
+	.buttons {
+		margin-top: 30px;
+	}
+	.btn {
+		border: 2px solid transparent;
+		margin-right: 10px;
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+	.btn-link {
+		border-color: @link-color;
+		color: @link-color;
+		
+		&:hover {
+			background: transparent;
+		}
+	}
+	.list-links {
+		color: @gray-light;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		
+		li {
+			vertical-align: middle;
+		}
+		a {
+			color: @gray-light;
+			border-bottom: 1px dotted @gray-light;
+			
+			&:hover {
+				border-bottom-style: solid;
+				color: @gray;
+				text-decoration: none;
+			}
+		}
+	}
+	@media (min-width: @screen-sm-min) {
+		padding-bottom: 50px;
+		padding-top: 50px;
+		
+		h1 {
+			margin-bottom: 10px;
+		}
+		p {
+			font-weight: 100;
+			letter-spacing: 0.02em;
+			margin-right: 18%;
+		}
+		.btn-lg {
+			font-size: 20px;
+		}
+	}
+}
+.home-header {
+	h1 {
+		font-size: 24px;
+		font-weight: 300;
+		line-height: 1.2;
+		margin: 0;
+	}
+
+	@media (min-width: @screen-sm-min) {
+		h1 {
+			font-size: 40px;
+			font-weight: 100;
+			margin-right: 10%;
 		}
 	}
 }
 
-
-
-
-// navbar
-.navbar {
-	margin: 0 0 40px;
-}
-.navbar {
+// footer
+.demo-footer {
+	background-color: #fafafa;
+	border-top: 1px solid @gray-lighter;
+	color: @gray-light;
+	font-size: @font-size-small;
+	font-weight: 300;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	padding-top: 30px;
 	position: relative;
-	// min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-	margin-bottom: 40px;
-	border-bottom: 1px solid @hr-border;
-}
-.navbar-nav {
-	list-style: none;
-	margin: 0;
-	padding: 0;
 	text-align: center;
-
-	li {
-		display: inline-block;
+	
+	h4 {
+		color: @gray;
 	}
 	a {
-		color: @gray-light;
-		display: block;
-		padding: 10px 5px;
-
-		&:hover,
-		&:focus {
-			color: @gray;
+		color: @gray;
+		
+		&:hover {
+			color: @gray-dark;
 			text-decoration: none;
 		}
 	}
-	.active > a {
-		color: @gray;
-		font-weight: normal;
-	}
-
-	@media (min-width: @breakpoint-sm) {
-		font-size: @font-size-large;
-		font-weight: 200;
-
-		a {
-			padding: 30px;
+	
+	@media (min-width: @screen-sm-min) {
+		margin-top: 100px;
+		padding-bottom: 60px;
+		padding-top: 60px;
+		
+		li {
+			padding-left: 0;
+			padding-right: 0;
+		}
+		li + li:before {
+			content: " \00B7 ";
+			display: inline-block;
+			padding: 0 15px;
 		}
 	}
+	
 }
-
-
-
-// footer
-.site-footer {
-	border-top: 1px solid @gray-lighter;
-	color: @gray-light;
-	margin-top: 100px;
-	padding: 50px 0;
+.demo-footer-floor {
+	background-color: @gray-lighter;
+	line-height: 1;
 	position: relative;
 	text-align: center;
-	a {
-		color: @gray-light;
-	}
 	
-	@media (min-width: @screen-sm) {
-		padding: 100px 0;
+	.social-buttons {
+		display: inline-block;
+		margin: 20px 0;
+		text-align: center;
+		
+		.social-button {
+			display: inline-block;
+		}
+		.twitter-follow-button {
+			margin-right: 10px;
+		}
 	}
 	
 }
 
+
+
+// primary content
+.primary-content {
+	background-color: white;
+	border: 1px solid darken(@body-bg, 5%);
+	border-radius: 3px;
+	// padding: @grid-gutter-width / 2;
+}
+
+// secondary content
+.secondary-content {
+	.box-shadow( inset 2px 0 0 mix(white, @brand-primary,80%) );
+	background-color: mix(white, @brand-primary,95%);
+	border-left: 1px solid #ddd;
+	left: -1px;
+	position: relative;
+	z-index: 1;
+}
+@media (min-width: @screen-sm-min) {
+	.primary-content,
+	.secondary-content {
+		padding: @grid-gutter-width;
+	}
+	.secondary-content {
+		margin-top: @grid-gutter-width;
+		margin-left: -(@grid-gutter-width + 1);
+	}
+}
 
 
 // gallery
@@ -154,6 +257,16 @@ html {
 }
 .comment-post {
 	margin: 20px 0;
+}
+
+
+
+// Blog Stuff
+
+.post + .post {
+	border-top: 1px solid @gray-lighter;
+	margin-top: @grid-gutter-width;
+	padding-top: @grid-gutter-width;
 }
 
 

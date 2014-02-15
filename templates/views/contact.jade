@@ -1,12 +1,12 @@
 extends ../layouts/default
+				
+block header
+	header.page-header
+		.container
+			h1 Contact
+			p.lead Demonstrates how to process forms and save data with Keystone.
 
-block intro
-	h1 Contact
-	//- p.lead This is an example contact form, demonstrating how to process forms and save data with Keystone.
-	//- p.lead Please follow us for updates to the demo site.
-		
-		
-block content
+block primary-content
 	if enquirySubmitted
 		h3 Thanks for getting in touch.
 		if user
@@ -19,6 +19,7 @@ block content
 				|  and go to the enquiries list.
 	
 	else
+		h2 Form submission and validation
 		form(method='post')
 			input(type='hidden', name='action', value='contact')
 			.form-group(class=validationErrors.name ? 'has-error' : null)
@@ -42,3 +43,16 @@ block content
 			.form-actions
 				p.help-block (note that others can see your enquiry in the <a href='/keystone/enquiries'>admin ui</a>)
 				button(type='submit').btn.btn-primary Send
+
+block secondary-content
+	h2 How it works
+	p The options for KeystoneJS cover a range of behaviours, from how the express app is configured, to enabling features and authentication options for integrated services.
+	p There are three ways to set options:
+	
+	ul.options
+		li Passing a <code>{ key: 'value' }</code> configuration <code class="data-type">Object</code> to the <code>keystone.init(options)</code> method
+		li Calling <code>keystone.set('key', 'value')</code>
+		li Setting environment variables in <code>process.env</code>. Only some options support this (noted below).
+	
+	p If you want to keep secret keys and configuration out of your codebase (especially important for open source projects, or projects where not all developers should have access to production config settings) the <a href="https://npmjs.org/package/dotenv" target="_blank">dotenv</a> module makes this very easy to manage.
+	a(href=js).btn.btn-lg.btn-block.btn-default Read the Docs

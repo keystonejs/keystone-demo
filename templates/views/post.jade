@@ -2,7 +2,18 @@ extends ../layouts/default
 
 include ../mixins/commenting
 
-block content
+block header
+	//- header
+	header.page-header
+		.container
+			h1 Blog Post
+			p.lead
+				if user && user.canAccessKeystone
+					| Edit the blog with the <a href='/keystone/posts'>Keystone Admin UI</a>, or click the 'edit post' link that will appear for each post on hover.
+				else
+					| You can contribute to this example blog by <a href='/keystone/signin', title='Signin details', data-toggle='popover', data-trigger='hover' data-placement='top', data-html='true', data-content='<p class="text-center">U: demo@keystonejs.com</p><p>P: demo</p>'>signing in</a> as the Demo User
+
+block primary-content
 	p: a(href='/blog').text-muted &larr; back to the blog
 	hr
 	article
@@ -35,6 +46,20 @@ block content
 		#comments.details-panel-footer
 			+comment-form()
 			+comment-thread(comments)
+
+block secondary-content
+	h2 How it works
+	h3 Code
+	p The options for KeystoneJS cover a range of behaviours, from how the express app is configured, to enabling features and authentication options for integrated services.
+	p There are three ways to set options:
+	
+	ul.options
+		li Passing a <code>{ key: 'value' }</code> configuration <code class="data-type">Object</code> to the <code>keystone.init(options)</code> method
+		li Calling <code>keystone.set('key', 'value')</code>
+		li Setting environment variables in <code>process.env</code>. Only some options support this (noted below).
+	
+	p If you want to keep secret keys and configuration out of your codebase (especially important for open source projects, or projects where not all developers should have access to production config settings) the <a href="https://npmjs.org/package/dotenv" target="_blank">dotenv</a> module makes this very easy to manage.
+	a(href=js).btn.btn-lg.btn-block.btn-default Read the Docs
 
 
 block page-js

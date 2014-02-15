@@ -4,6 +4,12 @@
 
 
 
+// type
+dt { font-weight: 300; }
+dd { font-weight: 400; }
+
+
+
 // utils
 .fancy-border-bottom {
 	border-bottom: 4px double @hr-border;
@@ -100,16 +106,11 @@
 .page-filters {
 	border-bottom: 1px solid @gray-lighter;
 	border-top: 1px solid @gray-lighter;
-	display: table;
 	font-weight: 200;
 	list-style: none;
-	margin: 0;
+	margin: 0 0 40px;
 	padding: 0;
-	width: 100%;
 
-	li {
-		display: table-cell;
-	}
 	a {
 		color: @gray-light;
 		display: block;
@@ -122,6 +123,61 @@
 		color: @gray;
 		font-weight: normal;
 		position: relative;
+	}
+
+	@media (min-width: @screen-md-min) {
+		display: table;
+		width: 100%;
+		li {
+			display: table-cell;
+		}
+	}
+}
+
+
+// notes
+.note {
+	border-left: 3px solid @gray-lighter;
+	color: #777;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	padding-left: 1em;
+	padding-top: 20px;
+	position: relative;
+	
+	&:before {
+		content: "Note";
+		color: #ccc;
+		font-size: @font-size-small;
+		font-weight: 500;
+		line-height: 1;
+		position: absolute;
+		top: 0;
+		text-transform: uppercase;
+	}
+}
+.contextual-note {
+	background-color: mix(white, @brand-primary,95%);
+	border-left: 6px solid mix(white, @brand-primary,80%);
+	margin-bottom: 2em;
+	margin-top: 2em;
+	padding: 15px;
+	
+	h4 {
+		margin: 0 0 15px;
+	}
+	p {
+		margin: 15px 0 0;
+	}
+	pre {
+		margin: 15px 0 0;
+	}
+	pre, code {
+		border-color: mix(white, @brand-primary,80%);
+		background: mix(white, @brand-primary,98%)
+	}
+	dl {
+		margin: 0;
 	}
 }
 

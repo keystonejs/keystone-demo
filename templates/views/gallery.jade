@@ -3,12 +3,13 @@ extends ../layouts/default
 block css
 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
 				
-block content
-	h1 Gallery
-	
-	//- p.lead This is an example image gallery, demonstrating how you can use images with Keystone and Cloudinary.
-	//- p.lead Please follow us for updates to the demo site.
+block header
+	header.page-header
+		.container
+			h1 Gallery
+			p.lead Demonstrates how you can use images with Keystone and Cloudinary.
 
+block primary-content
 	if galleries.length
 		
 		each gallery, i in galleries
@@ -33,6 +34,20 @@ block content
 	else
 		.jumbotron.text-center
 			.lead.text-muted There are no image galleries in the database.
+
+block secondary-content
+	h2 How it works
+	h3 Code
+	p The options for KeystoneJS cover a range of behaviours, from how the express app is configured, to enabling features and authentication options for integrated services.
+	p There are three ways to set options:
+	
+	ul.options
+		li Passing a <code>{ key: 'value' }</code> configuration <code class="data-type">Object</code> to the <code>keystone.init(options)</code> method
+		li Calling <code>keystone.set('key', 'value')</code>
+		li Setting environment variables in <code>process.env</code>. Only some options support this (noted below).
+	
+	p If you want to keep secret keys and configuration out of your codebase (especially important for open source projects, or projects where not all developers should have access to production config settings) the <a href="https://npmjs.org/package/dotenv" target="_blank">dotenv</a> module makes this very easy to manage.
+	a(href=js).btn.btn-lg.btn-block.btn-default Read the Docs
 
 
 block page-js
