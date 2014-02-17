@@ -1,3 +1,11 @@
+/**
+ * Warning: Users created with this script are protected, and changes to their
+ * name, email and password values will be ignored.
+ * 
+ * If you fork this site, be sure to remove line 21 (isProtected = true) and
+ * make changes to the models/users.js file as well.
+ */
+
 var keystone = require('keystone'),
 	async = require('async'),
 	User = keystone.list('User');
