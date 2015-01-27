@@ -63,7 +63,7 @@ PostComment.schema.post('save', function() {
 	============
 */
 
-PostComment.addPattern('standard meta');
+//PostComment.addPattern('standard meta');
 PostComment.defaultColumns = 'author, post, publishedOn, commentState';
 PostComment.register();
 

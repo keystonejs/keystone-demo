@@ -11,5 +11,5 @@ PostCategory.add({
 
 PostCategory.relationship({ ref: 'Post', path: 'categories' });
 
-PostCategory.addPattern('standard meta');
+//PostCategory.addPattern('standard meta');
 PostCategory.register();

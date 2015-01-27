@@ -35,10 +35,10 @@ Everything.add(
 		{ label: 'Option 2', value: 'two' },
 		{ label: 'Option 3', value: 'three' }
 	] },
-	numericSelect: { type: Types.Select, numeric: true, options: [
-		{ label: 'Number 1', value: 1 },
-		{ label: 'Number 2', value: 2 },
-		{ label: 'Number 3', value: 3 }
+    numericSelect: { type: Types.Select, options: [
+		{ label: 'Number 1', value: '1' },
+		{ label: 'Number 2', value: '2' },
+		{ label: 'Number 3', value: '3' }
 	] },
 	splitName: { type: Types.Name, initial: true },
 	password: { type: Types.Password, initial: true },
@@ -46,10 +46,11 @@ Everything.add(
 	cloudinaryImages: { type: Types.CloudinaryImages },
 	location: { type: Types.Location },
 	markdown: { type: Types.Markdown },
+    code: { type: Types.Code },
 	wysiwygHtml: { type: Types.Html, wysiwyg: true },
 	shortWysiwygField: { type: Types.Html, wysiwyg: true, height: 100 },
-	embedSrc: { type: String }/*,
-	embedData: { type: Types.Embedly, from: 'embedSrc' }*/
+	embedSrc: { type: String },
+	embedData: { type: Types.Embedly, from: 'embedSrc' }
 }, 'Dependent Fields', {
 	otherSelect: { type: Types.Select, options: [
 		{ label: 'Pre-defined Value', value: 'predefined' },
@@ -75,5 +76,5 @@ Everything.schema.virtual('otherSelectValue').get(function() {
 	return (this.otherSelect == 'other') ? this.otherValue : this.otherSelect;
 });
 
-Everything.addPattern('standard meta');
+//Everything.addPattern('standard meta');
 Everything.register();
