@@ -18,7 +18,7 @@ Enquiry.add({
 	timestamp: { type: Date, default: Date.now, noedit: true }
 });
 
-Enquiry.addPattern('standard meta');
+Enquiry.track = true;
 Enquiry.defaultSort = '-timestamp';
 Enquiry.defaultColumns = 'name, email, enquiryType, timestamp';
 Enquiry.register();

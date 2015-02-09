@@ -31,6 +31,6 @@ Post.schema.virtual('content.full').get(function() {
 
 Post.relationship({ path: 'comments', ref: 'PostComment', refPath: 'comment' });
 
-Post.addPattern('standard meta');
+Post.track = true;
 Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
 Post.register();
