@@ -1,21 +1,17 @@
 {
   "name": "keystone-demo",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/JedWatson/keystone-demo.git"
   },
   "dependencies": {
-    "keystone": "~0.1.55",
-    "async": "~0.2.9",
-    "underscore": "~1.5.2",
-    "csv": "0.3.6",
-    "dotenv": "0.0.3"
-  },
-  "engines": {
-    "node": "0.10.x",
-    "npm": "1.2.x"
+    "keystone": "git://github.com/keystonejs/keystone.git#master",
+    "async": "~0.9.0",
+    "lodash": "~3.1.0",
+    "csv": "0.4.1",
+    "dotenv": "0.5.1"
   },
   "scripts": {
     "start": "keystone.js"
