@@ -1,4 +1,4 @@
-var _ = require('underscore'),
+var _ = require('lodash'),
 	keystone = require('keystone'),
 	importRoutes = keystone.importer(__dirname);
 
