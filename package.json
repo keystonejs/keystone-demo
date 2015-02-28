@@ -7,7 +7,7 @@
     "url": "https://github.com/JedWatson/keystone-demo.git"
   },
   "dependencies": {
-    "keystone": "git://github.com/keystonejs/keystone.git#master",
+    "keystone": "~0.3.2",
     "async": "~0.9.0",
     "lodash": "~3.1.0",
     "csv": "0.4.1",
