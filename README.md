@@ -47,9 +47,15 @@ Then, create a `.env` file in the project folder (the one with this readme) and 
     PORT={the port to listen on} // defaults to 3000, automatically set by paas (e.g. heroku)
 
 
+### Installing MongoDB
+
+By default, KeystoneJS will look for a MongoDB server running on localhost on the default port, and connect to it. If you're getting errors related to the MongoDB connection, make sure your MongoDB server is running.
+
+You can find more information on how to install MongoDB and other dependencies on our [generator-keystone](https://github.com/keystonejs/generator-keystone) README.
+
 ### Configuring the project defaults
 
-Open **web.js** and update the name and brand to your own project.
+Open **keystone.js** and update the name and brand to your own project.
 
 You can also change the other settings in this file (locals, nav, etc.) as you develop your project.
 
