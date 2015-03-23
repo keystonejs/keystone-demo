@@ -70,6 +70,6 @@ User.schema.path('password').set(function(value) {
  * Registration
  */
 
-User.addPattern('standard meta');
+// User.addPattern('standard meta');
 User.defaultColumns = 'name, email, isAdmin';
 User.register();
