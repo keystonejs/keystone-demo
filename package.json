@@ -7,11 +7,11 @@
     "url": "https://github.com/JedWatson/keystone-demo.git"
   },
   "dependencies": {
-    "keystone": "~0.3.2",
+    "keystone": "~0.3.6",
     "async": "~0.9.0",
-    "lodash": "~3.1.0",
+    "lodash": "~3.6.0",
     "csv": "0.4.1",
-    "dotenv": "0.5.1"
+    "dotenv": "1.1.0"
   },
   "scripts": {
     "start": "node keystone.js"
