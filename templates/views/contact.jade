@@ -29,8 +29,8 @@ block content
 				input(type='email', name='email', value=formData.email, required).form-control
 			.form-group
 				label Phone
-				input(type='text', name='phone', value=formData.phone, required, placeholder='(optional)').form-control
-			.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
+				input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
+			.form-group(class=validationErrors.enquiryType ? 'has-error' : null, required)
 				label What are you contacting us about?
 				select(name='enquiryType').form-control
 					option(value='') (select one)
@@ -38,7 +38,7 @@ block content
 						option(value=type.value, selected=formData.enquiryType == type.value)= type.label
 			.form-group(class=validationErrors.message ? 'has-error' : null)
 				label Message
-				textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
+				textarea(name='message', placeholder='Leave us a message...' rows=4, required).form-control= formData.message
 			.form-actions
 				p.help-block (note that others can see your enquiry in the <a href='/keystone/enquiries'>admin ui</a>)
 				button(type='submit').btn.btn-primary Send
