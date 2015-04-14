@@ -7,6 +7,8 @@ Try it out at http://demo.keystonejs.com
 
 Pull requests are welcome, and if you'd like to see additional demos just open a new issue to let us know.
 
+# TODO
+* lock the demo down to vandalism https://github.com/keystonejs/keystone/issues/1126
 
 ## Using this as a basis for your own project
 

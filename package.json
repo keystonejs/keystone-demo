@@ -14,6 +14,6 @@
     "dotenv": "0.5.1"
   },
   "scripts": {
-    "start": "keystone.js"
+    "start": "node keystone.js"
   }
 }
