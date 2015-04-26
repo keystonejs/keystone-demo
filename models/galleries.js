@@ -12,5 +12,5 @@ Gallery.add({
 	images: { type: Types.CloudinaryImages }
 });
 
-Gallery.addPattern('standard meta');
+Gallery.track = true;
 Gallery.register();

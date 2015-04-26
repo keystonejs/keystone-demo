@@ -75,5 +75,5 @@ Everything.schema.virtual('otherSelectValue').get(function() {
 	return (this.otherSelect == 'other') ? this.otherValue : this.otherSelect;
 });
 
-Everything.addPattern('standard meta');
+Everything.track = true;
 Everything.register();

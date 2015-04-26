@@ -1,4 +1,4 @@
-var _ = require('underscore'),
+var _ = require('lodash'),
 	keystone = require('keystone'),
 	Types = keystone.Field.Types;
 
@@ -36,7 +36,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
 User.relationship({ ref: 'Post', path: 'author' });
 
 
-/** 
+/**
 	Methods
 	=======
 */
@@ -70,6 +70,6 @@ User.schema.path('password').set(function(value) {
  * Registration
  */
 
-User.addPattern('standard meta');
+User.track = true;
 User.defaultColumns = 'name, email, isAdmin';
 User.register();

@@ -1,5 +1,5 @@
 // Load .env for development environments
-require('dotenv')().load();
+require('dotenv').load();
 
 var keystone = require('keystone');
 
@@ -38,7 +38,7 @@ keystone.init({
 require('./models');
 
 keystone.set('locals', {
-	_: require('underscore'),
+	_: require('lodash'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable,
