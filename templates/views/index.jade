@@ -1,56 +1,42 @@
 extends ../layouts/default
 
 block content
-	.text-center
-		h1 KeystoneJS Demo
-		.lead This site demonstrates common patterns in <a href='http://keystonejs.com', target='_blank'>Keystone</a>.
-		.buttons
-			a(href='http://github.com/JedWatson/keystone-demo', target='_blank', title='View on GitHub').btn.btn-primary View on GitHub
-			a(href='http://www.keystonejs.com/guide', target='_blank', title='KeystoneJS Documentation').btn.btn-link Read the Docs
+	h1 KeystoneJS Demo
+	.lead This site demonstrates common patterns in <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.
+	.buttons
+		a(href='http://github.com/KeystoneJS/keystone-demo', target='_blank', title='View on GitHub').btn.btn-primary View on GitHub
+		a(href='http://www.keystonejs.com/guide', target='_blank', title='KeystoneJS Documentation').btn.btn-link Read the Docs
 
 	.row
-		.home-section
-			span.entypo.entypo-docs.card__icon
-			.card__body
+		.col-sm-8
+			.home-section
 				h3.card__title: a(href='/blog') Blog
 				//- p Simple example blog with posts and categories.
 				p Posts have a slug automatically generated from their title, and support short and extended versions of the content.
 				p You can sign in using the demo account to contribute to the blog.
-		.home-section
-			span.entypo.entypo-lock.card__icon
-			.card__body
-				h3.card__title: a(href='/keystone/signin') Session Management
-				p Keystone includes session management and default sign-in and sign-out views.
-				p Sign in with the username <code>demo@keystonejs.com</code> and the password <code>demo</code>
-				a(href='/keystone/signin').btn.btn-default Sign in
-		.home-section
-			span.entypo.entypo-picture.card__icon
-			.card__body
+			.home-section
 				h3.card__title: a(href='/gallery') Gallery
 				p Example of how to set up a page that displays multiple image galleries.
 				p Demonstrates usage of single and multi image fields and their resizing methods.
 				p You can sign in using the demo account to create and manage image galleries, and upload additional images
-				.card__button Check it out
-		.home-section
-			span.entypo.entypo-mail.card__icon
-			.card__body
+			.home-section
 				h3.card__title: a(href='/contact') Enquiries
 				p Simple contact form that validates input and logs enquiries to the database.
 				p You can sign in using the demo account to view the submitted enquiries.
-				.card__button Check it out
-		.home-section
-			span.entypo.entypo-lock.card__icon
-			.card__body
-				h3.card__title: a(href='/404') Error Handling
-				p The 404 and 500 views demonstrate how to set up error handlers for your application.
-				.card__button Check it out
-		.home-section
-			span.entypo.entypo-cloud.card__icon
-			.card__body
+			.home-section
 				h3.card__title Generating CSVs
 				p For an example of how to download a list in .csv format, see /routes/download/users.js.
 				p It uses the excellent node-csv library.
-				a(href='/download/users').btn.btn-default Download users.csv
+			a(href='/download/users').btn.btn-default Download users.csv
+		.col-sm-4
+			.home-section
+				h3.card__title: a(href='/keystone/signin') Session Management
+				p Keystone includes session management and default sign-in and sign-out views.
+				p Sign in with the username <code>demo@keystonejs.com</code> and the password <code>demo</code>
+				a(href='/keystone/signin').btn.btn-default Sign in
+			.home-section
+				h3.card__title: a(href='/404') Error Handling
+				p The 404 and 500 views demonstrate how to set up error handlers for your application.
 
 block page-js
 	script.
