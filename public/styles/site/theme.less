@@ -4,26 +4,6 @@
 
 
 
-// utils
-.fancy-border-bottom {
-	border-bottom: 4px double @hr-border;
-	margin-bottom: 40px;
-	padding-bottom: 40px;
-}
-.fancy-border-top {
-	border-top: 4px double @hr-border;
-	margin-top: 40px;
-	padding-top: 40px;
-}
-.text-fancy {
-	font-family: @font-family-serif;
-	font-style: italic;
-	font-weight: 300;
-}
-
-
-
-
 // ==============================
 // HERO
 // ==============================
@@ -43,10 +23,10 @@
 	p {
 		margin: 30px 0 0;
 	}
-	
+
 	.buttons {
 		float: right;
-		
+
 		.btn + .btn {
 			margin-left: 10px;
 		}
@@ -58,28 +38,28 @@
 		.btn-link {
 			border-radius: @border-radius-base;
 			border-color: @link-color;
-			
+
 			&:hover {
 				background-color: white;
 				text-decoration: none;
 			}
 		}
 	}
-	
+
 	.notes {
 		color: @gray-light;
 		font-size: 85%;
-		
+
 		a {
 			color: @gray-light;
 			text-decoration: underline;
-			
+
 			&:hover {
 				color: @gray;
 			}
 		}
 	}
-	
+
 	@media (min-width: @screen-sm-min) {
 		h1 {
 			font-size: @font-size-large + 4;
