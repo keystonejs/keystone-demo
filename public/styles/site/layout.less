@@ -29,33 +29,6 @@ html {
 
 
 
-
-// header
-.site-header {
-	background: url('/images/keystone-arch.jpg') center center no-repeat;
-	background-size: cover;
-	height: 100px;
-	line-height: 100px;
-	text-align: center;
-
-	.logo {
-		display: inline-block;
-	}
-
-	@media (min-width: @breakpoint-sm) {
-		height: 200px;
-		line-height: 200px;
-	}
-	@media (max-width: @breakpoint-sm) {
-		.logo {
-			height: 50%;
-		}
-	}
-}
-
-
-
-
 // navbar
 .navbar {
 	margin: 0 0 40px;
@@ -114,11 +87,11 @@ html {
 	a {
 		color: @gray-light;
 	}
-	
+
 	@media (min-width: @screen-sm) {
 		padding: 100px 0;
 	}
-	
+
 }
 
 
@@ -126,7 +99,7 @@ html {
 // gallery
 .gallery-image {
 	margin-bottom: @grid-gutter-width;
-	
+
 	img {
 		.img-responsive;
 	}
