@@ -45,7 +45,6 @@ Everything.add(
 	cloudinaryImage: { type: Types.CloudinaryImage },
 	cloudinaryImages: { type: Types.CloudinaryImages },
 	location: { type: Types.Location },
-	markdown: { type: Types.Markdown },
 	wysiwygHtml: { type: Types.Html, wysiwyg: true },
 	shortWysiwygField: { type: Types.Html, wysiwyg: true, height: 100 },
 	embedSrc: { type: String }/*,
