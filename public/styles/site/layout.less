@@ -2,84 +2,14 @@ body,
 html {
 	height: 100%;
 }
-// Wrapper
-.wrapper {
-	background-color: white;
-	min-height: 100%;
-
-	@media (min-width: @breakpoint-lg) {
-		border-left: 1px solid darken(@body-bg, 6%);
-		border-right: 1px solid darken(@body-bg, 6%);
-		margin: 0 auto;
-		width: @breakpoint-lg - 2; // less the borders
-	}
-}
-.wrapper-inner {
-	padding-left: 15px;
-	padding-right: 15px;
-
-	@media (min-width: @breakpoint-sm) {
-		margin: 0 auto;
-		padding-left: 0;
-		padding-right: 0;
-		width: 640px;
-	}
-
-}
 
 .site-header {
-	text-align: center;
 	padding-top: 25px;
+	padding-bottom: 25px;
 }
 
 .home-section {
 	margin-top: 20px;
-}
-
-
-// navbar
-.navbar {
-	margin: 0 0 40px;
-}
-.navbar {
-	position: relative;
-	// min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-	margin-bottom: 40px;
-	border-bottom: 1px solid @hr-border;
-}
-.navbar-nav {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-
-	li {
-		display: inline-block;
-	}
-	a {
-		color: @gray-light;
-		display: block;
-		padding: 10px 5px;
-
-		&:hover,
-		&:focus {
-			color: @gray;
-			text-decoration: none;
-		}
-	}
-	.active > a {
-		color: @gray;
-		font-weight: normal;
-	}
-
-	@media (min-width: @breakpoint-sm) {
-		font-size: @font-size-large;
-		font-weight: 200;
-
-		a {
-			padding: 30px;
-		}
-	}
 }
 
 

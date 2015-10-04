@@ -20,36 +20,26 @@ html
 		
 		block css
 		block head
-	body: .wrapper
-		
+	body: .container
 		//- header
 		header(role='banner').site-header
 			img(src='/images/logo.png' width='205' height='68')
-		nav.navbar
-			//- .navbar-header
-				button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
-					span.sr-only Toggle navigation
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-			.navbar-nav-body
-				ul.navbar-nav
-					each link in navLinks
-						li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-					if user
-						li: a(href='/keystone') Open Keystone
-						li: a(href='/keystone/signout') Sign Out
-					else
-						li: a(href='/keystone/signin') Sign In
-		
-		//- body
-		.wrapper-inner
-			//- intro
-			block intro
-			//- messages
-			+flash-messages(messages)
-			//- content
-			block content
+		nav.navbar.navbar-default
+			ul.nav.navbar-nav
+				each link in navLinks
+					li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+			ul.nav.navbar-nav.navbar-right
+				if user
+					li: a(href='/keystone') Open Admin UI
+					li: a(href='/keystone/signout') Sign Out
+				else
+					li: a(href='/keystone/signin') Sign In
+		//- intro
+		block intro
+		//- messages
+		+flash-messages(messages)
+		//- content
+		block content
 		//- footer
 		.site-footer: .container.text-center
 			p Copyright &copy; 2013 Jed Watson. All rights reserved.
@@ -76,8 +66,6 @@ html
 
 				ga('create', '#{ga_property}', '#{ga_domain}');
 				ga('send', 'pageview');
-		
-		if env == 'production'
 			script.
 				var _sf_async_config = { uid: #{chartbeat_property}, domain: '#{chartbeat_domain}', useCanonical: true };
 				(function() {
