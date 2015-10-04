@@ -101,7 +101,7 @@ Please reach out to us via the [KeystoneJS Google Group](https://groups.google.c
 
 (The MIT License)
 
-Copyright (c) 2013 Jed Watson
+Copyright (c) 2015 Jed Watson
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
