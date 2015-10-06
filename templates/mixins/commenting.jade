@@ -1,28 +1,26 @@
 mixin comment-form(action)
-	form(method='post').comment-form
+	form(method='post', style="margin-bottom: 40px; margin-top: 40px;")
 		input(type='hidden', name='action', value='comment.create')
 		.media
-			.comment-author.pull-left
+			.pull-left
 				if user
-					img(src=user.photo.exists ? user._.photo.thumbnail(60,60) : 'http://placehold.it/60x60', alt=user.name.full, width=60, height=60).img-circle
+					img(src=user.photo.exists ? user._.photo.thumbnail(80,80) : 'http://placehold.it/80x80', alt=user.name.full, width=80, height=80).img-rounded
 				else
-					img(src='http://placehold.it/60x60', alt='Comment author placeholder', width=60, height=60).img-circle
-			.comment-box.media-body
-				.comment-field
-					textarea(name='content', placeholder=user ? 'Leave a comment...' : 'Please sign in to comment', disabled=!user).comment-field-input.form-control
+					img(src='http://placehold.it/80x80', alt='Comment author placeholder', width=80, height=80).img-rounded
+			.media-body
+				textarea(name='content', placeholder=user ? 'Leave a comment...' : 'Please sign in to comment', disabled=!user, style="margin-bottom: 10px; min-height: 80px; resize: vertical;").form-control
 				if user
-					.form-inline.mv-5
-						button(type='submit').btn.btn-sm.btn-primary Post Comment
+					button(type='submit').btn.btn-primary Post Comment
 				else
-					ul.list-inline.mv-5
+					ul.list-inline
 						li: a(href='/keystone/signin').btn.btn-sm.btn-primary Sign in to Comment
 
 mixin comment-post(comment)
 	if comment.author
-		div(id='comment-id-' + comment.id).comment-post
+		div(id='comment-id-' + comment.id, style="margin-top: 20px;")
 			.media
-				a(href=comment.author.url).pull-left
-					img(src=comment.author.photo.exists ? comment.author._.photo.thumbnail(60,60) : 'http://placehold.it/60x60', alt=comment.author.name.full, width=60, height=60).img-circle
+				.pull-left
+					img(src=comment.author.photo.exists ? comment.author._.photo.thumbnail(80,80) : 'http://placehold.it/80x80', alt=comment.author.name.full, width=80, height=80).img-rounded
 				.media-body
 					p
 						strong= comment.author.name.full
@@ -33,6 +31,5 @@ mixin comment-post(comment)
 
 mixin comment-thread(comments)
 	if comments.length
-		.comment-thread
-			for comment in comments
-				+comment-post(comment)
+		for comment in comments
+			+comment-post(comment)

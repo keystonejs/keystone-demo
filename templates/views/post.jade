@@ -1,40 +1,43 @@
 extends ../layouts/default
 
 include ../mixins/commenting
+include ../mixins/post
 
 block content
-	p: a(href='/blog').text-muted &larr; back to the blog
-	hr
-	article
-		if !data.post
-			h2 Invalid Post.
-		else
-			header
-				h1= data.post.title
-			//- hr
-			.post
-				if data.post.image.exists
-					.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
-					hr
-				h5.text-muted Posted 
-					if data.post.publishedDate
-						| on 
-						time(datetime=data.post.publishedDate)=data.post._.publishedDate.format('MMMM Do, YYYY')
-					if data.post.categories && data.post.categories.length
-						| in 
-						each cat, cat_i in data.post.categories
-							a(href='/blog/' + cat.key)= cat.name
-							if cat_i < data.post.categories.length - 1
-								| , 
-							else
-								|  
-					if data.post.author
-						| by #{data.post.author.name.first}
-				!= data.post.content.full
-		//-comments
-		#comments.details-panel-footer
-			+comment-form()
-			+comment-thread(comments)
+	if !post
+		.jumbotron.text-center
+			h2 Invalid post...
+			p.lead Please check the url and try again
+	else
+		.row
+			.col-md-8.col-md-offset-2
+				p: a(href='/blog').text-muted &larr; back to the blog
+				hr
+				article
+					header.page-header
+						h1= post.title
+						if post.image.exists
+							.image-wrap: img(src=post._.image.fit(750,450)).img-responsive
+					div
+						p.text-muted.text-small Posted 
+							if post.publishedDate
+								| on 
+								time(datetime=post.publishedDate)=post._.publishedDate.format('MMMM Do, YYYY')
+							if post.categories && post.categories.length
+								|  in 
+								each cat, cat_i in post.categories
+									a(href='/blog/' + cat.key)= cat.name
+									if cat_i < post.categories.length - 1
+										| , 
+									else
+										|  
+							if post.author
+								| by #{post.author.name.full}
+						!= post.content.full
+					//-comments
+					div
+						+comment-form()
+						+comment-thread(comments)
 
 
 block page-js

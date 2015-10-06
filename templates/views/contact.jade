@@ -1,44 +1,60 @@
 extends ../layouts/default
 
-block intro
-	h1 Contact
-	//- p.lead This is an example contact form, demonstrating how to process forms and save data with Keystone.
-	//- p.lead Please follow us for updates to the demo site.
-		
-		
 block content
 	if enquirySubmitted
-		h3 Thanks for getting in touch.
-		if user
-			p Head over to the <a href='/keystone/enquiries'>admin ui</a> to see your enquiry.
-		else
-			p If you'd like to see your enquiry in the admin ui, <a href='/keystone/signin'>sign in</a> with the username 
-				code demo@keystonejs.com
-				|  and the password 
-				code demo
-				|  and go to the enquiries list.
+		.jumbotron.text-center
+			h1 Success!
+			if user
+				p Head over to the Admin UI to see your enquiry:
+				a(href='/keystone/enquiries').btn.btn-lg.btn-primary Admin UI 
+			else
+				p(style="margin-left: 10vw; margin-right: 10vw;") To see your enquiry, sign in with the username 
+					code demo@keystonejs.com
+					|  and the password 
+					code demo
+					|  then go to the enquiries list.
+				a(href='/keystone/signin').btn.btn-lg.btn-primary Sign In
 	
 	else
-		form(method='post')
-			input(type='hidden', name='action', value='contact')
-			.form-group(class=validationErrors.name ? 'has-error' : null)
-				label Name
-				input(type='text', name='name.full', value=formData['name.full'], required).form-control
-			.form-group(class=validationErrors.email ? 'has-error' : null)
-				label Email
-				input(type='email', name='email', value=formData.email, required).form-control
-			.form-group
-				label Phone
-				input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
-			.form-group(class=validationErrors.enquiryType ? 'has-error' : null, required)
-				label What are you contacting us about?
-				select(name='enquiryType').form-control
-					option(value='') (select one)
-					each type in enquiryTypes
-						option(value=type.value, selected=formData.enquiryType == type.value)= type.label
-			.form-group(class=validationErrors.message ? 'has-error' : null)
-				label Message
-				textarea(name='message', placeholder='Leave us a message...' rows=4, required).form-control= formData.message
-			.form-actions
-				p.help-block (note that others can see your enquiry in the <a href='/keystone/enquiries'>admin ui</a>)
-				button(type='submit').btn.btn-primary Send
+		.page-header
+			h1 Contact
+		.row
+			.col-sm-8
+				form(method='post').form-horizontal
+					input(type='hidden', name='action', value='contact')
+					.form-group(class=validationErrors.name ? 'has-error' : null)
+						label.col-sm-2.text-left.control-label Name
+						.col-sm-10
+							input(type='text' name='name.full' value=formData['name.full'] required placeholder="First Last").form-control
+					.form-group(class=validationErrors.email ? 'has-error' : null)
+						label.col-sm-2.control-label Email
+						.col-sm-10
+							input(type='email' name='email' value=formData.email required placeholder="name@domain.com").form-control
+					.form-group
+						label.col-sm-2.control-label Phone
+						.col-sm-10
+							input(type='text' name='phone' value=formData.phone placeholder='(optional)').form-control
+					.form-group(class=validationErrors.enquiryType ? 'has-error' : null required)
+						label.col-sm-2.control-label Regarding
+						.col-sm-10
+							select(name='enquiryType').form-control
+								option(value='') (required)
+								each type in enquiryTypes
+									option(value=type.value selected=formData.enquiryType == type.value)= type.label
+					.form-group(class=validationErrors.message ? 'has-error' : null)
+						label.col-sm-2.control-label Message
+						.col-sm-10
+							textarea(name='message' placeholder='Leave us a message...' rows=4 required).form-control= formData.message
+					.form-group
+						.col-sm-10.col-sm-offset-2
+							p.help-block Note: others can see your enquiry in the <a href='/keystone/enquiries'>Admin UI</a>
+							button(type='submit').btn.btn-primary Submit
+			.col-sm-4
+				.panel.panel-default
+					.panel-heading
+						h3.panel-title Resources
+					.panel-body Well that's it for the demo, but you can find out more from these links:
+					.list-group
+						a(href='http://github.com/KeystoneJS/keystone-demo', target='_blank').list-group-item GitHub Repo
+						a(href='http://www.keystonejs.com/guide', target='_blank').list-group-item Documentation
+						a(href='https://groups.google.com/d/forum/keystonejs', target='_blank').list-group-item Google Group

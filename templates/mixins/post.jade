@@ -1,12 +1,19 @@
 mixin post(post)
-	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		article.card.card--default(class=post.image.exists ? 'has-img' : null, itemscope, itemtype="http://schema.org/BlogPosting")
-			a(href='/blog/post/' + post.slug, itemprop='url')
+	article(data-ks-editable=editable(user, { list: 'Post', id: post.id })).media
+		.media-left
+			a(href='/blog/post/' + post.slug)
 				if post.image.exists
-					.card__image
-						img(src=post._.image.fit(600,400), itemprop='image').img-responsive
-				.card__body
-					h1(itemprop='name').card__title= post.title
+					img(src=post._.image.fit(80,80)).media-object
+				else
+					img(src="http://placehold.it/80x80").media-object
+		.media-body
+			h3.media-heading
+				a(href='/blog/post/' + post.slug)= post.title
+			if post.publishedDate || post.author
+				p.text-muted.text-small
 					if post.publishedDate
-						time(datetime=post.publishedDate).text-muted.text-small #{post._.publishedDate.format('MMMM Do, YYYY')} 
-					p(itemprop='description')!= post.content.brief
+						time= post._.publishedDate.format('MMMM Do, YYYY')
+						|  
+					if post.author
+						span by #{post.author.name.full}
+			!= post.content.brief

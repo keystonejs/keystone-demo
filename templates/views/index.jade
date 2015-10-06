@@ -1,45 +1,44 @@
 extends ../layouts/default
 
 block content
-	h1 KeystoneJS Demo
-	.lead This site demonstrates common patterns in <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.
-	.buttons
+	.jumbotron
+		h1 KeystoneJS Demo
+		.lead This site demonstrates common patterns in <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.
 		a(href='http://github.com/KeystoneJS/keystone-demo', target='_blank', title='View on GitHub').btn.btn-primary View on GitHub
 		a(href='http://www.keystonejs.com/guide', target='_blank', title='KeystoneJS Documentation').btn.btn-link Read the Docs
-
+			
 	.row
 		.col-sm-8
-			.home-section
-				h3.card__title: a(href='/blog') Blog
-				//- p Simple example blog with posts and categories.
-				p Posts have a slug automatically generated from their title, and support short and extended versions of the content.
-				p You can sign in using the demo account to contribute to the blog.
-			.home-section
-				h3.card__title: a(href='/gallery') Gallery
-				p Example of how to set up a page that displays multiple image galleries.
-				p Demonstrates usage of single and multi image fields and their resizing methods.
-				p You can sign in using the demo account to create and manage image galleries, and upload additional images
-			.home-section
-				h3.card__title: a(href='/contact') Enquiries
-				p Simple contact form that validates input and logs enquiries to the database.
-				p You can sign in using the demo account to view the submitted enquiries.
-			.home-section
-				h3.card__title Generating CSVs
-				p For an example of how to download a list in .csv format, see /routes/download/users.js.
-				p It uses the excellent node-csv library.
+			h3: a(href='/blog') Blog
+			//- p Simple example blog with posts and categories.
+			p Posts have a slug automatically generated from their title, and support short and extended versions of the content.
+			p You can sign in using the demo account to contribute to the blog.
+			hr
+			h3: a(href='/gallery') Gallery
+			p Example of how to set up a page that displays multiple image galleries.
+			p Demonstrates usage of single and multi image fields and their resizing methods.
+			p You can sign in using the demo account to create and manage image galleries, and upload additional images
+			hr
+			h3: a(href='/contact') Enquiries
+			p Simple contact form that validates input and logs enquiries to the database.
+			p You can sign in using the demo account to view the submitted enquiries.
+			hr
+			h3 Generating CSVs
+			p For an example of how to download a list in .csv format, see /routes/download/users.js.
+			p It uses the excellent node-csv library.
 			a(href='/download/users').btn.btn-default Download users.csv
 		.col-sm-4
-			.home-section
-				h3.card__title: a(href='/keystone/signin') Session Management
-				p Keystone includes session management and default sign-in and sign-out views.
-				p Sign in with the username <code>demo@keystonejs.com</code> and the password <code>demo</code>
-				a(href='/keystone/signin').btn.btn-default Sign in
-			.home-section
-				h3.card__title: a(href='/404') Error Handling
-				p The 404 and 500 views demonstrate how to set up error handlers for your application.
-
-block page-js
-	script.
-		$('.site-header').find('.logo').bind('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function(e){
-			$(this).css('opacity', '1');
-		});
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title: a(href='/keystone/signin') Session Management
+				.panel-body
+					p Keystone includes session management and default sign-in and sign-out views.
+					p Sign in with the username <code>demo@keystonejs.com</code> and the password <code>demo</code>
+					a(href='/keystone/signin').btn.btn-default Sign in
+				
+			.panel.panel-default
+				.panel-heading
+					h3.panel-title: a(href='/404') Error Handling
+				.panel-body
+					p The 404 and 500 views demonstrate how to set up error handlers for your application.
+					a(href='/hey-this-isnt-a-valid-url').btn.btn-default Test it
