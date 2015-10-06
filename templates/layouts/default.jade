@@ -33,7 +33,7 @@ html
 					span.icon-bar
 				a.navbar-brand(href='#') KeystoneJS
 			.collapse.navbar-collapse#navbar-collapse
-				ul.nav.navbar-nav
+				ul.nav.navbar-nav.navbar-left
 					each link in navLinks
 						li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 				ul.nav.navbar-nav.navbar-right

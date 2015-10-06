@@ -23,3 +23,18 @@
 	position: relative;
 	text-align: center;
 }
+
+
+// Navigation
+// ------------------------------
+
+@media (min-width: @grid-float-breakpoint) {
+	.navbar-left {
+		.pull-left();
+		margin-left: -@navbar-padding-horizontal;
+
+		~ .navbar-left {
+			margin-left: 0;
+		}
+	}
+}
