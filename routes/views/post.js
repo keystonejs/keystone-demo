@@ -1,12 +1,12 @@
-var keystone = require('keystone'),
-	async = require('async'),
-	Post = keystone.list('Post'),
-	PostComment = keystone.list('PostComment');
+const keystone = require('keystone');
+const async = require('async');
+const Post = keystone.list('Post');
+const PostComment = keystone.list('PostComment');
 
 exports = module.exports = function(req, res) {
 
-	var view = new keystone.View(req, res),
-		locals = res.locals;
+	var view = new keystone.View(req, res);
+	var locals = res.locals;
 
 	// Init locals
 	locals.section = 'blog';

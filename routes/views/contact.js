@@ -1,22 +1,22 @@
-var keystone = require('keystone'),
-	Enquiry = keystone.list('Enquiry');
+const keystone = require('keystone');
+const Enquiry = keystone.list('Enquiry');
 
 exports = module.exports = function(req, res) {
-	
-	var view = new keystone.View(req, res),
-		locals = res.locals;
-	
+
+	var view = new keystone.View(req, res);
+	var locals = res.locals;
+
 	locals.section = 'contact';
 	locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
 	locals.formData = req.body || {};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
-	
+
 	view.on('post', { action: 'contact' }, function(next) {
-		
+
 		var application = new Enquiry.model(),
 			updater = application.getUpdateHandler(req);
-		
+
 		updater.process(req.body, {
 			flashErrors: true
 		}, function(err) {
@@ -27,12 +27,12 @@ exports = module.exports = function(req, res) {
 			}
 			next();
 		});
-		
+
 	});
-	
+
 	view.render('contact', {
 		section: 'contact',
-		
+
 	});
-	
+
 }
