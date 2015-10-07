@@ -108,7 +108,7 @@ exports = module.exports = function(req, res) {
 			})
 			.exec(function(err, comment) {
 				if (err) {
-					if (err.name == 'CastError') {
+					if (err.name === 'CastError') {
 						req.flash('error', 'The comment ' + req.query.comment + ' could not be found.');
 						return next();
 					}

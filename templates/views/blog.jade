@@ -36,8 +36,8 @@ block content
 							else
 								li.disabled: a(href='?page=' + 1): span.entypo.entypo-chevron-thin-left
 							each p, i in posts.pages
-								li(class=posts.currentPage == p ? 'active' : null)
-									a(href='?page=' + (p == '...' ? (i ? posts.totalPages : 1) : p ))= p
+								li(class=posts.currentPage === p ? 'active' : null)
+									a(href='?page=' + (p === '...' ? (i ? posts.totalPages : 1) : p ))= p
 							if posts.next
 								li: a(href='?page=' + posts.next): span.entypo.entypo-chevron-thin-right
 							else

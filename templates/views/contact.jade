@@ -40,7 +40,7 @@ block content
 							select(name='enquiryType').form-control
 								option(value='') (required)
 								each type in enquiryTypes
-									option(value=type.value selected=formData.enquiryType == type.value)= type.label
+									option(value=type.value selected=formData.enquiryType === type.value)= type.label
 					.form-group(class=validationErrors.message ? 'has-error' : null)
 						label.col-sm-2.control-label Message
 						.col-sm-10

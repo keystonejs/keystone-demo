@@ -70,7 +70,7 @@ Thing.add(
 });
 
 Thing.schema.virtual('otherSelectValue').get(function() {
-	return (this.otherSelect == 'other') ? this.otherValue : this.otherSelect;
+	return (this.otherSelect === 'other') ? this.otherValue : this.otherSelect;
 });
 
 Thing.track = true;

@@ -35,7 +35,7 @@ PostComment.schema.pre('save', function(next) {
 
 	this.wasNew = this.isNew;
 
-	if (!this.isModified('publishedOn') && this.isModified('commentState') && this.commentState == 'published') {
+	if (!this.isModified('publishedOn') && this.isModified('commentState') && this.commentState === 'published') {
 		this.publishedOn = new Date();
 	}
 
