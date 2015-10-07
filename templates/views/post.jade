@@ -15,7 +15,7 @@ block content
 				hr
 				article
 					header
-						h1= post.title
+						h1= post.name
 						if post.image.exists
 							div(style="margin-bottom: 20px; margin-top: 20px;")
 								img(src=post._.image.fit(750,500)).img-responsive

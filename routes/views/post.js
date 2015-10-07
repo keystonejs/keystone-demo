@@ -19,7 +19,7 @@ exports = module.exports = function(req, res) {
 
 		var q = Post.model.findOne({
 			state: 'published',
-			slug: locals.filters.post
+			key: locals.filters.post
 		}).populate('author categories');
 
 		q.exec(function(err, result) {
@@ -84,7 +84,7 @@ exports = module.exports = function(req, res) {
 			} else {
 				req.flash('success', 'Your comment was added.');
 
-				return res.redirect('/blog/post/' + locals.post.slug + '#comment-id-' + newComment.id);
+				return res.redirect('/blog/post/' + locals.post.key + '#comment-id-' + newComment.id);
 			}
 			next();
 		});
@@ -127,7 +127,7 @@ exports = module.exports = function(req, res) {
 				comment.save(function(err) {
 					if (err) return res.err(err);
 					req.flash('success', 'Your comment has been deleted.');
-					return res.redirect('/blog/post/' + locals.post.slug);
+					return res.redirect('/blog/post/' + locals.post.key);
 				});
 			});
 	});

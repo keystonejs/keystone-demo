@@ -2,13 +2,11 @@ const keystone = require('keystone');
 const Types = keystone.Field.Types;
 
 var Post = new keystone.List('Post', {
-	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true }
+	autokey: { from: 'name', path: 'key', unique: true }
 });
 
 Post.add({
-	title: { type: String, required: true },
-	slug: { type: String, index: true },
+	name: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true },
@@ -32,5 +30,5 @@ Post.schema.virtual('content.full').get(function() {
 Post.relationship({ path: 'comments', ref: 'PostComment', refPath: 'comment' });
 
 Post.track = true;
-Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
+Post.defaultColumns = 'name, state|20%, author|20%, publishedDate|20%';
 Post.register();
