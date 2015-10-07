@@ -13,7 +13,7 @@ keystone.pre('routes', function(req, res, next) {
 	next();
 });
 
-keystone.pre('render', middleware.locals);
+keystone.pre('render', middleware.theme);
 keystone.pre('render', middleware.flashMessages);
 
 keystone.set('404', function(req, res, next) {

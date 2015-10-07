@@ -13,7 +13,7 @@ html
 		title= title || 'Keystone Demo'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
-		link(href="/styles/" + (currentTheme ? ('themes/' + currentTheme) : 'site') + ".min.css", rel="stylesheet")
+		link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
 		
 		if user && user.canAccessKeystone
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")

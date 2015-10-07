@@ -1,9 +1,10 @@
 var _ = require('lodash');
 
-exports.locals = function (req, res, next) {
+exports.theme = function (req, res, next) {
 	if (req.query.theme) {
-		res.locals.currentTheme = req.query.theme;
+		req.session.theme = req.query.theme;
 	}
+	res.locals.currentTheme = req.session.theme || 'Bootstrap';
 	next();
 };
 
