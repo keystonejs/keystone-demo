@@ -1,7 +1,7 @@
-var keystone = require('keystone'),
-	Types = keystone.Field.Types;
+const keystone = require('keystone');
+const Types = keystone.Field.Types;
 
-/** 
+/**
 	Posts
 	=====
  */
@@ -26,39 +26,39 @@ PostComment.add('Content', {
 
 
 
-/** 
+/**
 	Methods
 	=======
 */
 
 PostComment.schema.pre('save', function(next) {
-	
+
 	this.wasNew = this.isNew;
-	
+
 	if (!this.isModified('publishedOn') && this.isModified('commentState') && this.commentState == 'published') {
 		this.publishedOn = new Date();
 	}
-	
+
 	next();
-	
+
 });
 
 PostComment.schema.post('save', function() {
-	
+
 	if (!this.wasNew) {
 		return;
 	}
-	
+
 	if (this.author) {
 		keystone.list('User').model.findById(this.author).exec(function(err, user) {
 			return user && user.wasActive().save();
 		});
 	}
-	
+
 });
 
 
-/** 
+/**
 	Registration
 	============
 */

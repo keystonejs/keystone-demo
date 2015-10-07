@@ -1,16 +1,15 @@
-var keystone = require('keystone'),
-	Types = keystone.Field.Types;
+const keystone = require('keystone');
+const Types = keystone.Field.Types;
 
-var Everything = new keystone.List('Everything', {
-	label: 'Everything',
+var Thing = new keystone.List('Thing', {
+	label: 'All Fields',
 	singular: 'Thing',
 	plural: 'Things',
-	path: 'things',
 	autokey: { from: 'name', path: 'autokey' }
 });
 
-Everything.add(
-   'Simple Fields', {
+Thing.add(
+	'Simple Fields', {
 	name: { type: String },
 	requiredString: { type: String, required: true, initial: true, note: 'This field is required.' },
 	defaultString: { type: String, default: 'Default Value' },
@@ -70,9 +69,9 @@ Everything.add(
 	uneditableImage: { type: Types.CloudinaryImage, noedit: true }
 });
 
-Everything.schema.virtual('otherSelectValue').get(function() {
+Thing.schema.virtual('otherSelectValue').get(function() {
 	return (this.otherSelect == 'other') ? this.otherValue : this.otherSelect;
 });
 
-Everything.track = true;
-Everything.register();
+Thing.track = true;
+Thing.register();

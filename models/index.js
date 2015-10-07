@@ -1,7 +1,7 @@
-require('./users');
-require('./posts');
-require('./postComments');
-require('./postCategories');
-require('./galleries');
-require('./enquiries');
-require('./everything');
+require('./User');
+require('./Post');
+require('./PostComment');
+require('./PostCategory');
+require('./Gallery');
+require('./Enquiry');
+require('./Thing');

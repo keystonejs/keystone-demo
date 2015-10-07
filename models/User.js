@@ -1,6 +1,6 @@
-var _ = require('lodash'),
-	keystone = require('keystone'),
-	Types = keystone.Field.Types;
+const _ = require('lodash');
+const keystone = require('keystone');
+const Types = keystone.Field.Types;
 
 /**
  * Users
