@@ -2,7 +2,7 @@ const keystone = require('keystone');
 const Types = keystone.Field.Types;
 
 var Gallery = new keystone.List('Gallery', {
-	autokey: { from: 'name', path: 'key' }
+	autokey: { from: 'name', path: 'key', unique: true }
 });
 
 Gallery.add({

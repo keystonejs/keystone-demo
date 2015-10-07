@@ -5,7 +5,7 @@ var Thing = new keystone.List('Thing', {
 	label: 'All Fields',
 	singular: 'Thing',
 	plural: 'Things',
-	autokey: { from: 'name', path: 'autokey' }
+	autokey: { from: 'name', path: 'autokey', unique: true }
 });
 
 Thing.add(
