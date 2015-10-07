@@ -7,9 +7,6 @@ block content
 	.page-header
 		a(href='/keystone/galleries?new').btn.btn-default.pull-right= user ? 'Add Album' : 'Sign in to Add Album'
 		h1 Gallery
-	
-	//- p.lead This is an example image gallery, demonstrating how you can use images with Keystone and Cloudinary.
-	//- p.lead Please follow us for updates to the demo site.
 
 	if galleries.length
 		each gallery, i in galleries
@@ -25,7 +22,7 @@ block content
 		
 	else
 		.jumbotron.text-center
-			.lead.text-muted There are no image galleries in the database.
+			h3(style="margin-bottom:0;margin-top:0;") There are no albums yet.
 
 
 block page-js

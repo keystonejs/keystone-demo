@@ -7,12 +7,6 @@ block content
 		h1=category ? category.name : 'Blog'
 	.row
 		.col-sm-8
-			//- p.lead
-				if user && user.canAccessKeystone
-					| Edit the blog with the <a href='/keystone/posts'>Keystone Admin UI</a>, or click the 'edit post' link that will appear for each post on hover.
-				else
-					| You can contribute to this example blog by <a href='/keystone/signin'>signing in</a> as the demo user <code>demo@keystonejs.com / demo</code>
-
 			if filters.category && !category
 				h3 Invalid Category.
 			else
@@ -33,16 +27,16 @@ block content
 					if posts.totalPages > 1
 						ul.pagination
 							if posts.previous
-								li: a(href='?page=' + posts.previous): span.entypo.entypo-chevron-thin-left
+								li: a(href='?page=' + posts.previous): span.glyphicon.glyphicon-chevron-left
 							else
-								li.disabled: a(href='?page=' + 1): span.entypo.entypo-chevron-thin-left
+								li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
 							each p, i in posts.pages
 								li(class=posts.currentPage === p ? 'active' : null)
 									a(href='?page=' + (p === '...' ? (i ? posts.totalPages : 1) : p ))= p
 							if posts.next
-								li: a(href='?page=' + posts.next): span.entypo.entypo-chevron-thin-right
+								li: a(href='?page=' + posts.next): span.glyphicon.glyphicon-chevron-right
 							else
-								li.disabled: a(href='?page=' + posts.totalPages): span.entypo.entypo-chevron-thin-right
+								li.disabled: a(href='?page=' + posts.totalPages): span.glyphicon.glyphicon-chevron-right
 				else
 					if category
 						.jumbotron.text-center
