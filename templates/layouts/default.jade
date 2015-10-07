@@ -37,8 +37,17 @@ html
 					each link in navLinks
 						li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
 				ul.nav.navbar-nav.navbar-right
+					if themes && themes.length
+						li.dropdown
+							a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
+								| Themes 
+								span.caret
+							ul.dropdown-menu
+								each theme in themes
+									li(class=currentTheme === theme ? 'active' : '')
+										a(href='?theme=' + theme)= theme
 					if user
-						li: a(href='/keystone') Open Admin UI
+						li: a(href='/keystone') Admin UI
 						li: a(href='/keystone/signout') Sign Out
 					else
 						li: a(href='/keystone/signin') Sign In

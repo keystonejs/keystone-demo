@@ -1,7 +1,7 @@
 extends ../layouts/default
 
 block content
-	.jumbotron
+	div(style="padding-left: 5vw; padding-right: 5vw;").jumbotron
 		h1 KeystoneJS Demo
 		.lead This site demonstrates common patterns in <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.
 		a(href='http://github.com/keystonejs/keystone-demo', target='_blank', title='View on GitHub').btn.btn-lg.btn-primary View on GitHub
@@ -47,11 +47,12 @@ block content
 					p The 404 and 500 views demonstrate how to set up error handlers for your application.
 					a(href='/hey-this-isnt-a-valid-url').btn.btn-default Test it
 	
-	div(style="margin-top: 60px;").jumbotron.text-center
-		h2 We'll handle the back, you handle the front
-		p Demo site built with bootstrap, themes by <a href="https://bootswatch.com/?ref=keystonejs" target="_blank">bootswatch</a>
+	div(style="margin-top: 60px; padding-left: 5vw; padding-right: 5vw;").jumbotron.text-center
+		h2 We'll handle the back end, you handle the front
+		p Demo site built with bootstrap, themes by <a href="https://bootswatch.com/?ref=keystonejs" target="_blank">bootswatch &rarr;</a>
 		if themes && themes.length
-			ul.nav.nav-pills
+			hr(style="margin-bottom: 3em; margin-top: 3em;")
+			ul(style="margin-left: 5vw; margin-right: 5vw;").nav.nav-pills
 				each theme in themes
 					li(class=currentTheme === theme ? 'active' : '')
 						a(href='/?theme=' + theme)= theme
