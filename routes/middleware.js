@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 exports.locals = function (req, res, next) {
 	if (req.query.theme) {
 		res.locals.currentTheme = req.query.theme;

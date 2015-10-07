@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const keystone = require('keystone');
 const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
