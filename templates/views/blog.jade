@@ -54,9 +54,7 @@ block content
 				.lead.text-muted Categories
 				ul.nav.nav-pills.nav-stacked
 					li(class=!category ? 'active' : null)
-						a(href='/blog')
-							| All
-							span.badge.pull-right= posts.total
+						a(href='/blog') All
 					each cat in categories
 						li(role="presentation" class=category && category.id === cat.id ? 'active' : null)
 							a(href='/blog/' + cat.key)
