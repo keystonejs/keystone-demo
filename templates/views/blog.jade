@@ -1,7 +1,6 @@
 extends ../layouts/default
 
 include ../mixins/post
-
 block content
 	.page-header
 		h1=category ? category.name : 'Blog'
@@ -55,7 +54,12 @@ block content
 				.lead.text-muted Categories
 				ul.nav.nav-pills.nav-stacked
 					li(class=!category ? 'active' : null)
-						a(href='/blog') All
+						a(href='/blog')
+							| All
+							span.badge.pull-right= posts.total
 					each cat in categories
 						li(role="presentation" class=category && category.id === cat.id ? 'active' : null)
-							a(href='/blog/' + cat.key)= cat.name
+							a(href='/blog/' + cat.key)
+								=cat.name
+								if cat.postCount
+									span.badge.pull-right= cat.postCount
