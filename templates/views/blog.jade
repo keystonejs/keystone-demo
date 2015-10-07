@@ -3,6 +3,7 @@ extends ../layouts/default
 include ../mixins/post
 block content
 	.page-header
+		a(href='/keystone/posts?new').btn.btn-default.pull-right= user ? 'Write Post' : 'Sign in to Write Post'
 		h1=category ? category.name : 'Blog'
 	.row
 		.col-sm-8

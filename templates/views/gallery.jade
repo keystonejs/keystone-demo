@@ -5,6 +5,7 @@ block css
 				
 block content
 	.page-header
+		a(href='/keystone/galleries?new').btn.btn-default.pull-right= user ? 'Add Album' : 'Sign in to Add Album'
 		h1 Gallery
 	
 	//- p.lead This is an example image gallery, demonstrating how you can use images with Keystone and Cloudinary.

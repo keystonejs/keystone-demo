@@ -30,11 +30,15 @@ block content
 		.col-sm-4
 			.panel.panel-default
 				.panel-heading
-					h3.panel-title: a(href='/keystone/signin') Session Management
+					h3.panel-title: a(href='/keystone/signin') Admin UI
 				.panel-body
 					p Keystone includes session management and default sign-in and sign-out views.
 					p Sign in with the username <code>demo@keystonejs.com</code> and the password <code>demo</code>
-					a(href='/keystone/signin').btn.btn-default Sign in
+					if user
+						a(href='/keystone').btn.btn-default Open Admin UI
+						a(href='/keystone/signout').btn.btn-link Sign out
+					else
+						a(href='/keystone/signin').btn.btn-default Sign in
 				
 			.panel.panel-default
 				.panel-heading
