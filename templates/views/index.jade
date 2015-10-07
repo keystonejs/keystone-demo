@@ -4,8 +4,8 @@ block content
 	.jumbotron
 		h1 KeystoneJS Demo
 		.lead This site demonstrates common patterns in <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a>.
-		a(href='http://github.com/KeystoneJS/keystone-demo', target='_blank', title='View on GitHub').btn.btn-primary View on GitHub
-		a(href='http://www.keystonejs.com/guide', target='_blank', title='KeystoneJS Documentation').btn.btn-link Read the Docs
+		a(href='http://github.com/keystonejs/keystone-demo', target='_blank', title='View on GitHub').btn.btn-lg.btn-primary View on GitHub
+		a(href='http://www.keystonejs.com/docs', target='_blank', title='KeystoneJS Documentation').btn.btn-lg.btn-link Read the Docs
 			
 	.row
 		.col-sm-8
@@ -46,3 +46,12 @@ block content
 				.panel-body
 					p The 404 and 500 views demonstrate how to set up error handlers for your application.
 					a(href='/hey-this-isnt-a-valid-url').btn.btn-default Test it
+	
+	div(style="margin-top: 60px;").jumbotron.text-center
+		h2 We'll handle the back, you handle the front
+		p Demo site built with bootstrap, themes by <a href="https://bootswatch.com/?ref=keystonejs" target="_blank">bootswatch</a>
+		if themes && themes.length
+			ul.nav.nav-pills
+				each theme in themes
+					li(class=currentTheme === theme ? 'active' : '')
+						a(href='/?theme=' + theme)= theme
