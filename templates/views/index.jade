@@ -47,14 +47,13 @@ block content
 					p The 404 and 500 views demonstrate how to set up error handlers for your application.
 					a(href='/hey-this-isnt-a-valid-url').btn.btn-default Test it
 	
-	div(style="margin-top: 60px; padding-left: 5vw; padding-right: 5vw;").jumbotron.text-center
+	div(style="margin-top: 60px; padding-left: 10vw; padding-right: 10vw;").jumbotron.text-center
 		h2 We'll handle the back end, you handle the front
-		p KeystoneJS isn't opinionated about how you design or build the front-end of your site.
-		p Use jQuery, Angular, React.js with LESS, SASS or css-modules and any node.js template language.
-		p We've made this demo site with Bootstrap, Jade and LESS to show how simple it can be to get going, and included some themes from <a href="https://bootswatch.com/?ref=keystonejs" target="_blank">bootswatch</a>. Try them out by selecting below:
+		p KeystoneJS isn't opinionated about how you design or build the front-end of your site. Use jQuery, Angular, React.js with LESS, SASS or css-modules and any node.js template language.
+		div We've made this demo site with Bootstrap, Jade and LESS to show how simple it can be to get going, and included some themes from <a href="https://bootswatch.com/?ref=keystonejs" target="_blank">bootswatch</a>. Try them out by selecting below:
 		if themes && themes.length
 			hr(style="margin-bottom: 3em; margin-top: 3em;")
-			ul(style="margin-left: 5vw; margin-right: 5vw;").nav.nav-pills
+			ul.nav.nav-pills
 				each theme in themes
 					li(class=currentTheme === theme ? 'active' : '')
 						a(href='/?theme=' + theme)= theme
