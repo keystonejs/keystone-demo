@@ -54,8 +54,9 @@ User.schema.methods.wasActive = function() {
  */
 
 var protect = function(path) {
+	var user = this;
 	User.schema.path(path).set(function(value) {
-		return (this.isProtected) ? this.get(path) : value;
+		return (user.isProtected) ? user.get(path) : value;
 	});
 }
 
