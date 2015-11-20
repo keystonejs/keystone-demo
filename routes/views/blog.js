@@ -3,7 +3,7 @@ var async = require('async');
 var Post = keystone.list('Post');
 var PostCategory = keystone.list('PostCategory');
 
-exports = module.exports = function(req, res) {
+exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
@@ -17,9 +17,9 @@ exports = module.exports = function(req, res) {
 	locals.categories = [];
 
 	// Load all categories
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 
-		PostCategory.model.find().sort('name').exec(function(err, results) {
+		PostCategory.model.find().sort('name').exec(function (err, results) {
 
 			if (err || !results.length) {
 				return next(err);
@@ -28,14 +28,14 @@ exports = module.exports = function(req, res) {
 			locals.categories = results;
 
 			// Load the counts for each category
-			async.each(locals.categories, function(category, next) {
+			async.each(locals.categories, function (category, next) {
 
-				keystone.list('Post').model.count().where('state', 'published').where('categories').in([category.id]).exec(function(err, count) {
+				keystone.list('Post').model.count().where('state', 'published').where('categories').in([category.id]).exec(function (err, count) {
 					category.postCount = count;
 					next(err);
 				});
 
-			}, function(err) {
+			}, function (err) {
 				next(err);
 			});
 
@@ -44,9 +44,9 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Load the current category filter
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 		if (req.params.category) {
-			PostCategory.model.findOne({ key: locals.filters.category }).exec(function(err, result) {
+			PostCategory.model.findOne({ key: locals.filters.category }).exec(function (err, result) {
 				locals.category = result;
 				next(err);
 			});
@@ -56,7 +56,7 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Load the posts
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 
 		var q = Post.paginate({
 				page: req.query.page || 1,
@@ -71,7 +71,7 @@ exports = module.exports = function(req, res) {
 			q.where('categories').in([locals.category]);
 		}
 
-		q.exec(function(err, results) {
+		q.exec(function (err, results) {
 			locals.posts = results;
 			next(err);
 		});

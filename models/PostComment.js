@@ -31,7 +31,7 @@ PostComment.add('Content', {
 	=======
 */
 
-PostComment.schema.pre('save', function(next) {
+PostComment.schema.pre('save', function (next) {
 
 	this.wasNew = this.isNew;
 
@@ -43,14 +43,14 @@ PostComment.schema.pre('save', function(next) {
 
 });
 
-PostComment.schema.post('save', function() {
+PostComment.schema.post('save', function () {
 
 	if (!this.wasNew) {
 		return;
 	}
 
 	if (this.author) {
-		keystone.list('User').model.findById(this.author).exec(function(err, user) {
+		keystone.list('User').model.findById(this.author).exec(function (err, user) {
 			return user && user.wasActive().save();
 		});
 	}

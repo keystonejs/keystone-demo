@@ -2,7 +2,7 @@ const keystone = require('keystone');
 const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
 
-keystone.pre('routes', function(req, res, next) {
+keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Blog', key: 'blog', href: '/blog' },
@@ -16,7 +16,7 @@ keystone.pre('routes', function(req, res, next) {
 keystone.pre('render', middleware.theme);
 keystone.pre('render', middleware.flashMessages);
 
-keystone.set('404', function(req, res, next) {
+keystone.set('404', function (req, res, next) {
 	res.status(404).render('errors/404');
 });
 
@@ -26,7 +26,7 @@ var routes = {
 	views: importRoutes('./views'),
 };
 
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
 
 	// Views
 	app.get('/', routes.views.index);

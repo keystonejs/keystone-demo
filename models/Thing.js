@@ -69,7 +69,7 @@ Thing.add(
 	uneditableImage: { type: Types.CloudinaryImage, noedit: true },
 });
 
-Thing.schema.virtual('otherSelectValue').get(function() {
+Thing.schema.virtual('otherSelectValue').get(function () {
 	return (this.otherSelect === 'other') ? this.otherValue : this.otherSelect;
 });
 

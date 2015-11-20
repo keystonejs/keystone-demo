@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var User = keystone.list('User');
 
-module.exports = function(done) {
+module.exports = function (done) {
 	new User.model({
 		name: {
 			first: 'Demo',

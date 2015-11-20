@@ -3,7 +3,7 @@ var async = require('async');
 var Post = keystone.list('Post');
 var PostComment = keystone.list('PostComment');
 
-exports = module.exports = function(req, res) {
+exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
@@ -15,14 +15,14 @@ exports = module.exports = function(req, res) {
 	};
 
 	// Load the current post
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 
 		var q = Post.model.findOne({
 			state: 'published',
 			key: locals.filters.post,
 		}).populate('author categories');
 
-		q.exec(function(err, result) {
+		q.exec(function (err, result) {
 			locals.post = result;
 			next(err);
 		});
@@ -30,11 +30,11 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Load other posts
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 
 		var q = Post.model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
 
-		q.exec(function(err, results) {
+		q.exec(function (err, results) {
 			locals.posts = results;
 			next(err);
 		});
@@ -43,14 +43,14 @@ exports = module.exports = function(req, res) {
 
 
 	// Load comments on the Post
-	view.on('init', function(next) {
+	view.on('init', function (next) {
 		PostComment.model.find()
 			.where('post', locals.post)
 			.where('commentState', 'published')
 			.where('author').ne(null)
 			.populate('author', 'name photo')
 			.sort('-publishedOn')
-			.exec(function(err, comments) {
+			.exec(function (err, comments) {
 				if (err) return res.err(err);
 				if (!comments) return res.notfound('Post comments not found');
 				locals.comments = comments;
@@ -59,7 +59,7 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Create a Comment
-	view.on('post', { action: 'comment.create' }, function(next) {
+	view.on('post', { action: 'comment.create' }, function (next) {
 
 		var newComment = new PostComment.model({
 			state: 'published',
@@ -73,7 +73,7 @@ exports = module.exports = function(req, res) {
 			fields: 'content',
 			flashErrors: true,
 			logErrors: true,
-		}, function(err) {
+		}, function (err) {
 			if (err) {
 				validationErrors = err.errors;
 			} else {
@@ -86,7 +86,7 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Delete a Comment
-	view.on('get', { remove: 'comment' }, function(next) {
+	view.on('get', { remove: 'comment' }, function (next) {
 
 		if (!req.user) {
 			req.flash('error', 'You must be signed in to delete a comment.');
@@ -97,7 +97,7 @@ exports = module.exports = function(req, res) {
 				_id: req.query.comment,
 				post: locals.post.id,
 			})
-			.exec(function(err, comment) {
+			.exec(function (err, comment) {
 				if (err) {
 					if (err.name === 'CastError') {
 						req.flash('error', 'The comment ' + req.query.comment + ' could not be found.');
@@ -114,7 +114,7 @@ exports = module.exports = function(req, res) {
 					return next();
 				}
 				comment.commentState = 'archived';
-				comment.save(function(err) {
+				comment.save(function (err) {
 					if (err) return res.err(err);
 					req.flash('success', 'Your comment has been deleted.');
 					return res.redirect('/blog/post/' + locals.post.key);

@@ -40,7 +40,7 @@ User.relationship({ ref: 'Post', path: 'author' });
 	=======
 */
 
-User.schema.methods.wasActive = function() {
+User.schema.methods.wasActive = function () {
 	this.lastActiveOn = new Date();
 	return this;
 }
@@ -52,7 +52,7 @@ User.schema.methods.wasActive = function() {
  * and breaking access to the website cms.
  */
 
-var protect = function(path) {
+function protect (path) {
 	var user = this;
 	User.schema.path(path).set(function(value) {
 		return (user.isProtected) ? user.get(path) : value;
@@ -61,7 +61,7 @@ var protect = function(path) {
 
 _.each(['name.first', 'name.last', 'email'], protect);
 
-User.schema.path('password').set(function(value) {
+User.schema.path('password').set(function (value) {
 	return (this.isProtected) ? '$2a$10$b4vkksMQaQwKKlSQSfxRwO/9JI7Fclw6SKMv92qfaNJB9PlclaONK' : value;
 });
 
