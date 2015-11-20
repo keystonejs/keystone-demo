@@ -59,7 +59,7 @@ var protect = function(path) {
 	});
 }
 
-_.each(['name.first', 'name.last', 'email', 'isAdmin'], protect);
+_.each(['name.first', 'name.last', 'email'], protect);
 
 User.schema.path('password').set(function(value) {
 	return (this.isProtected) ? '$2a$10$b4vkksMQaQwKKlSQSfxRwO/9JI7Fclw6SKMv92qfaNJB9PlclaONK' : value;
