@@ -1,5 +1,5 @@
-const keystone = require('keystone');
-const Enquiry = keystone.list('Enquiry');
+var keystone = require('keystone');
+var Enquiry = keystone.list('Enquiry');
 
 exports = module.exports = function(req, res) {
 
@@ -14,8 +14,8 @@ exports = module.exports = function(req, res) {
 
 	view.on('post', { action: 'contact' }, function(next) {
 
-		var application = new Enquiry.model(),
-			updater = application.getUpdateHandler(req);
+		var application = new Enquiry.model();
+		var updater = application.getUpdateHandler(req);
 
 		updater.process(req.body, {
 			flashErrors: true
@@ -32,7 +32,6 @@ exports = module.exports = function(req, res) {
 
 	view.render('contact', {
 		section: 'contact',
-
 	});
 
 }

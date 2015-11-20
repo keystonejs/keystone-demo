@@ -1,7 +1,7 @@
-const keystone = require('keystone');
-const async = require('async');
-const Post = keystone.list('Post');
-const PostComment = keystone.list('PostComment');
+var keystone = require('keystone');
+var async = require('async');
+var Post = keystone.list('Post');
+var PostComment = keystone.list('PostComment');
 
 exports = module.exports = function(req, res) {
 
@@ -11,7 +11,7 @@ exports = module.exports = function(req, res) {
 	// Init locals
 	locals.section = 'blog';
 	locals.filters = {
-		post: req.params.post
+		post: req.params.post,
 	};
 
 	// Load the current post
@@ -19,7 +19,7 @@ exports = module.exports = function(req, res) {
 
 		var q = Post.model.findOne({
 			state: 'published',
-			key: locals.filters.post
+			key: locals.filters.post,
 		}).populate('author categories');
 
 		q.exec(function(err, result) {
@@ -44,12 +44,11 @@ exports = module.exports = function(req, res) {
 
 	// Load comments on the Post
 	view.on('init', function(next) {
-
 		PostComment.model.find()
-			.where( 'post', locals.post )
-			.where( 'commentState', 'published' )
-			.where( 'author' ).ne( null )
-			.populate( 'author', 'name photo' )
+			.where('post', locals.post)
+			.where('commentState', 'published')
+			.where('author').ne(null)
+			.populate('author', 'name photo')
 			.sort('-publishedOn')
 			.exec(function(err, comments) {
 				if (err) return res.err(err);
@@ -57,11 +56,7 @@ exports = module.exports = function(req, res) {
 				locals.comments = comments;
 				next();
 			});
-
 	});
-
-
-
 
 	// Create a Comment
 	view.on('post', { action: 'comment.create' }, function(next) {
@@ -69,7 +64,7 @@ exports = module.exports = function(req, res) {
 		var newComment = new PostComment.model({
 			state: 'published',
 			post: locals.post.id,
-			author: locals.user.id
+			author: locals.user.id,
 		});
 
 		var updater = newComment.getUpdateHandler(req);
@@ -77,22 +72,18 @@ exports = module.exports = function(req, res) {
 		updater.process(req.body, {
 			fields: 'content',
 			flashErrors: true,
-			logErrors: true
+			logErrors: true,
 		}, function(err) {
 			if (err) {
 				validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment was added.');
-
 				return res.redirect('/blog/post/' + locals.post.key + '#comment-id-' + newComment.id);
 			}
 			next();
 		});
 
 	});
-
-
-
 
 	// Delete a Comment
 	view.on('get', { remove: 'comment' }, function(next) {
@@ -104,7 +95,7 @@ exports = module.exports = function(req, res) {
 
 		PostComment.model.findOne({
 				_id: req.query.comment,
-				post: locals.post.id
+				post: locals.post.id,
 			})
 			.exec(function(err, comment) {
 				if (err) {
@@ -114,7 +105,6 @@ exports = module.exports = function(req, res) {
 					}
 					return res.err(err);
 				}
-
 				if (!comment) {
 					req.flash('error', 'The comment ' + req.query.comment + ' could not be found.');
 					return next();

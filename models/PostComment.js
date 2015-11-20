@@ -1,5 +1,5 @@
-const keystone = require('keystone');
-const Types = keystone.Field.Types;
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
 	Posts
@@ -8,14 +8,14 @@ const Types = keystone.Field.Types;
 
 var PostComment = new keystone.List('PostComment', {
 	label: 'Comments',
-	singular: 'Comment'
+	singular: 'Comment',
 });
 
 PostComment.add({
 	author: { type: Types.Relationship, initial: true, ref: 'User', index: true },
 	post: { type: Types.Relationship, initial: true, ref: 'Post', index: true },
 	commentState: { type: Types.Select, options: ['published', 'draft', 'archived'], default: 'published', index: true },
-	publishedOn: { type: Types.Date, default: Date.now, noedit: true, index: true }
+	publishedOn: { type: Types.Date, default: Date.now, noedit: true, index: true },
 });
 
 PostComment.add('Content', {

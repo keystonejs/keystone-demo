@@ -1,6 +1,6 @@
-const _ = require('lodash');
-const keystone = require('keystone');
-const Types = keystone.Field.Types;
+var _ = require('lodash');
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 /**
  * Users
@@ -9,7 +9,7 @@ const Types = keystone.Field.Types;
 
 var User = new keystone.List('User', {
 	// use nodelete to prevent people from deleting the demo admin user
-	nodelete: true
+	nodelete: true,
 });
 
 User.add({
@@ -20,7 +20,7 @@ User.add({
 	password: { type: Types.Password, initial: true, required: false }
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone' },
-	isProtected: { type: Boolean, noedit: true }
+	isProtected: { type: Boolean, noedit: true },
 });
 
 // Provide access to Keystone

@@ -1,8 +1,8 @@
-const keystone = require('keystone');
-const Types = keystone.Field.Types;
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 var Post = new keystone.List('Post', {
-	autokey: { from: 'name', path: 'key', unique: true }
+	autokey: { from: 'name', path: 'key', unique: true },
 });
 
 Post.add({
@@ -15,7 +15,7 @@ Post.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true }
+	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 });
 
 Post.schema.virtual('content.full').get(function() {

@@ -7,7 +7,7 @@ keystone.pre('routes', function(req, res, next) {
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Blog', key: 'blog', href: '/blog' },
 		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' }
+		{ label: 'Contact', key: 'contact', href: '/contact' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -23,7 +23,7 @@ keystone.set('404', function(req, res, next) {
 // Load Routes
 var routes = {
 	download: importRoutes('./download'),
-	views: importRoutes('./views')
+	views: importRoutes('./views'),
 };
 
 exports = module.exports = function(app) {

@@ -1,5 +1,5 @@
-const keystone = require('keystone');
-const Gallery = keystone.list('Gallery');
+var keystone = require('keystone');
+var Gallery = keystone.list('Gallery');
 
 exports = module.exports = function(req, res) {
 

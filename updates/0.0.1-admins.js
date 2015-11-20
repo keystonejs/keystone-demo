@@ -1,5 +1,5 @@
-var keystone = require('keystone'),
-		User = keystone.list('User');
+var keystone = require('keystone');
+var User = keystone.list('User');
 
 module.exports = function(done) {
 	new User.model({

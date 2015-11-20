@@ -1,16 +1,16 @@
-const keystone = require('keystone');
-const Types = keystone.Field.Types;
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 var Gallery = new keystone.List('Gallery', {
 	autokey: { from: 'name', path: 'key', unique: true },
 	plural: 'Albums',
-	singular: 'Album'
+	singular: 'Album',
 });
 
 Gallery.add({
 	name: { type: String, required: true },
 	publishedDate: { type: Date, default: Date.now },
-	images: { type: Types.CloudinaryImages }
+	images: { type: Types.CloudinaryImages },
 });
 
 Gallery.track = true;

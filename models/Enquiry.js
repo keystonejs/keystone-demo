@@ -1,8 +1,8 @@
-const keystone = require('keystone');
-const Types = keystone.Field.Types;
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
 var Enquiry = new keystone.List('Enquiry', {
-	nocreate: true
+	nocreate: true,
 });
 
 Enquiry.add({
@@ -12,10 +12,10 @@ Enquiry.add({
 	enquiryType: { type: Types.Select, options: [
 		{ value: 'message', label: "Just leaving a message" },
 		{ value: 'question', label: "I've got a question" },
-		{ value: 'other', label: "Something else..." }
+		{ value: 'other', label: "Something else..." },
 	], required: true },
 	message: { type: Types.Textarea, required: true },
-	timestamp: { type: Date, default: Date.now, noedit: true }
+	timestamp: { type: Date, default: Date.now, noedit: true },
 });
 
 Enquiry.track = true;

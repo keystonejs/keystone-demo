@@ -1,7 +1,7 @@
-const keystone = require('keystone');
-const async = require('async');
-const Post = keystone.list('Post');
-const PostCategory = keystone.list('PostCategory');
+var keystone = require('keystone');
+var async = require('async');
+var Post = keystone.list('Post');
+var PostCategory = keystone.list('PostCategory');
 
 exports = module.exports = function(req, res) {
 
@@ -11,7 +11,7 @@ exports = module.exports = function(req, res) {
 	// Init locals
 	locals.section = 'blog';
 	locals.filters = {
-		category: req.params.category
+		category: req.params.category,
 	};
 	locals.posts = [];
 	locals.categories = [];
@@ -45,7 +45,6 @@ exports = module.exports = function(req, res) {
 
 	// Load the current category filter
 	view.on('init', function(next) {
-
 		if (req.params.category) {
 			PostCategory.model.findOne({ key: locals.filters.category }).exec(function(err, result) {
 				locals.category = result;
@@ -54,7 +53,6 @@ exports = module.exports = function(req, res) {
 		} else {
 			next();
 		}
-
 	});
 
 	// Load the posts
@@ -63,7 +61,7 @@ exports = module.exports = function(req, res) {
 		var q = Post.paginate({
 				page: req.query.page || 1,
  				perPage: 10,
- 				maxPages: 10
+ 				maxPages: 10,
 			})
 			.where('state', 'published')
 			.sort('-publishedDate')
