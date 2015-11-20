@@ -9,7 +9,8 @@ module.exports = function(done) {
 		},
 		email: 'demo@keystonejs.com',
 		password: 'demo',
-		isAdmin: true
+		isAdmin: true,
+		isProtected: true,
 	})
 	.save(done);
 };
