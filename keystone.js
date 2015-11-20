@@ -8,34 +8,34 @@ var keystone = require('keystone');
  */
 
 keystone.init({
-	
+
 	'name': 'Keystone Demo',
 	'brand': 'Demo',
-	
+
 	'favicon': 'public/favicon.ico',
 	'less': 'public',
 	'static': 'public',
-	
+
 	'views': 'templates/views',
 	'view engine': 'jade',
-	
+
 	'auto update': true,
 	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/keystone-demo',
-	
+
 	'session': true,
 	'auth': true,
 	'user model': 'User',
 	'cookie secret': process.env.COOKIE_SECRET || 'demo',
-	
+
 	'ga property': process.env.GA_PROPERTY,
 	'ga domain': process.env.GA_DOMAIN,
-	
+
 	'chartbeat property': process.env.CHARTBEAT_PROPERTY,
 	'chartbeat domain': process.env.CHARTBEAT_DOMAIN
-	
+
 });
 
-require('./models');
+keystone.import('models');
 
 keystone.set('locals', {
 	_: require('lodash'),
