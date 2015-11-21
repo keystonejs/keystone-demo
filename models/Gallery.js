@@ -9,7 +9,7 @@ var Gallery = new keystone.List('Gallery', {
 
 Gallery.add({
 	name: { type: String, required: true },
-	publishedDate: { type: Date, default: Date.now },
+	publishedDate: { type: Types.Date, default: Date.now },
 	images: { type: Types.CloudinaryImages },
 });
 
