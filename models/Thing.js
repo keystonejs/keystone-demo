@@ -62,7 +62,7 @@ Thing.add(
 	},
 }, 'Uneditable Fields', {
 	uneditableString: { type: String, noedit: true, default: "Not editable" },
-	uneditableCheckbox: { type: Boolean, noedit: true, default: true, note: 'Uneditable boolean notes are displayed next to the checkbox' },
+	uneditableCheckbox: { type: Boolean, noedit: true, default: true },
 	uneditableDate: { type: Types.Date, noedit: true, default: Date.now },
 	uneditableSelect: { type: Types.Select, noedit: true, options: 'Sydney, New York, London, Paris, Hong Kong', default: 'Sydney' },
 	uneditableLocation: { type: Types.Location, noedit: true, defaults: { street1: '283-285 Kent St', suburb: 'Sydney', state: 'NSW', postcode: '2000', country: 'Australia' } },
