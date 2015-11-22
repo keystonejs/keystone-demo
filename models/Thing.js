@@ -46,8 +46,8 @@ Thing.add(
 	location: { type: Types.Location },
 	wysiwygHtml: { type: Types.Html, wysiwyg: true },
 	shortWysiwygField: { type: Types.Html, wysiwyg: true, height: 100 },
-	embedSrc: { type: String },/*,
-	embedData: { type: Types.Embedly, from: 'embedSrc' }*/
+	//embedSrc: { type: String },
+	//embedData: { type: Types.Embedly, from: 'embedSrc' },
 }, 'Dependent Fields', {
 	otherSelect: { type: Types.Select, options: [
 		{ label: 'Pre-defined Value', value: 'predefined' },

@@ -15,10 +15,9 @@ Enquiry.add({
 		{ value: 'other', label: "Something else..." },
 	], required: true },
 	message: { type: Types.Textarea, required: true },
-	timestamp: { type: Date, default: Date.now, noedit: true },
 });
 
 Enquiry.track = true;
-Enquiry.defaultSort = '-timestamp';
-Enquiry.defaultColumns = 'name, email, enquiryType, timestamp';
+Enquiry.defaultSort = '-createdAt';
+Enquiry.defaultColumns = 'name, email, enquiryType, createdAt';
 Enquiry.register();

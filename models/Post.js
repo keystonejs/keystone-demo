@@ -22,11 +22,6 @@ Post.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
 
-/**
-	Relationships
-	=============
-*/
-
 Post.relationship({ path: 'comments', ref: 'PostComment', refPath: 'post' });
 
 Post.track = true;

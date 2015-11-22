@@ -14,4 +14,6 @@ Gallery.add({
 });
 
 Gallery.track = true;
+Gallery.defaultSort = 'name';
+Gallery.defaultColumns = 'name, publishedDate';
 Gallery.register();

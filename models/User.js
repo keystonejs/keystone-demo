@@ -1,14 +1,8 @@
-var _ = require('lodash');
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-/**
- * Users
- * =====
- */
-
 var User = new keystone.List('User', {
-	// use nodelete to prevent people from deleting the demo admin user
+	// nodelete prevents people deleting the demo admin user
 	nodelete: true,
 });
 
@@ -27,29 +21,17 @@ User.schema.virtual('canAccessKeystone').get(function() {
 	return true;
 });
 
-
-/**
- * Relationships
- */
-
 User.relationship({ ref: 'Post', path: 'author' });
-
-
-/**
-	Methods
-	=======
-*/
 
 User.schema.methods.wasActive = function () {
 	this.lastActiveOn = new Date();
 	return this;
 }
 
-
 /**
- * PROTECTING THE DEMO USER
- * The following hooks prevent anyone from editing the main demo user itself,
- * and breaking access to the website cms.
+ * DEMO USER PROTECTION
+ * The following code prevents anyone updating the default admin user
+ * and breaking access to the demo
  */
 
 function protect (path) {
@@ -59,15 +41,14 @@ function protect (path) {
 	});
 }
 
-_.each(['name.first', 'name.last', 'email'], protect);
+['name.first', 'name.last', 'email'].forEach(protect);
 
 User.schema.path('password').set(function (value) {
 	return (this.isProtected) ? '$2a$10$b4vkksMQaQwKKlSQSfxRwO/9JI7Fclw6SKMv92qfaNJB9PlclaONK' : value;
 });
 
-
 /**
- * Registration
+ * END DEMO USER PROTECTION
  */
 
 User.track = true;
