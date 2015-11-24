@@ -10,8 +10,7 @@
     "keystone": "https://github.com/keystonejs/keystone.git",
     "async": "^1.5.0",
     "lodash": "^3.10.1",
-    "csv": "^0.4.6",
-    "dotenv": "^1.2.0"
+    "csv": "^0.4.6"
   },
   "scripts": {
     "start": "node keystone.js"

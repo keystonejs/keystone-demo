@@ -1,11 +1,4 @@
-// Load .env for development environments
-require('dotenv').load();
-
 var keystone = require('keystone');
-
-/**
- * Application Initialisation
- */
 
 keystone.init({
 
