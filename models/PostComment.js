@@ -18,7 +18,7 @@ PostComment.add({
 });
 
 PostComment.add('Content', {
-	content: { type: Types.Html, wysiwyg: true, height: 300 }
+	content: { type: Types.Html, wysiwyg: true, height: 300 },
 });
 
 PostComment.schema.pre('save', function (next) {

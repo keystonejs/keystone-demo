@@ -21,7 +21,7 @@ User.schema.virtual('canAccessKeystone').get(function() {
 	return true;
 });
 
-User.relationship({ ref: 'Post', path: 'author' });
+User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
 
 User.schema.methods.wasActive = function () {
 	this.lastActiveOn = new Date();
