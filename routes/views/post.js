@@ -1,5 +1,4 @@
 var keystone = require('keystone');
-var async = require('async');
 var Post = keystone.list('Post');
 var PostComment = keystone.list('PostComment');
 
