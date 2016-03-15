@@ -1,0 +1,36 @@
+{
+  "name": "KeystoneJS Starter",
+  "description": "A basic KeystoneJS website with a blog, image gallery and contact form.",
+  "keywords": [
+    "keystone",
+    "keystonejs",
+    "mongo",
+    "mongodb",
+    "mongoose",
+    "express",
+    "jade",
+    "blog",
+    "cms",
+    "website"
+  ],
+  "website": "https://keystonejs.com",
+  "repository": "https://github.com/danurbanowicz/keystone-demo",
+  "logo": "http://keystonejs.com/images/logo-128.png",
+  "env" : {
+    "NODE_ENV": "development",
+    "COOKIE_SECRET": {
+      "description": "Secret for signing cookies",
+      "generator": "secret"
+    },
+    "EMAIL_HOSTNAME": {
+      "description": "Canonical Hostname for images and links in emails",
+      "value": "",
+      "required": false
+    }
+   },
+   "addons": [
+    "mongolab:sandbox",
+    "cloudinary:starter",
+    "papertrail:choklad"
+  ]
+}
