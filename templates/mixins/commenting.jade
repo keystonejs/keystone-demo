@@ -27,7 +27,7 @@ mixin comment-post(comment)
 						if user && user.id === comment.author.id
 							|  &middot; 
 							a(href='?remove=comment&comment=' + comment.id, title='Delete this comment', rel='tooltip', data-placement='left').comment-delete.js-delete-confirm Delete
-					p!=comment.content.replace(/\n/g, '<br>')
+					p=comment.content.replace(/\n/g, '<br>')
 
 mixin comment-thread(comments)
 	if comments.length
