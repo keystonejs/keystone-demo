@@ -14,9 +14,9 @@ Pull requests are welcome, and if you'd like to see additional demos just open a
 
 We reccommend you use our new [Yeoman Generator](https://github.com/JedWatson/generator-keystone) as the basis for new projects, as this demo site contains code specific to runing a public demo (like user account protection, etc).
 
-If you do want to use this as a starting point however, you are welcome.
+If you do want to use this as a starting point however, you are welcome, follow the instructions below to begin
 
-Follow the instructions below or [![Nitrous Quickstart](https://nitrous-image-icons.s3.amazonaws.com/quickstart.svg)](https://www.nitrous.io/quickstart)to begin.
+or try [![Nitrous Quickstart](https://nitrous-image-icons.s3.amazonaws.com/quickstart.svg)](https://github.com/tmvanetten/keystone-demo/tree/develop)
 
 *Note: We're implementing a new theme for the demo site; to use the (old) basic bootstrap theme, check out the `bootstrap-simple` branch*
 
