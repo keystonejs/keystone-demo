@@ -16,7 +16,7 @@ We reccommend you use our new [Yeoman Generator](https://github.com/JedWatson/ge
 
 If you do want to use this as a starting point however, you are welcome, follow the instructions below to begin
 
-or try [![Nitrous Quickstart](https://nitrous-image-icons.s3.amazonaws.com/quickstart.svg)](https://github.com/tmvanetten/keystone-demo/tree/develop)
+or try [![Nitrous Quickstart](https://nitrous-image-icons.s3.amazonaws.com/quickstart.svg)](https://www.nitrous.io/quickstart)
 
 *Note: We're implementing a new theme for the demo site; to use the (old) basic bootstrap theme, check out the `bootstrap-simple` branch*
 
