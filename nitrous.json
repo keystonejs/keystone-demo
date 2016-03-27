@@ -1,0 +1,7 @@
+{
+  "template": "nodejs",
+  "ports": [3000],
+  "name": "Keystone Demo",
+  "logo": "http://keystonejs.com/images/logo.svg",
+  "description": "Keystone-Demo App Nitrous.io QuickStart"
+}
