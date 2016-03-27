@@ -23,7 +23,5 @@ sudo apt-get install -y mongodb-org
 
 # Remember Nitrous automatically cloned the repo into ~/code/{$GIT_REPO_NAME} so at this point all we need to do is cd into our
 #+ project, install our node dependencies, and we are ready to laucnch the demo app.
-echo "installing node modules...."
+echo "installing node modules and opening the Nitrous.io IDE...."
 cd ~/code/keystone-demo && npm install --no-progress
-echo "node modules installed"
-echo "launching the Keystone-Demo App in the Nitrous IDE..."
