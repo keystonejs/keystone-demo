@@ -16,6 +16,17 @@ We reccommend you use our new [Yeoman Generator](https://github.com/JedWatson/ge
 
 If you do want to use this as a starting point however, you are welcome, follow the instructions below to begin.
 
+# Nitrous QuickStart
+
+You can quickly create a free development environment to get started using this
+demo in the cloud on [Nitrous](https://www.nitrous.io/):
+
+<a href="https://www.nitrous.io/quickstart?repo=https://github.com/tmvanetten/keystone-demo">
+  <img src="https://nitrous-image-icons.s3.amazonaws.com/quickstart.png" alt="Nitrous QuickStart" width=142 height=34>
+</a>
+
+# Manual Install
+
 *Note: We're implementing a new theme for the demo site; to use the (old) basic bootstrap theme, check out the `bootstrap-simple` branch*
 
     git clone https://github.com/JedWatson/keystone-demo.git
