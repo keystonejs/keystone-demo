@@ -8,7 +8,7 @@ var User = new keystone.List('User', {
 
 User.add({
 	name: { type: Types.Name, required: true, index: true },
-	email: { type: Types.Email, initial: true, required: true, index: true },
+	email: { type: Types.Email, initial: true, required: true, index: true, unique: true },
 	phone: { type: String, width: 'short' },
 	photo: { type: Types.CloudinaryImage, collapse: true },
 	password: { type: Types.Password, initial: true, required: false },
@@ -17,7 +17,7 @@ User.add({
 });
 
 // Provide access to Keystone
-User.schema.virtual('canAccessKeystone').get(function() {
+User.schema.virtual('canAccessKeystone').get(function () {
 	return true;
 });
 
@@ -36,7 +36,7 @@ User.schema.methods.wasActive = function () {
 
 function protect (path) {
 	var user = this;
-	User.schema.path(path).set(function(value) {
+	User.schema.path(path).set(function (value) {
 		return (user.isProtected) ? user.get(path) : value;
 	});
 }
