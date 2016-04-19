@@ -35,7 +35,7 @@ block content
 								if post.author
 									| by #{post.author.name.full}
 						hr
-						!= post.content.full
+						= post.content.full
 					//-comments
 					div
 						+comment-form()
