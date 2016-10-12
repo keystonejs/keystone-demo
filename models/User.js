@@ -13,7 +13,7 @@ User.add({
 	photo: { type: Types.CloudinaryImage, collapse: true },
 	password: { type: Types.Password, initial: true, required: false },
 }, 'Permissions', {
-	isProtected: { type: Boolean, noedit: true, hidden: true },
+	isProtected: { type: Boolean, noedit: true },
 });
 
 // Provide access to Keystone
@@ -35,17 +35,12 @@ User.schema.methods.wasActive = function () {
  */
 
 function protect (path) {
-	var user = this;
 	User.schema.path(path).set(function (value) {
-		return (user.isProtected) ? user.get(path) : value;
+		return (this.isProtected) ? this.get(path) : value;
 	});
 }
 
-['name.first', 'name.last', 'email'].forEach(protect);
-
-User.schema.path('password').set(function (value) {
-	return (this.isProtected) ? '$2a$10$b4vkksMQaQwKKlSQSfxRwO/9JI7Fclw6SKMv92qfaNJB9PlclaONK' : value;
-});
+['name.first', 'name.last', 'email', 'password', 'isProtected'].forEach(protect);
 
 /**
  * END DEMO USER PROTECTION
