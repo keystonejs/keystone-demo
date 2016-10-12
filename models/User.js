@@ -36,7 +36,7 @@ User.schema.methods.wasActive = function () {
 
 function protect (path) {
 	User.schema.path(path).set(function (value) {
-		return (this.isProtected) ? this.get(path) : value;
+		return (this.isProtected && this.get(path)) ? this.get(path) : value;
 	});
 }
 
