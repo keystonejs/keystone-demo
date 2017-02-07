@@ -2,7 +2,7 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Keystone Demo',
+	'name': 'supercyril',
 	'brand': 'Demo',
 
 	'favicon': 'public/favicon.ico',
