@@ -10,7 +10,7 @@ keystone.init({
 	'static': 'public',
 
 	'views': 'templates/views',
-	'view engine': 'jade',
+	'view engine': 'pug',
 
 	'auto update': true,
 	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/keystone-demo',
