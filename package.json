@@ -10,7 +10,8 @@
     "keystone": "^4.0.0-beta.5",
     "async": "^2.1.4",
     "lodash": "^4.17.4",
-    "csv": "^0.4.6"
+    "csv": "^0.4.6",
+    "jade": "^1.11.0"
   },
   "scripts": {
     "start": "node keystone.js"
