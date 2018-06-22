@@ -1,16 +1,16 @@
 {
   "name": "keystone-demo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/JedWatson/keystone-demo.git"
   },
   "dependencies": {
-    "async": "^2.1.4",
+    "async": "^2.6.1",
     "csv": "^0.4.6",
-    "keystone": "^4.0.0-beta.5",
-    "lodash": "^4.17.4",
+    "keystone": "^4.0.0-beta.8",
+    "lodash": "^4.17.10",
     "pug": "^2.0.0-beta11"
   },
   "scripts": {
