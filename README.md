@@ -1,24 +1,25 @@
 Keystone Demo
 =============
 
-This site is an example of a default [Keystone](http://keystonejs.com) application.
+This site is an example of a default [Keystone 4](http://keystonejs.com) application.
 
 Try it out at http://demo.keystonejs.com
 
-Pull requests are welcome, and if you'd like to see additional demos just open a new issue to let us know.
+Pull requests are welcome, and if you'd like to see additional demos just [open a new issue](https://github.com/keystonejs/keystone-demo/issues/new) to let us know.
 
 # TODO
+
 * lock the demo down to vandalism https://github.com/keystonejs/keystone/issues/1126
 
 ## Using this as a basis for your own project
 
-We reccommend you use our new [Yeoman Generator](https://github.com/JedWatson/generator-keystone) as the basis for new projects, as this demo site contains code specific to runing a public demo (like user account protection, etc).
+We recommend you use our [Yeoman Generator](https://github.com/JedWatson/generator-keystone) as the basis for new projects, as this demo site contains code specific to running a public demo (like user account protection, etc).
 
-If you do want to use this as a starting point however, you are welcome, follow the instructions below to begin.
+If you do want to use this as a starting point however, you are welcome to follow the instructions below to begin.
 
 # Manual Install
 
-*Note: We're implementing a new theme for the demo site; to use the (old) basic bootstrap theme, check out the `bootstrap-simple` branch*
+*Note: We've implemented a new theme for the demo site; to use the (old) basic bootstrap theme, check out the `bootstrap-simple` branch*
 
     git clone https://github.com/JedWatson/keystone-demo.git
     cd keystone-demo
@@ -26,13 +27,11 @@ If you do want to use this as a starting point however, you are welcome, follow 
 
 ### Setting up your accounts and environment
 
-First, sign up for free accounts for:
+First, sign up for free accounts for the following services used by features in the demo site:
 
-*   Cloudinary
-*   Mandrill
-*   Embedly
-
-... as these services are used by features in the demo site.
+*   [Cloudinary](https://cloudinary.com/)
+*   [Mandrill](https://www.mandrill.com/)
+*   [Embed.ly](https://embed.ly/)
 
 Then, create a `.env` file in the project folder (the one with this readme) and fill in the following values:
 
@@ -55,7 +54,7 @@ Then, create a `.env` file in the project folder (the one with this readme) and 
 
 By default, KeystoneJS will look for a MongoDB server running on localhost on the default port, and connect to it. If you're getting errors related to the MongoDB connection, make sure your MongoDB server is running.
 
-You can find more information on how to install MongoDB and other dependencies on our [generator-keystone](https://github.com/keystonejs/generator-keystone) README.
+You can find more information on how to install MongoDB and other dependencies in the [generator-keystone](https://github.com/keystonejs/generator-keystone) README.
 
 ### Configuring the project defaults
 
@@ -91,19 +90,23 @@ Some places to start:
 *   `./public` - all the files in this folder are served as static assets for your site. Customise and add your own css, client-side javascript, images, etc. here. Any `.less` files will be automatically compiled into `.css` files.
 *   `./models` - these files are included by `./models/index.js` and each one sets up a different database model in your application. If you add more, be sure to add them to the index file!
 
-Check out the [Keystone Guide](http://keystonejs.com/guide) for documentation.
+Check out the [Keystone 4 documentation](http://keystonejs.netlify.com/) for more information.
 
 ### Ask us questions or tell us what you built
 
 We love to hear what people are doing with KeystoneJS, and are always happy to help if you get stuck.
 
-Please reach out to us via the [KeystoneJS Google Group](https://groups.google.com/d/forum/keystonejs) or **@keystonejs** on twitter.
+ * For technical questions, ask on [Stack Overflow](https://stackoverflow.com/tags/keystonejs).
+ * For bugs or feature suggestions for Keystone Demo, create a [GitHub issue for `keystone-demo`](https://github.com/keystonejs/keystone-demo/issues).
+ * For bugs or feature suggestions for the KeystoneJS Framework, create a [GitHub issue for `keystone-demo`](https://github.com/keystonejs/keystone/issues).
+ * For general discussion or feedback, join the [KeystoneJS Slack](https oups.google.com/d/forum/keystonejs).
+ * For social media shout out, mention [**@keystonejs**](https://twitter.com/keystonejs) on Twitter.
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2015 Jed Watson
+Copyright (c) 2015-2018 Jed Watson
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
