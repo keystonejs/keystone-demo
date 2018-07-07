@@ -9,12 +9,11 @@ exports = module.exports = function (req, res) {
 		var users = results.map(function (user) {
 			return {
 				firstName: user.name.first,
-				lastName: user.name.last,
-				email: user.email
+				lastName: user.name.last
 			};
 		});
 
-		csv.stringify(users, function (err2, data) {
+		csv.stringify(users, { header: 1 } , function (err2, data) {
 			if (err2) { throw err; }
 
 			res.set({"Content-Disposition": "attachment; filename=\"users.csv\""});
