@@ -90,7 +90,7 @@ Some places to start:
 *   `./public` - all the files in this folder are served as static assets for your site. Customise and add your own css, client-side javascript, images, etc. here. Any `.less` files will be automatically compiled into `.css` files.
 *   `./models` - these files are included by `./models/index.js` and each one sets up a different database model in your application. If you add more, be sure to add them to the index file!
 
-Check out the [Keystone 4 documentation](http://keystonejs.netlify.com/) for more information.
+Check out the [Keystone 4 documentation](http://v4.keystonejs.com] for more information.
 
 ### Ask us questions or tell us what you built
 
@@ -99,7 +99,7 @@ We love to hear what people are doing with KeystoneJS, and are always happy to h
  * For technical questions, ask on [Stack Overflow](https://stackoverflow.com/tags/keystonejs).
  * For bugs or feature suggestions for Keystone Demo, create a [GitHub issue for `keystone-demo`](https://github.com/keystonejs/keystone-demo/issues).
  * For bugs or feature suggestions for the KeystoneJS Framework, create a [GitHub issue for `keystone-demo`](https://github.com/keystonejs/keystone/issues).
- * For general discussion or feedback, join the [KeystoneJS Slack](https oups.google.com/d/forum/keystonejs).
+ * For general discussion or feedback, join the [KeystoneJS Slack](http://community.keystonejs.com/).
  * For social media shout out, mention [**@keystonejs**](https://twitter.com/keystonejs) on Twitter.
 
 ## License
