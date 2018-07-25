@@ -9,7 +9,7 @@
   "dependencies": {
     "async": "^2.6.1",
     "csv": "^3.1.0",
-    "keystone": "^4.0.0-rc.1",
+    "keystone": "^4.0.0",
     "lodash": "^4.17.10",
     "pug": "^2.0.3"
   },
