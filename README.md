@@ -98,7 +98,7 @@ Some places to start:
 *   `./public` - all the files in this folder are served as static assets for your site. Customise and add your own css, client-side javascript, images, etc. here. Any `.less` files will be automatically compiled into `.css` files.
 *   `./models` - these files are included by `./models/index.js` and each one sets up a different database model in your application. If you add more, be sure to add them to the index file!
 
-Check out the [Keystone 4 documentation](http://v4.keystonejs.com] for more information.
+Check out the [Keystone 4 documentation](http://v4.keystonejs.com) for more information.
 
 ### Ask us questions or tell us what you built
 
